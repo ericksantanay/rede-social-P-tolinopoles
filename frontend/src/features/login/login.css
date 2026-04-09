@@ -1,0 +1,121 @@
+/* header */
+header {
+    width: 100%;
+    padding: 40px 6%;
+    margin-bottom: 10px;
+}
+
+/* Nav */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Imagem da logo */
+nav > img {
+    width: 60px;
+}
+
+/* Nome Pátolinopoles (junto com  a imagem */
+nav > h1 {
+    font-family: var(--bungee);
+    font-size: 24px;
+    color: var(--amarelo-claro);
+}
+
+
+/* MAIN */
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CONTAINER DO PAINEL DE LOGIN */
+#container-login {
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 400px;
+    background-color: var(--branco);
+    box-shadow: rgba(149, 157, 165, 0.339) 0px 8px 24px;
+}
+
+/* div da imagem da pagina de login */
+.img-login {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* imagem da pagina de login */
+
+.img-login > img {
+     width: 103px;
+    position: relative;
+    animation: flutuar 1s  ease-in-out  infinite  alternate;
+}
+
+/* formulario */
+#formulario-login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* div com os inputs */
+.container-input {
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* inputs */
+.container-input > input {
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 100%;
+    padding: 10px;
+}
+
+/* mostrar senha  */
+#mostrar-senha {
+    cursor: pointer;
+    position: absolute;
+    left: 90%;
+    top: 8px;
+}
+
+/* botoão de logar */
+#btn-login {
+    border: none;
+    border-radius: 5px;
+    background-color: var(--rosa);
+    color: var(--branco);
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+
+
+#btn-login:hover {
+    box-shadow: 1px 1px 10px var(--rosa);
+}
+
+
+
+
+/* KEYFRAMES */
+@keyframes flutuar {
+    0%{
+        top: 0;
+    }
+
+    100%{
+        top: 30px;
+    }
+
+
+}

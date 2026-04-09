@@ -3,9 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pátolinopoles</title>
+    <title>Pátolinopoles Cadastro</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../src/features/cadastrar/cadastrar.css">
+    <link rel="stylesheet" href="../src/style/global.css">
+    <!-- ICONES DO GOOGLE FONTES -->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=visibility" />
 </head>
 <body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <nav>
+            <img src="pato-logo.png" alt="Logo Pátolinopoles">
+            <h1>Pátolinopoles</h1>
+        </nav>
+    </header> <!--final header-->
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- article -->
+        <article id="container-cadastro">
+
+            <!-- div com imagem do pato em uma prancha -->
+            <div class="img-cadastro">
+                <img id="imagem-pato-cadastro" src="../src/assets/image/pato-cadastrar.png" alt="Pato em uma prancha">
+            </div>
+
+            <div id="container-cards-exemplo">
+                <!-- card 1 -->
+                <div class="card-exemplo-senha">
+                    <h2>Código de Grasno</h2>
+                    <p>Esta é a sua senha de acesso. Ela é privada e serve para garantir que apenas você consiga entrar no seu perfil. Recomendamos não usar senhas de outros sites.</p>
+                </div>
+
+                <!-- card 2 -->
+                <div class="card-exemplo-nome">
+                    <h2>Identidade de Pato</h2>
+                    <p>Este é o seu nome de usuário (username). Ele será visível para todos na rede, aparecerá nos seus posts e as pessoas usarão esse nome para te buscar.</p>
+                </div>
+
+                <!-- card 3 -->
+                  <div class="card-exemplo-data">
+                    <h2>Data de Chocagem</h2>
+                    <p>Sua data de nascimento. Usamos isso para calcular sua idade e exibir no seu perfil, além de organizar estatísticas da rede.</p>
+                </div>
+            </div>
+
+
+            <!-- Formulario -->
+            <form id="formulario-cadastro" action="" method="post">
+
+                <!-- INPUT NOME -->
+                <div class="container-input">
+                    <input type="text" name="nome" id="nome" placeholder="Identidade de Pato:">
+                    <img class="btn-duvida-nome" src="../src/assets/image/botao-de-duvidas.png" alt="Botão de Duvida">
+                </div>
+
+
+                <!-- INPUT SENHA -->
+                <div class="container-input">
+                    <input type="text" name="senha" id="senha" placeholder="Código de Grasno:">
+
+                    <span id="mostrar-senha" class="material-symbols-outlined" onclick="mostrarSenha()">visibility</span>
+
+                    <img class="btn-duvida-senha" src="../src/assets/image/botao-de-duvidas.png" alt="Botão de Duvida">
+                </div>
+
+
+                <!-- INPUT DE DATA -->
+                <div class="container-input">
+                    <input type="date" name="nascimento" id="nascimento" placeholder="Data de Chocagem:">
+                    <img class="btn-duvida-data" src="../src/assets/image/botao-de-duvidas.png" alt="Botão de Duvida">
+                </div>
+
+                <!--  -->
+                <a id="link-para-logar" href="../src/features/login/login.html">Já tem conta ?</a>
+
+
+                <button id="btn-cadastrar" type="submit">Cadastrar Pato</button>
+            </form>
+
+        </article>
+    </main>
     
 </body>
 </html>

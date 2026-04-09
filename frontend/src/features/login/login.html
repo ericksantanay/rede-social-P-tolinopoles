@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../public/favicon.ico" type="image/x-icon">
+    <title>Pátolinopoles Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../../style/global.css">
+     <!-- ICONES DO GOOGLE FONTES -->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=visibility" />
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+
+        <nav>
+            <img src="../../../public/pato-logo.png" alt="Logo Pátolinopoles">
+            <h1>Pátolinopoles</h1>
+        </nav>
+        
+    </header> <!--final header-->
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- article -->
+        <article id="container-login">
+
+            <!-- div com imagem do pato em uma prancha -->
+            <div class="img-login">
+                <img src="../../assets/image/ovo-login.png" alt="Ovo de Pato">
+            </div>
+
+            <!-- Formulario -->
+            <form id="formulario-login" action="" method="get">
+
+                <!-- INPUT NOME -->
+                <div class="container-input">
+                    <input type="text" name="nome" id="nome" placeholder="Identidade de Pato:">
+                </div>
+
+
+                <!-- INPUT SENHA -->
+                <div class="container-input">
+                    <input type="text" name="senha" id="senha" placeholder="Código de Grasno:">
+
+                    <span id="mostrar-senha" class="material-symbols-outlined" onclick="mostrarSenha()">visibility</span>
+                </div>
+
+                <button id="btn-login" type="submit">Entrar na Lagoa</button>
+            </form>
+
+        </article>
+    </main>
+    
+</body>
+</html>
