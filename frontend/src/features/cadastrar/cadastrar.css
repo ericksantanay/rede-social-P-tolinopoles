@@ -31,6 +31,53 @@ main {
     justify-content: center;
 }
 
+/* MENSAGEM PARA O USUARIO */
+#container-mensagens-usuario {
+    display: none;
+}
+
+/* todas as mensagens  */
+#mensagem-conta-criada, #mensagem-menor-de-idade, #mensagem-usuario-esta-em-uso {
+    position: absolute;
+    bottom: 80%;
+    left: 75%;
+    padding: 23px;
+    border-radius: 10px;
+}
+
+/* mensagem de conta criada com sucesso */
+#mensagem-conta-criada {
+    background-color: var(--verde-escuro);
+}
+
+/* mensagem de menor de idade */
+#mensagem-menor-de-idade {
+    background-color: var(--azul-escuro-mensagem);
+}
+
+/* mensagem usuario em uso */
+#mensagem-usuario-esta-em-uso {
+    border: 1px solid var(--tracado-vermelho);
+    background-color: var(--vermelho-claro-mensagem);
+}
+
+
+/* paragrafos das mensagens  */
+#mensagem-conta-criada > p, #mensagem-menor-de-idade > p, #mensagem-usuario-esta-em-uso > p {
+    font-size: 19px;
+     color: var(--branco);
+     font-weight: bold;
+}
+
+#mensagem-usuario-esta-em-uso > p  {
+    color: var(--vermelho-claro);
+}
+
+
+
+
+
+
 /* CONTAINER DO PAINEL DE CADASTRO */
 #container-cadastro {
     padding: 20px;

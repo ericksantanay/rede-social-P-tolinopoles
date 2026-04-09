@@ -30,6 +30,9 @@
     --vermelho-claro-mensagem: #FFBBBB;
     --amarelo-mensagem: #F0D88B;
 
+    /* Cores traçado */
+    --tracado-vermelho: #EF4444;
+
     /* FONTES */
     --inter: "Inter", sans-serif;
     --bungee: "Bungee", sans-serif;
