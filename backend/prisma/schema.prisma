@@ -1,8 +1,16 @@
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-ts"
 }
 
 datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
+}
+
+
+model usuarios {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  nome    String  @unique
+  senha   String
+  role    String
 }

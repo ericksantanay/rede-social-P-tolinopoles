@@ -1,21 +1,20 @@
-{ 
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
 
-  "extends": "./tsconfig.base.json", 
+    "rootDir": "./src",
+    "outDir": "./dist",
 
-  "compilerOptions": { 
+    "strict": true,
+    "esModuleInterop": true,
 
-    "target": "ES2022", 
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
 
-    "module": "NodeNext", 
+    "resolveJsonModule": true
+  },
 
-    "moduleResolution": "NodeNext", 
-
-    "outDir": "build", 
-
-    "types": ["node"] 
-
-  }, 
-
-  "include": ["src"] 
-
-} 
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
