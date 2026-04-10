@@ -1,8 +1,21 @@
-{
-  "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "module": "ESNext",
-    "target": "ES2020"
-  }
-}
+{ 
+
+  "extends": "./tsconfig.base.json", 
+
+  "compilerOptions": { 
+
+    "target": "ES2022", 
+
+    "module": "NodeNext", 
+
+    "moduleResolution": "NodeNext", 
+
+    "outDir": "build", 
+
+    "types": ["node"] 
+
+  }, 
+
+  "include": ["src"] 
+
+} 
