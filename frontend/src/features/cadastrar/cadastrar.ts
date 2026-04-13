@@ -62,7 +62,7 @@ if (formulario) {
                 interface User {
                     nome: string;
                     senha: string;
-                    data: Date;
+                    data: string;
                 }
 
 
