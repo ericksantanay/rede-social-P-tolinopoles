@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true})) // Aqui ele esta lendo formulario
 
 
 // cors
-app.use(cors());
+app.use(cors()); // Depois colocar só as URLS que serão permitidas
 
 
 import "dotenv/config";

@@ -6,6 +6,7 @@ const mensagemPreencherOsCampos = document.querySelector('#mensagem-preencha-os-
 
     // condição se o formulario existe
 if (formulario) {
+
     // formulario
     formulario.addEventListener('submit', async function(prevenir) {
     
@@ -26,11 +27,10 @@ if (formulario) {
                 // Value dos inputs 
                 const nomeUser = nomeUsuario.value;
                 const senhaUser = senhaUsuario.value;
-                const dataUser = dataUsuario.value;
-
+                const dataUser = dataUsuario.value; 
 
                 // Verificando se o usuario nao esta mandando o input vazio
-                if (!nomeUser.trim() || !senhaUser.trim() || !dataUser.trim()) {
+                if (nomeUser.trim() === "" || senhaUser.trim() === "" || dataUser.trim() === "") {
                     
                     // Previnindo que a pagina não carrege
                     prevenir.preventDefault()
@@ -54,6 +54,18 @@ if (formulario) {
                 } // final if 1
 
 
+                // Verificando a Idade do usuarios
+                let data =  new Date()
+
+                let dataAtual = data.getFullYear()
+
+
+                // Terminar a data
+
+                let anoNascimento = dataAtual
+
+
+
 
 
                 // API
@@ -62,7 +74,7 @@ if (formulario) {
                 interface User {
                     nome: string;
                     senha: string;
-                    data: string;
+                    data: Date;
                 }
 
 
