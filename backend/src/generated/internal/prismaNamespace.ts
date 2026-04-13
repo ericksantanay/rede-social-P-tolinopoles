@@ -390,7 +390,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-  usuarios: 'usuarios'
+  usuariosPatolinopoles: 'usuariosPatolinopoles'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -406,81 +406,81 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "usuarios"
+    modelProps: "usuariosPatolinopoles"
     txIsolationLevel: never
   }
   model: {
-    usuarios: {
-      payload: Prisma.$usuariosPayload<ExtArgs>
-      fields: Prisma.usuariosFieldRefs
+    usuariosPatolinopoles: {
+      payload: Prisma.$usuariosPatolinopolesPayload<ExtArgs>
+      fields: Prisma.usuariosPatolinopolesFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.usuariosFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPayload> | null
+          args: Prisma.usuariosPatolinopolesFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPatolinopolesPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.usuariosFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPayload>
+          args: Prisma.usuariosPatolinopolesFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPatolinopolesPayload>
         }
         findFirst: {
-          args: Prisma.usuariosFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPayload> | null
+          args: Prisma.usuariosPatolinopolesFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPatolinopolesPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.usuariosFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPayload>
+          args: Prisma.usuariosPatolinopolesFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPatolinopolesPayload>
         }
         findMany: {
-          args: Prisma.usuariosFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPayload>[]
+          args: Prisma.usuariosPatolinopolesFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPatolinopolesPayload>[]
         }
         create: {
-          args: Prisma.usuariosCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPayload>
+          args: Prisma.usuariosPatolinopolesCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPatolinopolesPayload>
         }
         createMany: {
-          args: Prisma.usuariosCreateManyArgs<ExtArgs>
+          args: Prisma.usuariosPatolinopolesCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         delete: {
-          args: Prisma.usuariosDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPayload>
+          args: Prisma.usuariosPatolinopolesDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPatolinopolesPayload>
         }
         update: {
-          args: Prisma.usuariosUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPayload>
+          args: Prisma.usuariosPatolinopolesUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPatolinopolesPayload>
         }
         deleteMany: {
-          args: Prisma.usuariosDeleteManyArgs<ExtArgs>
+          args: Prisma.usuariosPatolinopolesDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.usuariosUpdateManyArgs<ExtArgs>
+          args: Prisma.usuariosPatolinopolesUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         upsert: {
-          args: Prisma.usuariosUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPayload>
+          args: Prisma.usuariosPatolinopolesUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usuariosPatolinopolesPayload>
         }
         aggregate: {
-          args: Prisma.UsuariosAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateUsuarios>
+          args: Prisma.UsuariosPatolinopolesAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUsuariosPatolinopoles>
         }
         groupBy: {
-          args: Prisma.usuariosGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.UsuariosGroupByOutputType>[]
+          args: Prisma.usuariosPatolinopolesGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UsuariosPatolinopolesGroupByOutputType>[]
         }
         findRaw: {
-          args: Prisma.usuariosFindRawArgs<ExtArgs>
+          args: Prisma.usuariosPatolinopolesFindRawArgs<ExtArgs>
           result: Prisma.JsonObject
         }
         aggregateRaw: {
-          args: Prisma.usuariosAggregateRawArgs<ExtArgs>
+          args: Prisma.usuariosPatolinopolesAggregateRawArgs<ExtArgs>
           result: Prisma.JsonObject
         }
         count: {
-          args: Prisma.usuariosCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.UsuariosCountAggregateOutputType> | number
+          args: Prisma.usuariosPatolinopolesCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UsuariosPatolinopolesCountAggregateOutputType> | number
         }
       }
     }
@@ -501,14 +501,14 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
  * Enums
  */
 
-export const UsuariosScalarFieldEnum = {
+export const UsuariosPatolinopolesScalarFieldEnum = {
   id: 'id',
   nome: 'nome',
   senha: 'senha',
   role: 'role'
 } as const
 
-export type UsuariosScalarFieldEnum = (typeof UsuariosScalarFieldEnum)[keyof typeof UsuariosScalarFieldEnum]
+export type UsuariosPatolinopolesScalarFieldEnum = (typeof UsuariosPatolinopolesScalarFieldEnum)[keyof typeof UsuariosPatolinopolesScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -646,7 +646,7 @@ export interface PrismaClientOptions {
   omit?: GlobalOmitConfig
 }
 export type GlobalOmitConfig = {
-  usuarios?: Prisma.usuariosOmit
+  usuariosPatolinopoles?: Prisma.usuariosPatolinopolesOmit
 }
 
 /* Types for Logging */

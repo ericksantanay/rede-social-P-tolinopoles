@@ -49,7 +49,7 @@ export const AnyNull = runtime.objectEnumValues.instances.AnyNull
 
 
 export const ModelName = {
-  usuarios: 'usuarios'
+  usuariosPatolinopoles: 'usuariosPatolinopoles'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -58,14 +58,14 @@ export type ModelName = (typeof ModelName)[keyof typeof ModelName]
  * Enums
  */
 
-export const UsuariosScalarFieldEnum = {
+export const UsuariosPatolinopolesScalarFieldEnum = {
   id: 'id',
   nome: 'nome',
   senha: 'senha',
   role: 'role'
 } as const
 
-export type UsuariosScalarFieldEnum = (typeof UsuariosScalarFieldEnum)[keyof typeof UsuariosScalarFieldEnum]
+export type UsuariosPatolinopolesScalarFieldEnum = (typeof UsuariosPatolinopolesScalarFieldEnum)[keyof typeof UsuariosPatolinopolesScalarFieldEnum]
 
 
 export const SortOrder = {

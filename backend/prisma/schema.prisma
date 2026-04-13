@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-ts"
+  
 }
 
 datasource db {
@@ -8,7 +9,7 @@ datasource db {
 }
 
 
-model usuarios {
+model usuariosPatolinopoles {
   id      String @id @default(auto()) @map("_id") @db.ObjectId
   nome    String  @unique
   senha   String

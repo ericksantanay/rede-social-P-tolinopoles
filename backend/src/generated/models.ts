@@ -8,5 +8,5 @@
  *
  * 🟢 You can import this file directly.
  */
-export type * from './models/usuarios'
+export type * from './models/usuariosPatolinopoles'
 export type * from './commonInputTypes'
