@@ -76,19 +76,19 @@
             </div>
 
 
-            <!-- Formulario -->
-            <form id="formulario-cadastro" action="" method="post">
+            <!-- Formulario -->                       <!--onsubmit="true-->
+            <form id="formulario-cadastro" method="post" onsubmit="true">
 
                 <!-- INPUT NOME -->
                 <div class="container-input">
-                    <input type="text" name="nome" id="nome" placeholder="Identidade de Pato:">
+                    <input type="text" name="nome" id="nome" placeholder="Identidade de Pato:" required>
                     <img class="btn-duvida-nome" src="../src/assets/image/botao-de-duvidas.png" alt="Botão de Duvida">
                 </div>
 
 
                 <!-- INPUT SENHA -->
                 <div class="container-input">
-                    <input type="password" name="senha" id="senha" placeholder="Código de Grasno:">
+                    <input type="password" name="senha" id="senha" placeholder="Código de Grasno:" required>
 
                     <span id="mostrar-senha" class="material-symbols-outlined" onclick="mostrarSenhaUser()">visibility</span>
 
@@ -98,7 +98,7 @@
 
                 <!-- INPUT DE DATA -->
                 <div class="container-input">
-                    <input type="date" name="nascimento" id="nascimento" placeholder="Data de Chocagem:">
+                    <input type="date" name="nascimento" id="nascimento" placeholder="Data de Chocagem:" required>
                     <img class="btn-duvida-data" src="../src/assets/image/botao-de-duvidas.png" alt="Botão de Duvida">
                 </div>
 
@@ -113,6 +113,7 @@
     </main>
 
     <script src="../dist/features/cadastrar/mostrarSenha.js"></script>
+    <script src="../dist/features/cadastrar/cadastrar.js"></script>
     
 </body>
 </html>

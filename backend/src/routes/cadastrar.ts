@@ -16,11 +16,12 @@ import { randomInt } from "crypto" //
 // token JWT
 const  jwt  =  require ( 'jsonwebtoken' ) ; 
 
-// import {jwt} from ""
+// import {jwt} from "" 
 
 
 // Isso cria um mini servidor de rotas
 const router = Router();
+
 
 type user = {
   nome: string;
@@ -38,15 +39,12 @@ router.post("/cadastrarUsuarios", async (req: Request, res: Response) => {
     return res.status(400).json({ mensagem: "Erro cadastre-se" });
   }
 
+  // Hash do bcrypt
+    const randomSalt = randomInt(10, 16) //
+    const senhaCriptografada = await hash(senha, randomSalt) //
 
   try {
-
-    
    
-    // Hash do bcrypt
-    const randomSalt = randomInt(10, 16) //
-    const passwordBy = await hash(senha, randomSalt) //
-
     // buscando o usuario
     const buscarUser = await prisma.usuariosPatolinopoles.findUnique({
       where: {
@@ -59,15 +57,16 @@ router.post("/cadastrarUsuarios", async (req: Request, res: Response) => {
       await prisma.usuariosPatolinopoles.create({
         data: {
           nome: nome,
-          senha: passwordBy,
+          senha: senhaCriptografada,
           role: "cliente",
         },
       });
     } else {
-      return res.status(400).json({ mensagem: "Esse usuario já esta em uso" });
+      return res.status(409).json({ mensagem: "Esse usuario já esta em uso" });
     }
 
     res.status(201).json({ mensagem: "Usuário cadastrado com sucesso" });
+
   } catch (error) {
     console.log(error);
     return res.status(500).json({ mensagem: "Erro no servidor" });

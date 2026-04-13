@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="../../style/global.css">
      <!-- ICONES DO GOOGLE FONTES -->
-     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=visibility" />
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_" />
 </head>
 <body>
 
@@ -54,9 +54,9 @@
 
                 <!-- INPUT SENHA -->
                 <div class="container-input">
-                    <input type="text" name="senha" id="senha" placeholder="Código de Grasno:">
+                    <input type="password" name="senha" id="senha" placeholder="Código de Grasno:">
 
-                    <span id="mostrar-senha" class="material-symbols-outlined" onclick="mostrarSenha()">visibility</span>
+                    <span id="mostrar-senha" class="material-symbols-outlined" onclick="mostrarSenhaUser()">visibility</span>
                 </div>
 
                 <button id="btn-login" type="submit">Entrar na Lagoa</button>
@@ -64,6 +64,8 @@
 
         </article>
     </main>
+
+    <script src="../../../dist/features/cadastrar/mostrarSenha.js"></script>
     
 </body>
 </html>

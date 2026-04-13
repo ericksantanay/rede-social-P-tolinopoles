@@ -1,6 +1,9 @@
 // importando o framework
 import express from "express"
 
+// importando o cors
+import cors from "cors";
+
 // Importando as minhas rotas
 import cadastrarUser from "./routes/cadastrar"
 
@@ -8,6 +11,12 @@ import cadastrarUser from "./routes/cadastrar"
 const app = express()
 
 app.use(express.json()) // Serve pra ler JSON do req.body
+
+app.use(express.urlencoded({ extended: true})) // Aqui ele esta lendo formularios
+
+
+// cors
+app.use(cors());
 
 
 import "dotenv/config";
