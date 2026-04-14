@@ -129,7 +129,7 @@ if (formulario) {
 
                     }
                 } catch (error) {
-                    alert(`Erro ${error} tente novamente ,aos tarde`)
+                    alert(`Erro no servidor tente novamente mais tarde`)
                 }
                 
 
