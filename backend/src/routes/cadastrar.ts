@@ -24,26 +24,30 @@ const router = Router();
 
 
 type user = {
-  nome: string;
-  senha: string;
-  role: string;
-};
+  nome: string,
+  senha: string,
+  idade: string,
+  role: string
+}
 
 // Rota de cadastro de usuarios
 router.post("/cadastrarUsuarios", async (req: Request, res: Response) => {
+
   // pegando a requisição do corpo
-  const { nome, senha, role } = req.body;
+  const { nome, senha, idade, role } = req.body;
 
   // verificando se o usuario se cadastrou pelo req
-  if (!nome || !senha || !role) {
+  if (!nome || !senha || !idade || !role) {
     return res.status(400).json({ mensagem: "Erro cadastre-se" });
   }
 
-  // Hash do bcrypt
+  
+  try {
+
+    // Hash do bcrypt
     const randomSalt = randomInt(10, 16) //
     const senhaCriptografada = await hash(senha, randomSalt) //
 
-  try {
    
     // buscando o usuario
     const buscarUser = await prisma.usuariosPatolinopoles.findUnique({
@@ -58,6 +62,7 @@ router.post("/cadastrarUsuarios", async (req: Request, res: Response) => {
         data: {
           nome: nome,
           senha: senhaCriptografada,
+          idade: idade,
           role: "cliente",
         },
       });

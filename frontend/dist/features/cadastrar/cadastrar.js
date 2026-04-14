@@ -17,9 +17,10 @@ if (formulario) {
             // Value dos inputs 
             const nomeUser = nomeUsuario.value;
             const senhaUser = senhaUsuario.value;
-            const dataUser = dataUsuario.value;
+            const dataUser = Number(dataUsuario.value);
+            // Depois fazer a verificação para nao permitir que nem uma string seja cadastrada
             // Verificando se o usuario nao esta mandando o input vazio
-            if (!nomeUser.trim() || !senhaUser.trim() || !dataUser.trim()) {
+            if (nomeUser.trim() === "" || senhaUser.trim() === "") {
                 // Previnindo que a pagina não carrege
                 prevenir.preventDefault();
                 // Aqui esta mostrando a mensagem 
@@ -35,6 +36,20 @@ if (formulario) {
                     return;
                 } // Final if 2
             } // final if 1
+            // Verificando a Idade do usuarios
+            let data = new Date();
+            // Ano atual
+            let dataAtual = data.getFullYear();
+            // Data atual menos o ano que o usuário colocou
+            let idade = (dataAtual - dataUser);
+            // Verificando a data de nascimento
+            if (idade < 18) {
+                alert('Voce é menor de idade, voce nao tem a idade necessaria que é de 18 anos');
+                return;
+            }
+            else if (idade >= 18) {
+                alert('cadastro bem sucedido');
+            }
             // Url da API
             const response = await fetch("http://localhost:3000/cadastrarUsuarios", {
                 method: "POST", // Aqui eu estou falando que eu quero enviar os dados
@@ -44,7 +59,7 @@ if (formulario) {
                 body: JSON.stringify({
                     nome: nomeUser,
                     senha: senhaUser,
-                    data: dataUser
+                    idade: dataUser
                 })
             });
             if (!response.ok) {

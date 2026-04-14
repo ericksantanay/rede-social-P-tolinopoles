@@ -27,10 +27,13 @@ if (formulario) {
                 // Value dos inputs 
                 const nomeUser = nomeUsuario.value;
                 const senhaUser = senhaUsuario.value;
-                const dataUser = dataUsuario.value; 
+                const dataUser = Number(dataUsuario.value); 
+
+                // Depois fazer a verificação para nao permitir que nem uma string seja cadastrada
+
 
                 // Verificando se o usuario nao esta mandando o input vazio
-                if (nomeUser.trim() === "" || senhaUser.trim() === "" || dataUser.trim() === "") {
+                if (nomeUser.trim() === "" || senhaUser.trim() === "") {
                     
                     // Previnindo que a pagina não carrege
                     prevenir.preventDefault()
@@ -54,18 +57,24 @@ if (formulario) {
                 } // final if 1
 
 
+
+
                 // Verificando a Idade do usuarios
                 let data =  new Date()
 
+                // Ano atual
                 let dataAtual = data.getFullYear()
 
+                // Data atual menos o ano que o usuário colocou
+                let idade = (dataAtual - dataUser)
 
-                // Terminar a data
-
-                let anoNascimento = dataAtual
-
-
-
+                // Verificando a data de nascimento
+                if (idade < 18) {
+                    alert('Voce é menor de idade, voce nao tem a idade necessaria que é de 18 anos')
+                    return
+                }else if (idade >= 18 ) {
+                    alert('cadastro bem sucedido')
+                }
 
 
                 // API
@@ -74,7 +83,7 @@ if (formulario) {
                 interface User {
                     nome: string;
                     senha: string;
-                    data: Date;
+                    data: number;
                 }
 
 
@@ -85,9 +94,9 @@ if (formulario) {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        nome: nomeUser,
+                        nome:  nomeUser,
                         senha: senhaUser,
-                        data: dataUser
+                        idade: dataUser
                     })
                 });
 

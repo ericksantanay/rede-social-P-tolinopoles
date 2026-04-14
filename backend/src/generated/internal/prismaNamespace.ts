@@ -505,6 +505,7 @@ export const UsuariosPatolinopolesScalarFieldEnum = {
   id: 'id',
   nome: 'nome',
   senha: 'senha',
+  idade: 'idade',
   role: 'role'
 } as const
 
