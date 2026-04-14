@@ -20,15 +20,25 @@ export type usuariosPatolinopolesModel = runtime.Types.Result.DefaultSelection<P
 
 export type AggregateUsuariosPatolinopoles = {
   _count: UsuariosPatolinopolesCountAggregateOutputType | null
+  _avg: UsuariosPatolinopolesAvgAggregateOutputType | null
+  _sum: UsuariosPatolinopolesSumAggregateOutputType | null
   _min: UsuariosPatolinopolesMinAggregateOutputType | null
   _max: UsuariosPatolinopolesMaxAggregateOutputType | null
+}
+
+export type UsuariosPatolinopolesAvgAggregateOutputType = {
+  anoNascimento: number | null
+}
+
+export type UsuariosPatolinopolesSumAggregateOutputType = {
+  anoNascimento: number | null
 }
 
 export type UsuariosPatolinopolesMinAggregateOutputType = {
   id: string | null
   nome: string | null
   senha: string | null
-  idade: string | null
+  anoNascimento: number | null
   role: string | null
 }
 
@@ -36,7 +46,7 @@ export type UsuariosPatolinopolesMaxAggregateOutputType = {
   id: string | null
   nome: string | null
   senha: string | null
-  idade: string | null
+  anoNascimento: number | null
   role: string | null
 }
 
@@ -44,17 +54,25 @@ export type UsuariosPatolinopolesCountAggregateOutputType = {
   id: number
   nome: number
   senha: number
-  idade: number
+  anoNascimento: number
   role: number
   _all: number
 }
 
 
+export type UsuariosPatolinopolesAvgAggregateInputType = {
+  anoNascimento?: true
+}
+
+export type UsuariosPatolinopolesSumAggregateInputType = {
+  anoNascimento?: true
+}
+
 export type UsuariosPatolinopolesMinAggregateInputType = {
   id?: true
   nome?: true
   senha?: true
-  idade?: true
+  anoNascimento?: true
   role?: true
 }
 
@@ -62,7 +80,7 @@ export type UsuariosPatolinopolesMaxAggregateInputType = {
   id?: true
   nome?: true
   senha?: true
-  idade?: true
+  anoNascimento?: true
   role?: true
 }
 
@@ -70,7 +88,7 @@ export type UsuariosPatolinopolesCountAggregateInputType = {
   id?: true
   nome?: true
   senha?: true
-  idade?: true
+  anoNascimento?: true
   role?: true
   _all?: true
 }
@@ -113,6 +131,18 @@ export type UsuariosPatolinopolesAggregateArgs<ExtArgs extends runtime.Types.Ext
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: UsuariosPatolinopolesAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: UsuariosPatolinopolesSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: UsuariosPatolinopolesMinAggregateInputType
@@ -143,6 +173,8 @@ export type usuariosPatolinopolesGroupByArgs<ExtArgs extends runtime.Types.Exten
   take?: number
   skip?: number
   _count?: UsuariosPatolinopolesCountAggregateInputType | true
+  _avg?: UsuariosPatolinopolesAvgAggregateInputType
+  _sum?: UsuariosPatolinopolesSumAggregateInputType
   _min?: UsuariosPatolinopolesMinAggregateInputType
   _max?: UsuariosPatolinopolesMaxAggregateInputType
 }
@@ -151,9 +183,11 @@ export type UsuariosPatolinopolesGroupByOutputType = {
   id: string
   nome: string
   senha: string
-  idade: string
+  anoNascimento: number
   role: string
   _count: UsuariosPatolinopolesCountAggregateOutputType | null
+  _avg: UsuariosPatolinopolesAvgAggregateOutputType | null
+  _sum: UsuariosPatolinopolesSumAggregateOutputType | null
   _min: UsuariosPatolinopolesMinAggregateOutputType | null
   _max: UsuariosPatolinopolesMaxAggregateOutputType | null
 }
@@ -180,7 +214,7 @@ export type usuariosPatolinopolesWhereInput = {
   id?: Prisma.StringFilter<"usuariosPatolinopoles"> | string
   nome?: Prisma.StringFilter<"usuariosPatolinopoles"> | string
   senha?: Prisma.StringFilter<"usuariosPatolinopoles"> | string
-  idade?: Prisma.StringFilter<"usuariosPatolinopoles"> | string
+  anoNascimento?: Prisma.IntFilter<"usuariosPatolinopoles"> | number
   role?: Prisma.StringFilter<"usuariosPatolinopoles"> | string
 }
 
@@ -188,7 +222,7 @@ export type usuariosPatolinopolesOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
   senha?: Prisma.SortOrder
-  idade?: Prisma.SortOrder
+  anoNascimento?: Prisma.SortOrder
   role?: Prisma.SortOrder
 }
 
@@ -199,7 +233,7 @@ export type usuariosPatolinopolesWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.usuariosPatolinopolesWhereInput[]
   NOT?: Prisma.usuariosPatolinopolesWhereInput | Prisma.usuariosPatolinopolesWhereInput[]
   senha?: Prisma.StringFilter<"usuariosPatolinopoles"> | string
-  idade?: Prisma.StringFilter<"usuariosPatolinopoles"> | string
+  anoNascimento?: Prisma.IntFilter<"usuariosPatolinopoles"> | number
   role?: Prisma.StringFilter<"usuariosPatolinopoles"> | string
 }, "id" | "nome">
 
@@ -207,11 +241,13 @@ export type usuariosPatolinopolesOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
   senha?: Prisma.SortOrder
-  idade?: Prisma.SortOrder
+  anoNascimento?: Prisma.SortOrder
   role?: Prisma.SortOrder
   _count?: Prisma.usuariosPatolinopolesCountOrderByAggregateInput
+  _avg?: Prisma.usuariosPatolinopolesAvgOrderByAggregateInput
   _max?: Prisma.usuariosPatolinopolesMaxOrderByAggregateInput
   _min?: Prisma.usuariosPatolinopolesMinOrderByAggregateInput
+  _sum?: Prisma.usuariosPatolinopolesSumOrderByAggregateInput
 }
 
 export type usuariosPatolinopolesScalarWhereWithAggregatesInput = {
@@ -221,7 +257,7 @@ export type usuariosPatolinopolesScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"usuariosPatolinopoles"> | string
   nome?: Prisma.StringWithAggregatesFilter<"usuariosPatolinopoles"> | string
   senha?: Prisma.StringWithAggregatesFilter<"usuariosPatolinopoles"> | string
-  idade?: Prisma.StringWithAggregatesFilter<"usuariosPatolinopoles"> | string
+  anoNascimento?: Prisma.IntWithAggregatesFilter<"usuariosPatolinopoles"> | number
   role?: Prisma.StringWithAggregatesFilter<"usuariosPatolinopoles"> | string
 }
 
@@ -229,7 +265,7 @@ export type usuariosPatolinopolesCreateInput = {
   id?: string
   nome: string
   senha: string
-  idade: string
+  anoNascimento: number
   role: string
 }
 
@@ -237,21 +273,21 @@ export type usuariosPatolinopolesUncheckedCreateInput = {
   id?: string
   nome: string
   senha: string
-  idade: string
+  anoNascimento: number
   role: string
 }
 
 export type usuariosPatolinopolesUpdateInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
-  idade?: Prisma.StringFieldUpdateOperationsInput | string
+  anoNascimento?: Prisma.IntFieldUpdateOperationsInput | number
   role?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type usuariosPatolinopolesUncheckedUpdateInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
-  idade?: Prisma.StringFieldUpdateOperationsInput | string
+  anoNascimento?: Prisma.IntFieldUpdateOperationsInput | number
   role?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -259,21 +295,21 @@ export type usuariosPatolinopolesCreateManyInput = {
   id?: string
   nome: string
   senha: string
-  idade: string
+  anoNascimento: number
   role: string
 }
 
 export type usuariosPatolinopolesUpdateManyMutationInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
-  idade?: Prisma.StringFieldUpdateOperationsInput | string
+  anoNascimento?: Prisma.IntFieldUpdateOperationsInput | number
   role?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type usuariosPatolinopolesUncheckedUpdateManyInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   senha?: Prisma.StringFieldUpdateOperationsInput | string
-  idade?: Prisma.StringFieldUpdateOperationsInput | string
+  anoNascimento?: Prisma.IntFieldUpdateOperationsInput | number
   role?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -281,15 +317,19 @@ export type usuariosPatolinopolesCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
   senha?: Prisma.SortOrder
-  idade?: Prisma.SortOrder
+  anoNascimento?: Prisma.SortOrder
   role?: Prisma.SortOrder
+}
+
+export type usuariosPatolinopolesAvgOrderByAggregateInput = {
+  anoNascimento?: Prisma.SortOrder
 }
 
 export type usuariosPatolinopolesMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
   senha?: Prisma.SortOrder
-  idade?: Prisma.SortOrder
+  anoNascimento?: Prisma.SortOrder
   role?: Prisma.SortOrder
 }
 
@@ -297,12 +337,24 @@ export type usuariosPatolinopolesMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
   senha?: Prisma.SortOrder
-  idade?: Prisma.SortOrder
+  anoNascimento?: Prisma.SortOrder
   role?: Prisma.SortOrder
+}
+
+export type usuariosPatolinopolesSumOrderByAggregateInput = {
+  anoNascimento?: Prisma.SortOrder
 }
 
 export type StringFieldUpdateOperationsInput = {
   set?: string
+}
+
+export type IntFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
 }
 
 
@@ -311,7 +363,7 @@ export type usuariosPatolinopolesSelect<ExtArgs extends runtime.Types.Extensions
   id?: boolean
   nome?: boolean
   senha?: boolean
-  idade?: boolean
+  anoNascimento?: boolean
   role?: boolean
 }, ExtArgs["result"]["usuariosPatolinopoles"]>
 
@@ -321,11 +373,11 @@ export type usuariosPatolinopolesSelectScalar = {
   id?: boolean
   nome?: boolean
   senha?: boolean
-  idade?: boolean
+  anoNascimento?: boolean
   role?: boolean
 }
 
-export type usuariosPatolinopolesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nome" | "senha" | "idade" | "role", ExtArgs["result"]["usuariosPatolinopoles"]>
+export type usuariosPatolinopolesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nome" | "senha" | "anoNascimento" | "role", ExtArgs["result"]["usuariosPatolinopoles"]>
 
 export type $usuariosPatolinopolesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "usuariosPatolinopoles"
@@ -334,7 +386,7 @@ export type $usuariosPatolinopolesPayload<ExtArgs extends runtime.Types.Extensio
     id: string
     nome: string
     senha: string
-    idade: string
+    anoNascimento: number
     role: string
   }, ExtArgs["result"]["usuariosPatolinopoles"]>
   composites: {}
@@ -731,7 +783,7 @@ export interface usuariosPatolinopolesFieldRefs {
   readonly id: Prisma.FieldRef<"usuariosPatolinopoles", 'String'>
   readonly nome: Prisma.FieldRef<"usuariosPatolinopoles", 'String'>
   readonly senha: Prisma.FieldRef<"usuariosPatolinopoles", 'String'>
-  readonly idade: Prisma.FieldRef<"usuariosPatolinopoles", 'String'>
+  readonly anoNascimento: Prisma.FieldRef<"usuariosPatolinopoles", 'Int'>
   readonly role: Prisma.FieldRef<"usuariosPatolinopoles", 'String'>
 }
     

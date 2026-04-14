@@ -57,26 +57,6 @@ if (formulario) {
                 } // final if 1
 
 
-
-
-                // Verificando a Idade do usuarios
-                let data =  new Date()
-
-                // Ano atual
-                let dataAtual = data.getFullYear()
-
-                // Data atual menos o ano que o usuário colocou
-                let idade = (dataAtual - dataUser)
-
-                // Verificando a data de nascimento
-                if (idade < 18) {
-                    alert('Voce é menor de idade, voce nao tem a idade necessaria que é de 18 anos')
-                    return
-                }else if (idade >= 18 ) {
-                    alert('cadastro bem sucedido')
-                }
-
-
                 // API
             // ###########################################################
                 // Dados que eu espero ter
@@ -87,22 +67,23 @@ if (formulario) {
                 }
 
 
-                // Url da API
-                const response = await fetch("http://localhost:3000/cadastrarUsuarios", {
-                    method: "POST", // Aqui eu estou falando que eu quero enviar os dados
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        nome:  nomeUser,
-                        senha: senhaUser,
-                        idade: dataUser
-                    })
-                });
+                try {
+                    // Url da API
+                    const response = await fetch("http://localhost:3000/cadastrarUsuarios", {
+                        method: "POST", // Aqui eu estou falando que eu quero enviar os dados
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            nome:  nomeUser,
+                            senha: senhaUser,
+                            anoNascimento: dataUser
+                        })
+                    });
 
-                    if(!response.ok) {
-                        throw new Error("Erro");
-                    }
+                    // if(!response.ok) {
+                    //     throw new Error("Erro");
+                    // }
 
                     // Aqui esta estraindo o corpo da reposta
                     const dadosUser: User = await response.json()
@@ -110,39 +91,50 @@ if (formulario) {
                     // Aqui estão os dados
                     console.log(dadosUser)
 
-                    // Pedindo pora o usuario se cadastrar
-                    if (response.status === 400) {
-                        alert('Erro cadastre-se')
+
+                    
+                    // Verificando a Idade do usuarios
+                    let data =  new Date()
+
+                    // Ano atual
+                    let dataAtual = data.getFullYear()
+
+                    // Data atual menos o ano que o usuário colocou
+                    let idade = (dataAtual - dataUser)
+
+                    // Verificando a data de nascimento
+                    if (idade < 18 || response.status === 403) {
+                        alert('Voce é menor de idade')
                         return
-                    };
+                    }else if (idade >= 18 ) {
 
 
-                    // Caso o nome seja igual ao que tem no banco de dados, no caso se o nome já existir
-                    if(response.status === 409) {
-                        return alert("Esse nome ja existe")
+                        // CONDIÇÕES COM OS ERROS HTTP
+                        // Pedindo pora o usuario se cadastrar
+                        if (response.status === 404) {
+                            alert('Erro cadastre-se')
+                            return
+                        };
+
+                        // Caso o nome seja igual ao que tem no banco de dados, no caso se o nome já existir
+                        if(response.status === 409) {
+                            return alert("Esse nome ja existe")
+                        }
+
+                        // criando o usuario
+                        if (response.status === 201) {
+                            alert("Usuario criado com sucesso")
+                            return
+                        }
+
                     }
-
-
-                    // criando o usuario
-                    if (response.status === 201) {
-                        alert("Usuario criado com sucesso")
-                        return
-                    }
-            
-
-
+                } catch (error) {
+                    alert(`Erro ${error} tente novamente ,aos tarde`)
+                }
+                
 
             // ###########################################################
                 
-                
-
-
-
-
-                
-
-
-
 
         } // If com o instanceof
 

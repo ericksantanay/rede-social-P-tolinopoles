@@ -62,7 +62,7 @@ export const UsuariosPatolinopolesScalarFieldEnum = {
   id: 'id',
   nome: 'nome',
   senha: 'senha',
-  idade: 'idade',
+  anoNascimento: 'anoNascimento',
   role: 'role'
 } as const
 

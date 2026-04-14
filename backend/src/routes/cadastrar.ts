@@ -26,7 +26,7 @@ const router = Router();
 type user = {
   nome: string,
   senha: string,
-  idade: string,
+  anoNascimento: number,
   role: string
 }
 
@@ -34,11 +34,12 @@ type user = {
 router.post("/cadastrarUsuarios", async (req: Request, res: Response) => {
 
   // pegando a requisição do corpo
-  const { nome, senha, idade, role } = req.body;
+  const { nome, senha, anoNascimento } = req.body;
 
   // verificando se o usuario se cadastrou pelo req
-  if (!nome || !senha || !idade || !role) {
-    return res.status(400).json({ mensagem: "Erro cadastre-se" });
+  if (!nome || !senha || !anoNascimento) {
+    res.status(404).json("Erro cadastre-se!");
+    return
   }
 
   
@@ -57,19 +58,38 @@ router.post("/cadastrarUsuarios", async (req: Request, res: Response) => {
     });
 
     if (!buscarUser) {
-      // criandoo usuario
-      await prisma.usuariosPatolinopoles.create({
-        data: {
-          nome: nome,
-          senha: senhaCriptografada,
-          idade: idade,
-          role: "cliente",
-        },
-      });
+
+      let data =  new Date()
+
+      const anoAtual = data.getFullYear()
+      const idadeAtual = (anoAtual - anoNascimento)
+
+
+      // Verificando a Idade 
+      if (idadeAtual < 18) {
+
+        res.status(403).json({mensagem: "Idade nao permitida"})
+        return
+      
+      }else {
+
+        // criandoo usuario
+        await prisma.usuariosPatolinopoles.create({
+          data: {
+            nome: nome,
+            senha: senhaCriptografada,
+            anoNascimento: anoNascimento,
+            role: "cliente",
+          },
+        });
+      }
+
+      
     } else {
       return res.status(409).json({ mensagem: "Esse usuario já esta em uso" });
     }
 
+    // Mensagem de usuario criado com sucesso
     res.status(201).json({ mensagem: "Usuário cadastrado com sucesso" });
 
   } catch (error) {
