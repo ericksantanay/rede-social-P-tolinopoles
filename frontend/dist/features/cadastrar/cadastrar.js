@@ -1,7 +1,14 @@
 "use strict";
 // buscando o formulario
 const formulario = document.querySelector('#formulario-cadastro');
+// #############################
+// MENSAGENS PARA O USUARIO
+// #############################
 const mensagemPreencherOsCampos = document.querySelector('#mensagem-preencha-os-campos');
+const mensagemContaCriada = document.getElementById('mensagem-conta-criada');
+const mensagemMenorDeIdade = document.getElementById('mensagem-menor-de-idade');
+const mensagemUsuarioEmUso = document.getElementById('mensagem-usuario-esta-em-uso');
+const mensagemDeErroNoServidor = document.getElementById('mensagem-erro-no-servidor');
 // condição se o formulario existe
 if (formulario) {
     // formulario
@@ -15,9 +22,9 @@ if (formulario) {
             senhaUsuario instanceof HTMLInputElement &&
             dataUsuario instanceof HTMLInputElement) {
             // Value dos inputs 
-            const nomeUser = nomeUsuario.value;
-            const senhaUser = senhaUsuario.value;
-            const dataUser = Number(dataUsuario.value);
+            let nomeUser = nomeUsuario.value;
+            let senhaUser = senhaUsuario.value;
+            let dataUser = Number(dataUsuario.value);
             // Depois fazer a verificação para nao permitir que nem uma string seja cadastrada
             // Verificando se o usuario nao esta mandando o input vazio
             if (nomeUser.trim() === "" || senhaUser.trim() === "") {
@@ -64,7 +71,16 @@ if (formulario) {
                 let idade = (dataAtual - dataUser);
                 // Verificando a data de nascimento
                 if (idade < 18 || response.status === 403) {
-                    alert('Voce é menor de idade');
+                    // mensagem de menor de idade
+                    // mostrando card
+                    let mensagem1 = setTimeout(() => {
+                        mensagemMenorDeIdade.style.display = 'block';
+                    }, 100);
+                    // removendo card
+                    setTimeout(() => {
+                        clearTimeout(mensagem1);
+                        mensagemMenorDeIdade.style.display = 'none';
+                    }, 4000);
                     return;
                 }
                 else if (idade >= 18) {
@@ -77,7 +93,16 @@ if (formulario) {
                     ;
                     // Caso o nome seja igual ao que tem no banco de dados, no caso se o nome já existir
                     if (response.status === 409) {
-                        return alert("Esse nome ja existe");
+                        // mostrando a mensagem
+                        let mensagem2 = setTimeout(() => {
+                            mensagemUsuarioEmUso.style.display = 'block';
+                        }, 100);
+                        // removendo a mensagem
+                        setTimeout(() => {
+                            clearTimeout(mensagem2);
+                            mensagemUsuarioEmUso.style.display = 'none';
+                        }, 4000);
+                        return;
                     }
                     // criando o usuario
                     if (response.status === 201) {
@@ -87,7 +112,7 @@ if (formulario) {
                 }
             }
             catch (error) {
-                alert(`Erro ${error} tente novamente ,aos tarde`);
+                alert(`Erro no servidor tente novamente mais tarde`);
             }
             // ###########################################################
         } // If com o instanceof

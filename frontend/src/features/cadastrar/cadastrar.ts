@@ -1,8 +1,18 @@
 // buscando o formulario
 const formulario = document.querySelector('#formulario-cadastro') as HTMLFormElement;
 
+// #############################
 // MENSAGENS PARA O USUARIO
-const mensagemPreencherOsCampos = document.querySelector('#mensagem-preencha-os-campos')  as HTMLDivElement;
+// #############################
+const mensagemPreencherOsCampos = document.querySelector('#mensagem-preencha-os-campos')  as HTMLElement;
+
+const mensagemContaCriada = document.getElementById('mensagem-conta-criada') as HTMLElement;
+
+const mensagemMenorDeIdade = document.getElementById('mensagem-menor-de-idade') as HTMLElement;
+
+const mensagemUsuarioEmUso = document.getElementById('mensagem-usuario-esta-em-uso') as HTMLElement;
+
+const mensagemDeErroNoServidor = document.getElementById('mensagem-erro-no-servidor') as HTMLElement;
 
 
     // condição se o formulario existe
@@ -40,20 +50,19 @@ if (formulario) {
                     prevenir.preventDefault()
                     
                     // Aqui esta mostrando a mensagem 
-                    if (mensagemPreencherOsCampos) {
-                        let time1 = setTimeout(() => {
+                        let mensagem0 = setTimeout(() => {
                             mensagemPreencherOsCampos.style.display = 'block'
-                        }, 100);
+                        }, 0);
 
                         // aqui esta escondendo a mensagem depois de 4 segundos
                         setTimeout(() => {
-                            clearTimeout(time1);
+                            clearTimeout(mensagem0);
                             mensagemPreencherOsCampos.style.display = 'none'
                         }, 4000)
 
                         return
 
-                    } // Final if 2
+                     
 
                 } // final if 1
 
@@ -105,7 +114,21 @@ if (formulario) {
 
                     // Verificando a data de nascimento
                     if (idade < 18 || response.status === 403) {
-                        alert('Voce é menor de idade')
+                        
+                        // mensagem de menor de idade
+                        
+                        // mostrando card
+                        let mensagem1 = setTimeout(() => {
+                            mensagemMenorDeIdade.style.display = 'block'
+                        }, 100)
+
+
+                        // removendo card
+                        setTimeout(() => {
+                            clearTimeout(mensagem1)
+                            mensagemMenorDeIdade.style.display = 'none'
+                        }, 4000)
+
                         return
                     }else if (idade >= 18 ) {
 
@@ -119,19 +142,57 @@ if (formulario) {
 
                         // Caso o nome seja igual ao que tem no banco de dados, no caso se o nome já existir
                         if(response.status === 409) {
-                            return alert("Esse nome ja existe")
+
+                            // mostrando a mensagem
+                            let mensagem2 = setTimeout(() =>{
+                                mensagemUsuarioEmUso.style.display = 'block'
+                            }, 100)
+
+
+                            // removendo a mensagem
+                            setTimeout(() => {
+                                clearTimeout(mensagem2)
+                                mensagemUsuarioEmUso.style.display = 'none'
+                            }, 4000)
+
+                            return 
                         }
+
 
                         // criando o usuario
                         if (response.status === 201) {
-                            alert("Usuario criado com sucesso")
-                            return
+                            
+                            // mostrando mensagem 
+                            let mensagem3 = setTimeout(() => {
+                               mensagemContaCriada.style.display = 'block' 
+                            }, 0)
+
+
+                            // removendo a mensagem
+                            setTimeout(() => {
+                                clearTimeout(mensagem3)
+                                mensagemContaCriada.style.display = 'none'
+                            }, 4000)
+
+                            return;
                         }
 
                     }
                 } catch (error) {
-                    alert(`Erro no servidor tente novamente mais tarde`)
+                    
+                    // mostrando mensagem de erro no servidor 
+                    let mensagem4 = setTimeout(() => {
+                        mensagemDeErroNoServidor.style.display = 'block'
+                    }, 0)
+                
+                    
+                    setTimeout(() => {
+                        clearTimeout(mensagem4)
+                        mensagemDeErroNoServidor.style.display = 'none'
+                    }, 4000)
+
                 }
+
                 
 
             // ###########################################################

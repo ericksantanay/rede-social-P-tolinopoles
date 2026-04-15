@@ -33,7 +33,7 @@ main {
 
 
 /* todas as mensagens  */
-#mensagem-conta-criada, #mensagem-menor-de-idade, #mensagem-usuario-esta-em-uso, #mensagem-preencha-os-campos {
+#mensagem-conta-criada, #mensagem-menor-de-idade, #mensagem-usuario-esta-em-uso, #mensagem-preencha-os-campos, #mensagem-erro-no-servidor {
     position: absolute;
     bottom: 80%;
     left: 75%;
@@ -54,22 +54,27 @@ main {
 }
 
 /* mensagem usuario em uso */
-#mensagem-usuario-esta-em-uso, #mensagem-preencha-os-campos {
+#mensagem-usuario-esta-em-uso, #mensagem-preencha-os-campos, #mensagem-erro-no-servidor {
     display: none;
     border: 1px solid var(--tracado-vermelho);
     background-color: var(--vermelho-claro-mensagem);
 }
 
+/* mensagem erro no servidor */
+#mensagem-erro-no-servidor {
+    margin-right: 40px;
+}
 
 /* paragrafos das mensagens  */
 #mensagem-conta-criada > p, #mensagem-menor-de-idade > p, #mensagem-usuario-esta-em-uso > p {
     font-size: 19px;
-     color: var(--branco);
-     font-weight: bold;
+    color: var(--branco);
+    font-weight: bold;
 }
 
-#mensagem-usuario-esta-em-uso > p, #mensagem-preencha-os-campos > p {
+#mensagem-usuario-esta-em-uso > p, #mensagem-preencha-os-campos > p, #mensagem-erro-no-servidor > p {
     color: var(--vermelho-claro);
+    font-weight: bold;
 }
 
 
