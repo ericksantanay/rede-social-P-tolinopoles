@@ -40,21 +40,20 @@ router.post('/loginUsuarios', async (req: Request, res: Response) => {
             return res.status(404).json({mensagem: "Usuario nao encontrado"})
         }
 
-        if (user === null) {
-            return res.status(400).json({mensagem: "Erro esta vindo  nulo"})
+        // comparando a senha com o bcrypt
+        const passwordIsValid = await bcrypt.compare(senha, user.senha);
+
+        // verificando a senha
+        if (!passwordIsValid) {
+            return res.status(404).json({mensagem: "Senha invalida"})
         }
-
-        const passwordIsValid = await bcrypt.compare(senha, user.senha)
-
-        console.log(passwordIsValid)
-
 
 
         // Aqui se o role for admin entra em uma pagina diferente do usuario
         if (user.role === "admin") {
-             res.status(200).json({mensagem: "Logando com conta admin"})
+            return res.status(200).json({mensagem: "Logando com sua conta admin"})
         }else {
-            return res.status(200).json({
+            res.status(200).json({
                 mensagem: "Usuario encontrado com sucesso",
                 id: user.id,
                 nome: user.nome
@@ -67,12 +66,9 @@ router.post('/loginUsuarios', async (req: Request, res: Response) => {
         console.log(error)
          return res.status(500).json({mensagem: "Erro no servidor tente novamente mais tarde"})
     }
-
-
-
 })
 
 
 
 // exportando 
-export default Router
+export default router
