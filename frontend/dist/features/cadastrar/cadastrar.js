@@ -27,22 +27,25 @@ if (formulario) {
             let dataUser = Number(dataUsuario.value);
             // Depois fazer a verificação para nao permitir que nem uma string seja cadastrada
             // Verificando se o usuario nao esta mandando o input vazio
-            if (nomeUser.trim() === "" || senhaUser.trim() === "") {
+            if (nomeUser.trim() === "" || senhaUser.trim() === "" || isNaN(dataUser)) {
+                // dataUser === null
                 // Previnindo que a pagina não carrege
                 prevenir.preventDefault();
                 // Aqui esta mostrando a mensagem 
-                if (mensagemPreencherOsCampos) {
-                    let time1 = setTimeout(() => {
-                        mensagemPreencherOsCampos.style.display = 'block';
-                    }, 100);
-                    // aqui esta escondendo a mensagem depois de 4 segundos
-                    setTimeout(() => {
-                        clearTimeout(time1);
-                        mensagemPreencherOsCampos.style.display = 'none';
-                    }, 4000);
-                    return;
-                } // Final if 2
+                let mensagem0 = setTimeout(() => {
+                    mensagemPreencherOsCampos.style.display = 'block';
+                }, 10);
+                // aqui esta escondendo a mensagem depois de 4 segundos
+                setTimeout(() => {
+                    clearTimeout(mensagem0);
+                    mensagemPreencherOsCampos.style.display = 'none';
+                }, 4000);
+                return;
             } // final if 1
+            // Verificando o comprimento do value que esta vindo do input DateUser
+            if (dataUser > 4) {
+                return alert('Digite a data corretamente');
+            }
             try {
                 // Url da API
                 const response = await fetch("http://localhost:3000/cadastrarUsuarios", {
@@ -56,9 +59,6 @@ if (formulario) {
                         anoNascimento: dataUser
                     })
                 });
-                // if(!response.ok) {
-                //     throw new Error("Erro");
-                // }
                 // Aqui esta estraindo o corpo da reposta
                 const dadosUser = await response.json();
                 // Aqui estão os dados
@@ -75,7 +75,7 @@ if (formulario) {
                     // mostrando card
                     let mensagem1 = setTimeout(() => {
                         mensagemMenorDeIdade.style.display = 'block';
-                    }, 100);
+                    }, 10);
                     // removendo card
                     setTimeout(() => {
                         clearTimeout(mensagem1);
@@ -96,7 +96,7 @@ if (formulario) {
                         // mostrando a mensagem
                         let mensagem2 = setTimeout(() => {
                             mensagemUsuarioEmUso.style.display = 'block';
-                        }, 100);
+                        }, 10);
                         // removendo a mensagem
                         setTimeout(() => {
                             clearTimeout(mensagem2);
@@ -106,13 +106,28 @@ if (formulario) {
                     }
                     // criando o usuario
                     if (response.status === 201) {
-                        alert("Usuario criado com sucesso");
+                        // mostrando mensagem 
+                        let mensagem3 = setTimeout(() => {
+                            mensagemContaCriada.style.display = 'block';
+                        }, 10);
+                        // removendo a mensagem
+                        setTimeout(() => {
+                            clearTimeout(mensagem3);
+                            mensagemContaCriada.style.display = 'none';
+                        }, 4000);
                         return;
                     }
                 }
             }
             catch (error) {
-                alert(`Erro no servidor tente novamente mais tarde`);
+                // mostrando mensagem de erro no servidor 
+                let mensagem4 = setTimeout(() => {
+                    mensagemDeErroNoServidor.style.display = 'block';
+                }, 10);
+                setTimeout(() => {
+                    clearTimeout(mensagem4);
+                    mensagemDeErroNoServidor.style.display = 'none';
+                }, 4000);
             }
             // ###########################################################
         } // If com o instanceof

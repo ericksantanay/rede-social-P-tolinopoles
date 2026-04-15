@@ -44,15 +44,17 @@ if (formulario) {
 
 
                 // Verificando se o usuario nao esta mandando o input vazio
-                if (nomeUser.trim() === "" || senhaUser.trim() === "") {
+                if (nomeUser.trim() === "" || senhaUser.trim() === "" || isNaN(dataUser)) {
                     
+                    // dataUser === null
+
                     // Previnindo que a pagina não carrege
                     prevenir.preventDefault()
                     
                     // Aqui esta mostrando a mensagem 
                         let mensagem0 = setTimeout(() => {
                             mensagemPreencherOsCampos.style.display = 'block'
-                        }, 0);
+                        }, 10);
 
                         // aqui esta escondendo a mensagem depois de 4 segundos
                         setTimeout(() => {
@@ -62,9 +64,13 @@ if (formulario) {
 
                         return
 
-                     
-
                 } // final if 1
+
+
+                // Verificando o comprimento do value que esta vindo do input DateUser
+                if (dataUser > 4) {
+                    return alert('Digite a data corretamente')
+                }
 
 
                 // API
@@ -91,9 +97,7 @@ if (formulario) {
                         })
                     });
 
-                    // if(!response.ok) {
-                    //     throw new Error("Erro");
-                    // }
+                    
 
                     // Aqui esta estraindo o corpo da reposta
                     const dadosUser: User = await response.json()
@@ -120,7 +124,7 @@ if (formulario) {
                         // mostrando card
                         let mensagem1 = setTimeout(() => {
                             mensagemMenorDeIdade.style.display = 'block'
-                        }, 100)
+                        }, 10)
 
 
                         // removendo card
@@ -146,7 +150,7 @@ if (formulario) {
                             // mostrando a mensagem
                             let mensagem2 = setTimeout(() =>{
                                 mensagemUsuarioEmUso.style.display = 'block'
-                            }, 100)
+                            }, 10)
 
 
                             // removendo a mensagem
@@ -165,7 +169,7 @@ if (formulario) {
                             // mostrando mensagem 
                             let mensagem3 = setTimeout(() => {
                                mensagemContaCriada.style.display = 'block' 
-                            }, 0)
+                            }, 10)
 
 
                             // removendo a mensagem
@@ -183,7 +187,7 @@ if (formulario) {
                     // mostrando mensagem de erro no servidor 
                     let mensagem4 = setTimeout(() => {
                         mensagemDeErroNoServidor.style.display = 'block'
-                    }, 0)
+                    }, 10)
                 
                     
                     setTimeout(() => {

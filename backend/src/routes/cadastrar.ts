@@ -6,15 +6,10 @@ import { Request, Response } from "express";
 import prisma from "../lib/prisma";
 
 // bcrypt (criptografando senhas)
-const  bcrypt  =  require ( 'bcrypt' );
-
-import { hash } from 'bcrypt' // Importado a hash
-
-import { randomInt } from "crypto" // 
-
+import bcrypt from 'bcrypt'
 
 // token JWT
-const  jwt  =  require ( 'jsonwebtoken' ) ; 
+// const  jwt  =  require ( 'jsonwebtoken' ) ; 
 
 // import {jwt} from "" 
 
@@ -46,8 +41,8 @@ router.post("/cadastrarUsuarios", async (req: Request, res: Response) => {
   try {
 
     // Hash do bcrypt
-    const randomSalt = randomInt(10, 16) //
-    const senhaCriptografada = await hash(senha, randomSalt) //
+    const salt = await bcrypt.genSalt(10) // um valor único que é misturado na senha antes do hash.
+    const passwordHash = await bcrypt.hash(senha, salt) // senha criptografada
 
    
     // buscando o usuario
@@ -77,7 +72,7 @@ router.post("/cadastrarUsuarios", async (req: Request, res: Response) => {
         await prisma.usuariosPatolinopoles.create({
           data: {
             nome: nome,
-            senha: senhaCriptografada,
+            senha: passwordHash,
             anoNascimento: anoNascimento,
             role: "cliente",
           },
