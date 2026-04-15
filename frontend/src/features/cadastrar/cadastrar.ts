@@ -1,6 +1,7 @@
 // buscando o formulario
 const formulario = document.querySelector('#formulario-cadastro') as HTMLFormElement;
 
+// MENSAGENS PARA O USUARIO
 const mensagemPreencherOsCampos = document.querySelector('#mensagem-preencha-os-campos')  as HTMLDivElement;
 
 
@@ -25,9 +26,9 @@ if (formulario) {
             dataUsuario instanceof HTMLInputElement) {
             
                 // Value dos inputs 
-                const nomeUser = nomeUsuario.value;
-                const senhaUser = senhaUsuario.value;
-                const dataUser = Number(dataUsuario.value); 
+                let nomeUser = nomeUsuario.value;
+                let senhaUser = senhaUsuario.value;
+                let dataUser = Number(dataUsuario.value); 
 
                 // Depois fazer a verificação para nao permitir que nem uma string seja cadastrada
 
@@ -134,7 +135,6 @@ if (formulario) {
                 
 
             // ###########################################################
-                
 
         } // If com o instanceof
 
