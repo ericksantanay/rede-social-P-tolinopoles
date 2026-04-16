@@ -10,6 +10,7 @@ header {
     z-index: 99;
     background-color: var(--cor-de-fundo);
     border-bottom: 1px solid var(--branco);
+    margin-bottom: 30px;
 }
 
 
@@ -159,3 +160,33 @@ nav {
     color: var(--branco);
     margin-bottom: 30px;
 }   
+
+
+/* ######################### */
+/* MAIN */
+main {
+   padding: 20px 7%;  
+}
+
+/* Section com a div do aviso */
+#container-avisos {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    z-index: 99;
+}
+
+/* div com o aviso */
+#aviso-comentario {
+    background-color: var(--azul-mensagem);
+    padding: 25px;
+    border: 2px solid var(--azul-claro);
+    border-radius: 10px;
+}
+
+/* mensagem do aviso  */
+#aviso-comentario > p {
+    color: var(--azul-texto);
+    font-weight: bold;
+}
