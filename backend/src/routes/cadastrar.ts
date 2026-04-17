@@ -8,11 +8,6 @@ import prisma from "../lib/prisma";
 // bcrypt (criptografando senhas)
 import bcrypt from 'bcrypt'
 
-// token JWT
-// const  jwt  =  require ( 'jsonwebtoken' ) ; 
-
-// import {jwt} from "" 
-
 
 // Isso cria um mini servidor de rotas
 const router = Router();

@@ -88,17 +88,23 @@ nav {
 #barra-de-pesquisa > input {
     outline: none;
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     border-radius: 30px;
     border: none;
+}
+
+/* placeholder do input da barra de pesquisa */
+#barra-de-pesquisa > input::placeholder {
+    padding-left: 10px;
+    font-size: 16px;
 }
 
 /* Imagem da Lupa */
 #barra-de-pesquisa > svg {
     color: var(--cinza);
     position: absolute;
-    top: 117px;
-    right: 120px;
+    top: 122px;
+    right: 130px;
 }
 
 /* container do botão */
@@ -189,4 +195,107 @@ main {
 #aviso-comentario > p {
     color: var(--azul-texto);
     font-weight: bold;
+}
+
+/* section com o formulario */
+#secao-fazer-postagem {
+    width: 100%;
+    margin-bottom: 26px;
+}
+
+/* formulario com o textarea e o btn  */
+#fomulario-postagem {
+    width: 100%;
+    display: flex;
+    gap: 26px;
+    flex-direction: column;
+    align-items: end;
+}
+
+/* textarea */
+#escrever-postagem {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--cor-dos-cards);
+    border: 1px solid var(--cinza);
+    color: var(--branco);
+}
+
+
+/* textarea  placeholder*/
+#escrever-postagem::placeholder {
+    color: var(--branco);
+    font-size: 16px;
+}
+
+/* Botao para a postagem */
+#btn-postar {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    color: var(--preto);
+    font-weight: bold;
+    font-size: 17px;
+    background-color: var(--amarelo-escuro);
+    transition: .3s ease-in-out;
+}
+
+/* botão postar houver */
+#btn-postar:hover {
+    box-shadow: 1px 1px 10px var(--amarelo-escuro);
+}
+
+/* seção das postagens */
+#secao-postagens {
+    width: 100%;
+}
+
+/* container dos posts */
+#container-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* posts */
+.posts {
+    border: 1px solid var(--cinza);
+    border-radius: 10px;
+    padding: 40px;
+    background-color: var(--cor-dos-cards);
+}
+
+/* container nome, foto de perfil e data */
+.container-nome-data-foto {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 60px;
+}
+
+/* foto de perfil no post */
+.foto-de-perfil {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+}
+
+/* div com nome e data */
+.container-nome-data {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* nome do usuario no post */
+.container-nome-data > h2 {
+    font-size: 20px;
+}
+
+
+/* data da postagem do post */
+.container-nome-data {
+    color: var(--cinza);
 }

@@ -10,6 +10,14 @@ import bcrypt from 'bcrypt'
 // Importando o Prisma 
 import prisma from "../lib/prisma"
 
+import jwt from "jsonwebtoken";
+
+require('dotenv').config()
+
+const JtwNoEnv = process.env.JWT_PASS;
+
+
+
 // mini servidor de rotas
 const router = Router()
 
@@ -37,7 +45,7 @@ router.post('/loginUsuarios', async (req: Request, res: Response) => {
 
         // Se usuario nao existir 
         if (!user) {
-            return res.status(404).json({mensagem: "Usuario nao encontrado"})
+            return res.status(404).json({mensagem: "Usuario ou senha invalidos"})
         }
 
         // comparando a senha com o bcrypt
@@ -45,9 +53,11 @@ router.post('/loginUsuarios', async (req: Request, res: Response) => {
 
         // verificando a senha
         if (!passwordIsValid) {
-            return res.status(404).json({mensagem: "Senha invalida"})
+            return res.status(404).json({mensagem: "Usuario ou senha invalidos"})
         }
 
+        // Tenho que terminar esse token, tenho que fazer o token ser verificado 
+        const token = jwt.sign({id: user.id}, process.env.JWT_PASS ?? '', {expiresIn: '1h'});
 
         // Aqui se o role for admin entra em uma pagina diferente do usuario
         if (user.role === "admin") {
