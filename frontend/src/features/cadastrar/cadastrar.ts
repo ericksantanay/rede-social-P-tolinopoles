@@ -97,8 +97,6 @@ if (formulario) {
                         })
                     });
 
-                    
-
                     // Aqui esta estraindo o corpo da reposta
                     const dadosUser: User = await response.json()
                     

@@ -256,7 +256,7 @@ main {
 #container-posts {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
 }
 
 /* posts */
@@ -272,7 +272,7 @@ main {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 /* foto de perfil no post */
@@ -298,4 +298,73 @@ main {
 /* data da postagem do post */
 .container-nome-data {
     color: var(--cinza);
+}
+
+
+/* container do conteudo */
+.container-conteudo-da-postagem {
+    margin-bottom: 20px
+}
+
+
+/* conteudo da postagem */
+.conteudo {
+    color: var(--branco);
+}
+
+/* container das curtidas */
+.container-curtida {
+    padding: 10px;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 30px;
+}
+
+
+/* curtidas */
+.curtidas {
+    padding: 5px 20px;
+    border-radius: 30px;
+    border: 1px solid var(--azul-claro);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+/* imagem da curtida */
+.img-da-curtida {
+    color: var(--azul-claro);
+}
+
+/* quantidade de curtidas */
+.quantidade-curtidas {
+    color: var(--branco);
+}
+
+/* container dos comentarios */
+.container-dos-comentarios {
+    width: 100%;
+    border-top: 1px solid var(--branco);
+}
+
+/* icone e o primeiro comentario */
+.icone-e-primeiro-comentario {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+/* imagem do icone que paarece no comentario */
+.img-comentario {
+    color: var(--roxo);
+}
+
+/* primeiro comentario */
+.primeiro-comentario {
+    color: var(--branco);
 }
