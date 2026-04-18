@@ -10,8 +10,13 @@ datasource db {
 
 model usuariosPatolinopoles {
   id              String @id @default(auto()) @map("_id") @db.ObjectId
-  nome            String  @unique
+  nome            String @unique
   senha           String
   anoNascimento   Int
   role            String
+}
+
+model postagemUser {
+    id            String @id @default(auto()) @map("_id") @db.ObjectId
+    postagem      String
 }
