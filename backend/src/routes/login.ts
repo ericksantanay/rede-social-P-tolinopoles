@@ -40,7 +40,7 @@ router.post('/loginUsuarios', async (req: Request, res: Response) => {
     try {
         
         // Buscando o usuario pelo nome
-        const user = await prisma.usuariosPatolinopoles.findUnique({where: {nome: nome} });
+        const user = await prisma.usuariosPatolinopoles.findFirst({where: {nome: nome, senha: senha} });
         
 
         // Se usuario nao existir 
@@ -68,13 +68,12 @@ router.post('/loginUsuarios', async (req: Request, res: Response) => {
                 id: user.id,
                 nome: user.nome
             })
+            return
         }
 
 
     } catch (error) {
-        
-        console.log(error)
-         return res.status(500).json({mensagem: "Erro no servidor tente novamente mais tarde"})
+        return res.status(500).json({mensagem: "Erro no servidor tente novamente mais tarde"})
     }
 })
 
