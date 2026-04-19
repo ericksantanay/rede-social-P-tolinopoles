@@ -9,4 +9,5 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/usuariosPatolinopoles'
+export type * from './models/postagemUser'
 export type * from './commonInputTypes'

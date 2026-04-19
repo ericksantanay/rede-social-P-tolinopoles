@@ -390,7 +390,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-  usuariosPatolinopoles: 'usuariosPatolinopoles'
+  usuariosPatolinopoles: 'usuariosPatolinopoles',
+  postagemUser: 'postagemUser'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -406,7 +407,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "usuariosPatolinopoles"
+    modelProps: "usuariosPatolinopoles" | "postagemUser"
     txIsolationLevel: never
   }
   model: {
@@ -484,6 +485,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    postagemUser: {
+      payload: Prisma.$postagemUserPayload<ExtArgs>
+      fields: Prisma.postagemUserFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.postagemUserFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemUserPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.postagemUserFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemUserPayload>
+        }
+        findFirst: {
+          args: Prisma.postagemUserFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemUserPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.postagemUserFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemUserPayload>
+        }
+        findMany: {
+          args: Prisma.postagemUserFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemUserPayload>[]
+        }
+        create: {
+          args: Prisma.postagemUserCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemUserPayload>
+        }
+        createMany: {
+          args: Prisma.postagemUserCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.postagemUserDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemUserPayload>
+        }
+        update: {
+          args: Prisma.postagemUserUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemUserPayload>
+        }
+        deleteMany: {
+          args: Prisma.postagemUserDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.postagemUserUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.postagemUserUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$postagemUserPayload>
+        }
+        aggregate: {
+          args: Prisma.PostagemUserAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePostagemUser>
+        }
+        groupBy: {
+          args: Prisma.postagemUserGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PostagemUserGroupByOutputType>[]
+        }
+        findRaw: {
+          args: Prisma.postagemUserFindRawArgs<ExtArgs>
+          result: Prisma.JsonObject
+        }
+        aggregateRaw: {
+          args: Prisma.postagemUserAggregateRawArgs<ExtArgs>
+          result: Prisma.JsonObject
+        }
+        count: {
+          args: Prisma.postagemUserCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PostagemUserCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -510,6 +585,14 @@ export const UsuariosPatolinopolesScalarFieldEnum = {
 } as const
 
 export type UsuariosPatolinopolesScalarFieldEnum = (typeof UsuariosPatolinopolesScalarFieldEnum)[keyof typeof UsuariosPatolinopolesScalarFieldEnum]
+
+
+export const PostagemUserScalarFieldEnum = {
+  id: 'id',
+  postagem: 'postagem'
+} as const
+
+export type PostagemUserScalarFieldEnum = (typeof PostagemUserScalarFieldEnum)[keyof typeof PostagemUserScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -662,6 +745,7 @@ export interface PrismaClientOptions {
 }
 export type GlobalOmitConfig = {
   usuariosPatolinopoles?: Prisma.usuariosPatolinopolesOmit
+  postagemUser?: Prisma.postagemUserOmit
 }
 
 /* Types for Logging */

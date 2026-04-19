@@ -5,9 +5,12 @@ import express from "express"
 import cors from "cors";
 
 // Importando as minhas rotas
-import cadastrarUser from "./routes/cadastrar"
+import cadastrarUser from "./routes/cadastrar";
 
 import Login from "./routes/login";
+
+import postagem from "./routes/postagem";
+
 
 // cria o server principal
 const app = express()
@@ -26,6 +29,8 @@ import "dotenv/config";
 // conectando as rotas no servidor
 app.use(cadastrarUser);
 app.use(Login);
+app.use(postagem);
+
 
 
 app.listen(3000, () => {

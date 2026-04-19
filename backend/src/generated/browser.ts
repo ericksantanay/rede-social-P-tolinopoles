@@ -22,3 +22,8 @@ export * from './enums';
  * 
  */
 export type usuariosPatolinopoles = Prisma.usuariosPatolinopolesModel
+/**
+ * Model postagemUser
+ * 
+ */
+export type postagemUser = Prisma.postagemUserModel

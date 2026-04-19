@@ -16,6 +16,7 @@ model usuariosPatolinopoles {
   role            String
 }
 
+
 model postagemUser {
     id            String @id @default(auto()) @map("_id") @db.ObjectId
     postagem      String
