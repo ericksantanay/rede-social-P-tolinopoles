@@ -29,19 +29,15 @@ router.post('/postagem', async (req: Request, res: Response) => {
         };
 
 
-        // Verificando se a postagem esta vindo com a sting vazia 
-        if (postagem === "") {
-            return res.status(404).json({mensagem: "Escreva algo para fazer a postagem"});
-        }else {
-            // Criando a postagem no banco de dados
-            await prisma.postagemUser.create({data:{postagem: postagem}});
-            res.status(201).json({mensagem: "Postagem criada com sucesso"});
-        };
+        // Criando a postagem no banco de dados
+        await prisma.postagemUser.create({data:{postagem: postagem}});
+
+        return res.status(201).json({mensagem: "Postagem criada com sucesso"})
+        
 
 
     } catch (error) {
-        console.log(error)
-        return res.status(500).json({mensagem: "Erro no servidor tente novamente mais tarde"})
+        return res.status(500).json({mensagem: "Erro no servidor tente novamente mais tarde"});
     }
 
 });
@@ -50,17 +46,17 @@ router.post('/postagem', async (req: Request, res: Response) => {
 // carregando o post dos usuarios
 router.get('/postagem', async (req: Request, res: Response) => {
 
-    const buscarPostagem = await prisma.postagemUser.findMany();
+    try {
 
+        const buscarPostagem = await prisma.postagemUser.findMany();
+        res.status(200).json(buscarPostagem)
+    
+    } catch (error) {
 
-    res.status(200).json(buscarPostagem)
-
-
-
+        return res.status(500).json({mensagem: "Erro no servidor tente novamente mais tarde"})    
+    
+    }
 })
-
-
-
 
 // exportando
 export default router;

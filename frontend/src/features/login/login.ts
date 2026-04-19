@@ -27,13 +27,6 @@ if (formularioLogin) {
             }
 
 
-            // Dados que eu espero ter
-            interface UserLogin {
-                nome: string;
-                senha: string;
-            };
-
-
             try {
                 const response = fetch("http://localhost:3000/loginUsuarios", {
                     method: "POST", 
@@ -48,9 +41,13 @@ if (formularioLogin) {
                 .then((dados)  => dados.json())
                 .then((dados) => {
 
+                   
                 // Dados 
                 console.log(dados)
 
+                // Salvando o ID do usuario no localStorage
+                localStorage.setItem('idUsuario', JSON.stringify())
+                
                     // Retorno para o usuario se cadastrar
                     if (dados.mensagem === "Erro cadastre-se" && dados.status === 404) {
                         return alert("Erro cadastre-se")

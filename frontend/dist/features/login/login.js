@@ -16,7 +16,6 @@ if (formularioLogin) {
             if (nomeLogin.trim() === '' || senhaLogin.trim() === '') {
                 return alert("Preencha os campos corretamente");
             }
-            ;
             try {
                 const response = fetch("http://localhost:3000/loginUsuarios", {
                     method: "POST",
@@ -32,6 +31,9 @@ if (formularioLogin) {
                     .then((dados) => {
                     // Dados 
                     console.log(dados);
+                    const idUser = response.then(dados.id);
+                    // Salvando o ID do usuario no localStorage
+                    localStorage.setItem('idUsuario', JSON.stringify(idUser));
                     // Retorno para o usuario se cadastrar
                     if (dados.mensagem === "Erro cadastre-se" && dados.status === 404) {
                         return alert("Erro cadastre-se");
@@ -42,6 +44,7 @@ if (formularioLogin) {
                     }
                     // Direcionando o usuario com base no role
                     if (dados.mensagem === "Logando com sua conta admin" && dados.status === 200) {
+                        // Fazer o redirecionamento para conta admin
                         return alert("Entrando na conta admin");
                     }
                     else {

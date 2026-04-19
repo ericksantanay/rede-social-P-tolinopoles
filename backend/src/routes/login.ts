@@ -79,5 +79,41 @@ router.post('/loginUsuarios', async (req: Request, res: Response) => {
 
 
 
+// Rota para mostrar o nome
+router.get('/loginUsuarios/:id', async (req: Request, res: Response) => {
+    
+    // Buscando Pelo ID
+    const idUsuario = req.params.id;
+
+    try {
+
+        // Resolver amanha isso daqui
+        // Buscando o usuario
+        const usuarioListado = await prisma.usuariosPatolinopoles.findUnique({
+            where:{
+                id: idUsuario
+            }
+        });
+
+
+        // Verificando se o usuario existe
+        if (usuarioListado) {
+            return res.status(200).json(usuarioListado)
+        }else {
+            res.status(404).json({mensagem: "Usuario não encontrado"})
+        }
+
+        
+    } catch (error) {
+        return res.status(500).json({mensagem: "Erro no servidor"});
+    }
+
+
+
+
+}) 
+
+
+
 // exportando 
 export default router
