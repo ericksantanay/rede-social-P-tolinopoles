@@ -28,7 +28,7 @@ if (formularioLogin) {
 
 
             try {
-                const response = fetch("http://localhost:3000/loginUsuarios", {
+                fetch("http://localhost:3000/login", {
                     method: "POST", 
                     headers: {
                         "Content-Type": "application/json",
@@ -38,39 +38,41 @@ if (formularioLogin) {
                         senha: senhaLogin
                     })
                 })
-                .then((dados)  => dados.json())
+                .then((res)  => res.json())
                 .then((dados) => {
 
                    
                 // Dados 
                 console.log(dados)
 
-                // Salvando o ID do usuario no localStorage
-                localStorage.setItem('idUsuario', JSON.stringify())
+                // // Salvando o ID do usuario no localStorage
+                // localStorage.setItem('idUsuario', JSON.stringify(dados.id))
                 
                     // Retorno para o usuario se cadastrar
-                    if (dados.mensagem === "Erro cadastre-se" && dados.status === 404) {
+                    if (dados.mensagem === "Erro cadastre-se") {
                         return alert("Erro cadastre-se")
                     }
 
 
                     //  Usuario ou senha invalidos  
-                    if (dados.mensagem === "Usuario ou senha invalidos" && dados.status === 404) {
+                    if (dados.mensagem === "Usuario ou senha invalidos") {
                         return alert("Usuario ou senha invalidos")
                     }
 
 
                     // Direcionando o usuario com base no role
-                    if (dados.mensagem === "Logando com sua conta admin" && dados.status === 200) {
-                        // Fazer o redirecionamento para conta admin
+                    if (dados.mensagem === "Logando com sua conta admin") {
                         return alert("Entrando na conta admin")
-                    }else {
+                    }else if (dados.mensagem === "Usuario encontrado com sucesso") {
                         alert("Entrando na conta cliente")
                         window.location.replace('http://127.0.0.1:5500/frontend/src/features/usuarios%20secao/usuario.html')
-                    }   
+                        return
+                    }else {
+                        alert("Erro no login")
+                    }
 
 
-                })
+                });
 
                 // // Aqui esta estraindo o corpo da reposta
                 // const dadosUsuario: UserLogin = await response.json()

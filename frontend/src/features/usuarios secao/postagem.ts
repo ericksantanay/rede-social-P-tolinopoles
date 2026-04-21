@@ -43,8 +43,8 @@ if (formularioPostagem) {
                             postagem: postagemTextAreaValue
                         }) 
                     })
-                    .then((dadosPost) => dadosPost.json())
-                    .then((dadosPost) => {
+                    .then(post => post.json())
+                    .then(dadosPost => {
 
                         console.log(dadosPost)
 

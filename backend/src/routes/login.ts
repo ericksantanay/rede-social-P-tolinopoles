@@ -12,10 +12,10 @@ import prisma from "../lib/prisma"
 
 import jwt from "jsonwebtoken";
 
+
 require('dotenv').config()
 
 const JtwNoEnv = process.env.JWT_PASS;
-
 
 
 // mini servidor de rotas
@@ -24,12 +24,10 @@ const router = Router()
 
 // ROTAS
 // Rota Login
-router.post('/loginUsuarios', async (req: Request, res: Response) => {
+router.post("/login", async (req: Request, res: Response) => {
 
     // Requisição do corpo
     const {nome, senha} = req.body;
-
-    
 
     // Verificando se os dados estão vindo do request
     if (!nome || !senha) {
@@ -38,10 +36,12 @@ router.post('/loginUsuarios', async (req: Request, res: Response) => {
     }
 
     try {
-        
         // Buscando o usuario pelo nome
-        const user = await prisma.usuariosPatolinopoles.findFirst({where: {nome: nome, senha: senha} });
-        
+        const user = await prisma.usuariosPatolinopoles.findFirst({
+            where:{
+                nome: nome
+            }
+        })
 
         // Se usuario nao existir 
         if (!user) {
@@ -56,6 +56,8 @@ router.post('/loginUsuarios', async (req: Request, res: Response) => {
             return res.status(404).json({mensagem: "Usuario ou senha invalidos"})
         }
 
+        // Usuario ou senha invalidos
+
         // Tenho que terminar esse token, tenho que fazer o token ser verificado 
         const token = jwt.sign({id: user.id}, process.env.JWT_PASS ?? '', {expiresIn: '1h'});
 
@@ -63,14 +65,14 @@ router.post('/loginUsuarios', async (req: Request, res: Response) => {
         if (user.role === "admin") {
             return res.status(200).json({mensagem: "Logando com sua conta admin"})
         }else {
-            res.status(200).json({
+            return res.status(200).json({
                 mensagem: "Usuario encontrado com sucesso",
                 id: user.id,
-                nome: user.nome
+                nome: user.nome,
+                token: token
             })
-            return
+            
         }
-
 
     } catch (error) {
         return res.status(500).json({mensagem: "Erro no servidor tente novamente mais tarde"})
@@ -79,21 +81,29 @@ router.post('/loginUsuarios', async (req: Request, res: Response) => {
 
 
 
-// Rota para mostrar o nome
+// // // Rota para mostrar o nome
 router.get('/loginUsuarios/:id', async (req: Request, res: Response) => {
     
     // Buscando Pelo ID
     const idUsuario = req.params.id;
 
-    try {
 
-        // Resolver amanha isso daqui
+
+    try {
+        
+        // Verificando se encontrou o usuario
+        if (!idUsuario) {
+            return res.status(404).json({mensagem: "Usuário não encontrado"})
+        }
+
+
         // Buscando o usuario
         const usuarioListado = await prisma.usuariosPatolinopoles.findUnique({
             where:{
-                id: idUsuario
+                id: idUsuario  as any  //Aqio esta vindo o id, nome,senha, ano de nascimento e role
             }
         });
+
 
 
         // Verificando se o usuario existe

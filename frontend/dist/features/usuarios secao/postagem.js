@@ -31,8 +31,8 @@ if (formularioPostagem) {
                         postagem: postagemTextAreaValue
                     })
                 })
-                    .then((dadosPost) => dadosPost.json())
-                    .then((dadosPost) => {
+                    .then(post => post.json())
+                    .then(dadosPost => {
                     console.log(dadosPost);
                     // Mensagem de que a mensagem nao existe
                     if (dadosPost.mensagem === "Postagem não existe" && dadosPost.status === 404) {

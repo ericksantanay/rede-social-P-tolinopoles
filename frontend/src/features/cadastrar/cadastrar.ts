@@ -67,8 +67,11 @@ if (formulario) {
                 } // final if 1
 
 
+                let dataUserComprimento = String(dataUser)
+
+
                 // Verificando o comprimento do value que esta vindo do input DateUser
-                if (dataUser > 4) {
+                if (dataUserComprimento.length > 4) {
                     return alert('Digite a data corretamente')
                 }
 
@@ -193,9 +196,8 @@ if (formulario) {
                         mensagemDeErroNoServidor.style.display = 'none'
                     }, 4000)
 
+                    return
                 }
-
-                
 
             // ###########################################################
 

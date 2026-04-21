@@ -42,8 +42,9 @@ if (formulario) {
                 }, 4000);
                 return;
             } // final if 1
+            let dataUserComprimento = String(dataUser);
             // Verificando o comprimento do value que esta vindo do input DateUser
-            if (dataUser > 4) {
+            if (dataUserComprimento.length > 4) {
                 return alert('Digite a data corretamente');
             }
             try {
@@ -128,6 +129,7 @@ if (formulario) {
                     clearTimeout(mensagem4);
                     mensagemDeErroNoServidor.style.display = 'none';
                 }, 4000);
+                return;
             }
             // ###########################################################
         } // If com o instanceof
