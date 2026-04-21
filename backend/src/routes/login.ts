@@ -17,6 +17,10 @@ require('dotenv').config()
 
 const JtwNoEnv = process.env.JWT_PASS;
 
+type JWTPayload = {
+    id: number
+}
+
 
 // mini servidor de rotas
 const router = Router()
@@ -59,7 +63,7 @@ router.post("/login", async (req: Request, res: Response) => {
         // Usuario ou senha invalidos
 
         // Tenho que terminar esse token, tenho que fazer o token ser verificado 
-        const token = jwt.sign({id: user.id}, process.env.JWT_PASS ?? '', {expiresIn: '1h'});
+        const token = jwt.sign({id: user.id}, process.env.JWT_PASS ?? '', {expiresIn: '10m'});
 
         // Aqui se o role for admin entra em uma pagina diferente do usuario
         if (user.role === "admin") {
@@ -67,8 +71,6 @@ router.post("/login", async (req: Request, res: Response) => {
         }else {
             return res.status(200).json({
                 mensagem: "Usuario encontrado com sucesso",
-                id: user.id,
-                nome: user.nome,
                 token: token
             })
             
@@ -81,37 +83,68 @@ router.post("/login", async (req: Request, res: Response) => {
 
 
 
-// // // Rota para mostrar o nome
-router.get('/loginUsuarios/:id', async (req: Request, res: Response) => {
+// Rota para mostrar o nome
+router.get('/login', async (req: Request, res: Response) => {
     
-    // Buscando Pelo ID
-    const idUsuario = req.params.id;
-
-
+    // Buscando Pelo Token
+    const { authorization } = req.headers
 
     try {
-        
-        // Verificando se encontrou o usuario
-        if (!idUsuario) {
-            return res.status(404).json({mensagem: "Usuário não encontrado"})
+
+
+        if (!authorization) {
+            return  res.status(403).json({mensagem: "Nao Autorizado"})
         }
 
+        // Tranformando a string em um array
+        const token = authorization.split(' ')[1]
 
-        // Buscando o usuario
-        const usuarioListado = await prisma.usuariosPatolinopoles.findUnique({
-            where:{
-                id: idUsuario  as any  //Aqio esta vindo o id, nome,senha, ano de nascimento e role
+        // Verificando o Token
+        const { id } = jwt.verify(token, process.env.JWT_PASS ?? '') as JWTPayload
+
+
+        // Buscando o id
+        const user = await prisma.usuariosPatolinopoles.findUnique({
+            where:{ 
+                id: id as any
             }
-        });
+        }) 
 
 
-
-        // Verificando se o usuario existe
-        if (usuarioListado) {
-            return res.status(200).json(usuarioListado)
+        // Verificando se o usuario é ele mesmo
+        if (!user) {
+            return  res.status(403).json({mensagem: "Nao Autorizado"})
         }else {
-            res.status(404).json({mensagem: "Usuario não encontrado"})
+            return res.status(200).json({mensagem: "Token verificado",
+                id: user.id,
+                nome: user.nome
+            })
         }
+
+        
+
+
+        // // Verificando se encontrou o usuario
+        // if (!idUsuario) {
+        //     return res.status(404).json({mensagem: "Usuário não encontrado"})
+        // }
+
+
+        // // Buscando o usuario
+        // const usuarioListado = await prisma.usuariosPatolinopoles.findUnique({
+        //     where:{
+        //         id: idUsuario  as any  //Aqio esta vindo o id, nome,senha, ano de nascimento e role
+        //     }
+        // });
+
+
+
+        // // Verificando se o usuario existe
+        // if (usuarioListado) {
+        //     return res.status(200).json(usuarioListado)
+        // }else {
+        //     res.status(404).json({mensagem: "Usuario não encontrado"})
+        // }
 
         
     } catch (error) {

@@ -45,8 +45,8 @@ if (formularioLogin) {
                 // Dados 
                 console.log(dados)
 
-                // // Salvando o ID do usuario no localStorage
-                // localStorage.setItem('idUsuario', JSON.stringify(dados.id))
+                // Salvando o ID do usuario no localStorage
+                localStorage.setItem('idUsuario', JSON.stringify(dados.token))
                 
                     // Retorno para o usuario se cadastrar
                     if (dados.mensagem === "Erro cadastre-se") {
