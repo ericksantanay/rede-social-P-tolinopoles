@@ -63,11 +63,11 @@ router.post("/login", async (req: Request, res: Response) => {
         // Usuario ou senha invalidos
 
         // Tenho que terminar esse token, tenho que fazer o token ser verificado 
-        const token = jwt.sign({id: user.id}, process.env.JWT_PASS ?? '', {expiresIn: '10m'});
+        const token = jwt.sign({id: user.id}, process.env.JWT_PASS ?? '', {expiresIn: '15m'});
 
         // Aqui se o role for admin entra em uma pagina diferente do usuario
         if (user.role === "admin") {
-            return res.status(200).json({mensagem: "Logando com sua conta admin"})
+            return res.status(200).json({mensagem: "Logando com sua conta admin", token: token})
         }else {
             return res.status(200).json({
                 mensagem: "Usuario encontrado com sucesso",
@@ -95,8 +95,15 @@ router.get('/login', async (req: Request, res: Response) => {
             return  res.status(403).json({mensagem: "Nao Autorizado"})
         }
 
+
         // Tranformando a string em um array e tirando o bearer do token 
         const token = authorization.split(' ')[1]
+
+        if (!token) {
+            res.status(404).json({mensagem: "Esse Token não existe"})   
+            return
+        }
+
 
         // Verificando o Token
         const { id } = jwt.verify(token, process.env.JWT_PASS ?? '') as JWTPayload
@@ -122,7 +129,7 @@ router.get('/login', async (req: Request, res: Response) => {
 
         
     } catch (error) {
-        return res.status(500).json({mensagem: "Erro no servidor"});
+        return res.status(500).json({mensagem: "Erro no servidor tente novamente mais tarde"});
     }
 
 }) 

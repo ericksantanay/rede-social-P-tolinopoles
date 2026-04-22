@@ -1,10 +1,10 @@
 "use strict";
 /* Objetivo: Aqui eu vou pegar o token JWT do localstorage e verificar se é realmente o usuario  se for eu carrego os dados se não da erro*/
 // TOKEN JWT
+const token = JSON.parse(localStorage.getItem('idUsuario'));
 // Saidas aonde vai ir o nome
 const saidaNome = document.querySelector('.nome-usuario');
 function carregarIndentidadeUser() {
-    const token = localStorage.getItem('idUsuario');
     // Verificando se existe
     if (saidaNome) {
         try {
@@ -12,7 +12,7 @@ function carregarIndentidadeUser() {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token ?? ""}`
+                    "authorization": `Bearer ${token ?? ""}`
                 }
             })
                 .then((res) => res.json())
@@ -29,7 +29,8 @@ function carregarIndentidadeUser() {
         }
         catch (error) {
             console.log(error);
-            return alert("Erro no servidor");
+            alert("Erro no servidor");
+            return;
         }
     }
 }

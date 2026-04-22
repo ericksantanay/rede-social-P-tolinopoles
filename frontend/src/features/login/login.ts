@@ -62,7 +62,8 @@ if (formularioLogin) {
 
                     // Direcionando o usuario com base no role
                     if (dados.mensagem === "Logando com sua conta admin") {
-                        return alert("Entrando na conta admin")
+                        window.location.replace('http://127.0.0.1:5500/frontend/src/features/admin/admin.html')
+                        return 
                     }else if (dados.mensagem === "Usuario encontrado com sucesso") {
                         alert("Entrando na conta cliente")
                         window.location.replace('http://127.0.0.1:5500/frontend/src/features/usuariosSecao/usuario.html')

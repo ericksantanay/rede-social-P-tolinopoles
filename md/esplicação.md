@@ -1,0 +1,1 @@
+Fazer a verificação do usuario com admin e fazer a verificação da URL para os usuarios nao pegar a URL do admin colar e entrar, ai eu vou fazer uma verificação com token se o usuario tentar logar sem token o backend barra a entrada desse usuario
