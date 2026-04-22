@@ -65,7 +65,7 @@ if (formularioLogin) {
                         return alert("Entrando na conta admin")
                     }else if (dados.mensagem === "Usuario encontrado com sucesso") {
                         alert("Entrando na conta cliente")
-                        window.location.replace('http://127.0.0.1:5500/frontend/src/features/usuarios%20secao/usuario.html')
+                        window.location.replace('http://127.0.0.1:5500/frontend/src/features/usuariosSecao/usuario.html')
                         return
                     }else {
                         alert("Erro no login")
@@ -73,19 +73,7 @@ if (formularioLogin) {
 
 
                 });
-
-                // // Aqui esta estraindo o corpo da reposta
-                // const dadosUsuario: UserLogin = await response.json()
                 
-                // // Aqui estão os dados
-                // console.log(dadosUsuario);
-
-                // if (response)
-                
-
-
-
-
 
 
             } catch (error) {

@@ -61,7 +61,7 @@ Aqui eu vou transformar em texto porque eu escrevi em obejto
 # await
 const response = await fetch(...)
 
-Isso significa espera o servidor responder antes de continuar, sem await, o código continuaria antes da resposta chegar.]
+Isso significa espera o servidor responder antes de continuar, sem await, o código continuaria antes da resposta chegar.
 
 interface Usuario {
   nome: string
