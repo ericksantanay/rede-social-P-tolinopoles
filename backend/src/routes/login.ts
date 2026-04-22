@@ -96,7 +96,7 @@ router.get('/login', async (req: Request, res: Response) => {
             return  res.status(403).json({mensagem: "Nao Autorizado"})
         }
 
-        // Tranformando a string em um array
+        // Tranformando a string em um array e tirando o bearer do token 
         const token = authorization.split(' ')[1]
 
         // Verificando o Token
@@ -120,31 +120,6 @@ router.get('/login', async (req: Request, res: Response) => {
                 nome: user.nome
             })
         }
-
-        
-
-
-        // // Verificando se encontrou o usuario
-        // if (!idUsuario) {
-        //     return res.status(404).json({mensagem: "Usuário não encontrado"})
-        // }
-
-
-        // // Buscando o usuario
-        // const usuarioListado = await prisma.usuariosPatolinopoles.findUnique({
-        //     where:{
-        //         id: idUsuario  as any  //Aqio esta vindo o id, nome,senha, ano de nascimento e role
-        //     }
-        // });
-
-
-
-        // // Verificando se o usuario existe
-        // if (usuarioListado) {
-        //     return res.status(200).json(usuarioListado)
-        // }else {
-        //     res.status(404).json({mensagem: "Usuario não encontrado"})
-        // }
 
         
     } catch (error) {
