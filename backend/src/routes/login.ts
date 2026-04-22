@@ -91,7 +91,6 @@ router.get('/login', async (req: Request, res: Response) => {
 
     try {
 
-
         if (!authorization) {
             return  res.status(403).json({mensagem: "Nao Autorizado"})
         }

@@ -1,0 +1,370 @@
+body,html {
+    background-color: var(--cor-de-fundo);
+}
+
+header {
+    width: 100%;
+    padding: 20px 7%;
+    position: fixed;
+    position: sticky;
+    z-index: 99;
+    background-color: var(--cor-de-fundo);
+    border-bottom: 1px solid var(--branco);
+    margin-bottom: 30px;
+}
+
+
+/* nav */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+/* container logo e nome */
+#logo-nome  {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* logo */
+#logo-nome > img {
+    width: 50px;
+}
+
+/* h1 nome */
+#logo-nome > h1 {
+    font-family: var(--bungee);
+    font-size: 19px;
+    color: var(--amarelo-claro);
+}
+
+
+/* div com o nome do usuario */
+#perfil-user {
+    cursor: pointer;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    border: 1px solid var(--branco);
+    border-radius: 120px;
+    transition: .3s ease-in-out;
+}
+
+#perfil-user:hover {
+    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.447);
+}
+
+/* imagem do perfil */
+#perfil-user > svg {
+    color: var(--branco);
+}
+
+
+/* nome do usuario */
+.nome-usuario {
+    color: var(--branco);
+}
+
+
+/* div com a barra de pesquisa */
+#container-barra-de-pesquisa {
+    width: 100%;
+}
+
+
+/* container barra pesquisa */
+#barra-de-pesquisa {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+
+/* input (barra de pesquisa) */
+#barra-de-pesquisa > input {
+    outline: none;
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+     font-size: 16px;
+}
+
+/* placeholder do input da barra de pesquisa */
+/* #barra-de-pesquisa > input::placeholder {
+   
+} */
+
+/* Imagem da Lupa */
+#barra-de-pesquisa > svg {
+    color: var(--cinza);
+    position: absolute;
+    top: 125px;
+    right: 130px;
+}
+
+/* container do botão */
+#container-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+/* botão para pesquisar o usuario */
+#btn-pesquisar {
+    padding: 8px 30px;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--branco);
+    color: var(--preto);
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+/* botão hover */
+#btn-pesquisar:hover {
+    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.535);
+}
+
+/* campo de resultado das pesquisas */
+#container-resultado-da-pesquisa {
+    display: none;
+    height: 300px;
+    margin-top: 20px;
+    background-color: var(--cor-dos-cards);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--cinza);
+    overflow-y: scroll;
+}
+
+/* Editando a de rolagem (largura) */
+#container-resultado-da-pesquisa::-webkit-scrollbar {
+   width: 10px; 
+}
+
+/* modificando a cor de fundo */
+#container-resultado-da-pesquisa::-webkit-scrollbar-track {
+    background-color: var(--branco);
+    border-radius: 10px;
+}
+
+/* Cursor */
+#container-resultado-da-pesquisa::-webkit-scrollbar-thumb {
+    background-color: var(--amarelo-claro);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Resultado da pesquisa */
+.resultado-pesquisa {
+    color: var(--branco);
+    margin-bottom: 30px;
+}   
+
+
+/* ######################### */
+/* MAIN */
+main {
+   padding: 20px 7%;  
+}
+
+/* Section com a div do aviso */
+#container-avisos {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    z-index: 99;
+}
+
+/* div com o aviso */
+#aviso-comentario {
+    background-color: var(--azul-mensagem);
+    padding: 25px;
+    border: 2px solid var(--azul-claro);
+    border-radius: 10px;
+}
+
+/* mensagem do aviso  */
+#aviso-comentario > p {
+    color: var(--azul-texto);
+    font-weight: bold;
+}
+
+/* section com o formulario */
+#secao-fazer-postagem {
+    width: 100%;
+    margin-bottom: 26px;
+}
+
+/* formulario com o textarea e o btn  */
+#fomulario-postagem {
+    width: 100%;
+    display: flex;
+    gap: 26px;
+    flex-direction: column;
+    align-items: end;
+}
+
+/* textarea */
+#escrever-postagem {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--cor-dos-cards);
+    border: 1px solid var(--cinza);
+    color: var(--branco);
+}
+
+
+/* textarea  placeholder*/
+#escrever-postagem::placeholder {
+    color: var(--branco);
+    font-size: 16px;
+}
+
+/* Botao para a postagem */
+#btn-postar {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    color: var(--preto);
+    font-weight: bold;
+    font-size: 17px;
+    background-color: var(--amarelo-escuro);
+    transition: .3s ease-in-out;
+}
+
+/* botão postar houver */
+#btn-postar:hover {
+    box-shadow: 1px 1px 10px var(--amarelo-escuro);
+}
+
+/* seção das postagens */
+#secao-postagens {
+    width: 100%;
+}
+
+/* container dos posts */
+#container-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* posts */
+.posts {
+    border: 1px solid var(--cinza);
+    border-radius: 10px;
+    padding: 40px;
+    background-color: var(--cor-dos-cards);
+}
+
+/* container nome, foto de perfil e data */
+.container-nome-data-foto {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* foto de perfil no post */
+.foto-de-perfil {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+}
+
+/* div com nome e data */
+.container-nome-data {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* nome do usuario no post */
+.container-nome-data > h2 {
+    font-size: 20px;
+}
+
+
+/* data da postagem do post */
+.container-nome-data {
+    color: var(--cinza);
+}
+
+
+/* container do conteudo */
+.container-conteudo-da-postagem {
+    margin-bottom: 20px
+}
+
+
+/* conteudo da postagem */
+.conteudo {
+    color: var(--branco);
+}
+
+/* container das curtidas */
+.container-curtida {
+    padding: 10px;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 30px;
+}
+
+
+/* curtidas */
+.curtidas {
+    padding: 5px 20px;
+    border-radius: 30px;
+    border: 1px solid var(--azul-claro);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+/* imagem da curtida */
+.img-da-curtida {
+    color: var(--azul-claro);
+}
+
+/* quantidade de curtidas */
+.quantidade-curtidas {
+    color: var(--branco);
+}
+
+/* container dos comentarios */
+.container-dos-comentarios {
+    width: 100%;
+    border-top: 1px solid var(--branco);
+}
+
+/* icone e o primeiro comentario */
+.icone-e-primeiro-comentario {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+/* imagem do icone que paarece no comentario */
+.img-comentario {
+    color: var(--roxo);
+}
+
+/* primeiro comentario */
+.primeiro-comentario {
+    color: var(--branco);
+}
