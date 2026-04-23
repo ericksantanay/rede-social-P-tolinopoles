@@ -58,30 +58,22 @@ if (formularioLogin) {
                     if (dados.mensagem === "Usuario ou senha invalidos") {
                         return alert("Usuario ou senha invalidos")
                     }
-
-                    if (dados.role !== "admin") {
-                        alert("Entrando na conta cliente")
-                        window.location.replace('http://127.0.0.1:5500/frontend/src/features/usuariosSecao/usuario.html')
-                        return
-                    }
  
 
                     // Direcionando o usuario com base no role
-                    if (dados.mensagem === "Logando com sua conta admin") {
+                    if (dados.mensagem === "Pagina Admin") {
                         window.location.replace('http://127.0.0.1:5500/frontend/src/features/admin/admin.html')
                         return 
-                    }else if (dados.mensagem === "Usuario encontrado com sucesso") {
-                        alert("Entrando na conta cliente")
+                    }
+                    
+                    if (dados.mensagem === "Pagina Cliente") {
                         window.location.replace('http://127.0.0.1:5500/frontend/src/features/usuariosSecao/usuario.html')
                         return
                     }else {
-                        alert("Erro no login")
+                        return alert("Erro no login")
                     }
-
-
                 });
                 
-
 
             } catch (error) {
                 console.log(error)

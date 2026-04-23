@@ -31,7 +31,7 @@ const router = Router()
 router.post("/login", async (req: Request, res: Response) => {
 
     // Requisição do corpo
-    const {nome, senha, role} = req.body;
+    const {nome, senha} = req.body;
 
     // Verificando se os dados estão vindo do request
     if (!nome || !senha) {
@@ -63,14 +63,20 @@ router.post("/login", async (req: Request, res: Response) => {
         // Usuario ou senha invalidos
 
         // Tenho que terminar esse token, tenho que fazer o token ser verificado 
-        const token = jwt.sign({id: user.id}, process.env.JWT_PASS ?? '', {expiresIn: '15m'});
+        const token = jwt.sign({id: user.id}, process.env.JWT_PASS ?? '', {expiresIn: '2h'});
+
+        // Verificando se o role existe
+        if (!user.role) {
+            res.status(404).json({mensagem: "Role não existe"})
+            return
+        }
 
         // Aqui se o role for admin entra em uma pagina diferente do usuario
         if (user.role === "admin") {
-            return res.status(200).json({mensagem: "Logando com sua conta admin", token: token, role: user.role})
+            return res.status(200).json({mensagem: "Pagina Admin", token: token, role: user.role})
         }else {
             return res.status(200).json({
-                mensagem: "Usuario encontrado com sucesso",
+                mensagem: "Pagina Cliente",
                 token: token,
                 role: user.role
             })
@@ -117,12 +123,19 @@ router.get('/login', async (req: Request, res: Response) => {
             }
         }) 
 
-
         // Verificando se o usuario é ele mesmo
         if (!user) {
-            return  res.status(403).json({mensagem: "Nao Autorizado"})
-        }else {
-            return res.status(200).json({mensagem: "Token verificado",
+            return  res.status(403).json({mensagem: "Token nao Autorizado"})
+        }
+
+        // Verificando se o role existe
+        if (!user.role) {
+            res.status(404).json({mensagem: "Role não existe"})
+        }
+
+        // Se existir ele manda uma resposta de que o token foi verificado
+        if (user) {
+            return res.status(200).json({mensagem: "Token verificado com sucesso",
                 id: user.id,
                 nome: user.nome,
                 role: user.role
@@ -131,12 +144,10 @@ router.get('/login', async (req: Request, res: Response) => {
 
         
     } catch (error) {
-        return res.status(500).json({mensagem: "Erro no servidor tente novamente mais tarde"});
+        return res.status(500).json({mensagem: "Erro, token esta invalido"});
     }
 
 }) 
-
-
 
 // exportando 
 export default router

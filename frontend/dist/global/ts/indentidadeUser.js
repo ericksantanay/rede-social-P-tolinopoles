@@ -19,24 +19,31 @@ function carregarIndentidadeUser() {
                 .then((res) => res.json())
                 .then((dados) => {
                 console.log(dados);
-                // if (dados.mensagem === "")
+                saidaNome.innerText = dados.nome;
+                saidaNomePost.innerText = dados.nome;
                 // Token não autorizado
-                if (dados.mensagem === "Nao Autorizado" || dados.mensagem === "Erro no servidor tente novamente mais tarde" || dados.mensagem === "Esse Token não existe" || dados.role === "cliente") {
+                if (dados.mensagem === "Token nao Autorizado" ||
+                    dados.mensagem === "Erro, token esta invalido" ||
+                    dados.mensagem === "Esse Token não existe") {
                     alert("Nao Autorizado");
                     window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html');
                     return;
                 }
-                // Token verificado
-                if (dados.mensagem === "Token verificado") {
-                    saidaNome.innerText = dados.nome;
-                    saidaNomePost.innerText = dados.nome;
+                // Redirecionando para a pagina de login, ai se o cliente fizer o login e tentar acessar com o role cliente eu nao deixo
+                // if (dados.role !== "admin") {
+                //     window.location.replace('http://127.0.0.1:5500/frontend/src/features/usuariosSecao/usuario.html')
+                //     return
+                // } 
+                if (dados.role === "cliente") {
+                    window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html');
+                    return;
                 }
             });
             // Final do try
         }
         catch (error) {
             console.log(error);
-            alert("Erro no servidor");
+            alert("Erro no servidor tente novamente mais tarde");
             return;
         }
     }
