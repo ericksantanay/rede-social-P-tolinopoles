@@ -42,6 +42,7 @@ function carregarIndentidadeUser() {
 
                 // Redirecionando para a pagina de login, ai se o cliente fizer o login e tentar acessar com o role cliente eu nao deixo
                 //   
+                // Arrumar o bug quando entra na pagina esta carregando para um lado e para o outro
                 
                 if (dados.role === "cliente") {
                     window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html')
