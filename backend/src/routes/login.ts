@@ -31,7 +31,7 @@ const router = Router()
 router.post("/login", async (req: Request, res: Response) => {
 
     // Requisição do corpo
-    const {nome, senha} = req.body;
+    const {nome, senha, role} = req.body;
 
     // Verificando se os dados estão vindo do request
     if (!nome || !senha) {
@@ -67,11 +67,12 @@ router.post("/login", async (req: Request, res: Response) => {
 
         // Aqui se o role for admin entra em uma pagina diferente do usuario
         if (user.role === "admin") {
-            return res.status(200).json({mensagem: "Logando com sua conta admin", token: token})
+            return res.status(200).json({mensagem: "Logando com sua conta admin", token: token, role: user.role})
         }else {
             return res.status(200).json({
                 mensagem: "Usuario encontrado com sucesso",
-                token: token
+                token: token,
+                role: user.role
             })
             
         }
@@ -123,7 +124,8 @@ router.get('/login', async (req: Request, res: Response) => {
         }else {
             return res.status(200).json({mensagem: "Token verificado",
                 id: user.id,
-                nome: user.nome
+                nome: user.nome,
+                role: user.role
             })
         }
 

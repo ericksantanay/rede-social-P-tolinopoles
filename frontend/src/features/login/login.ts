@@ -59,6 +59,12 @@ if (formularioLogin) {
                         return alert("Usuario ou senha invalidos")
                     }
 
+                    if (dados.role !== "admin") {
+                        alert("Entrando na conta cliente")
+                        window.location.replace('http://127.0.0.1:5500/frontend/src/features/usuariosSecao/usuario.html')
+                        return
+                    }
+ 
 
                     // Direcionando o usuario com base no role
                     if (dados.mensagem === "Logando com sua conta admin") {

@@ -4,9 +4,10 @@
 const token = JSON.parse(localStorage.getItem('idUsuario'));
 // Saidas aonde vai ir o nome
 const saidaNome = document.querySelector('.nome-usuario');
+const saidaNomePost = document.querySelector('.nome-usuario-post');
 function carregarIndentidadeUser() {
     // Verificando se existe
-    if (saidaNome) {
+    if (saidaNome && saidaNomePost) {
         try {
             fetch("http://localhost:3000/login", {
                 method: "GET",
@@ -18,11 +19,17 @@ function carregarIndentidadeUser() {
                 .then((res) => res.json())
                 .then((dados) => {
                 console.log(dados);
-                if (dados.mensagem === "Nao Autorizado") {
-                    return alert("Nao Autorizado");
+                // if (dados.mensagem === "")
+                // Token não autorizado
+                if (dados.mensagem === "Nao Autorizado" || dados.mensagem === "Erro no servidor tente novamente mais tarde" || dados.mensagem === "Esse Token não existe" || dados.role === "cliente") {
+                    alert("Nao Autorizado");
+                    window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html');
+                    return;
                 }
+                // Token verificado
                 if (dados.mensagem === "Token verificado") {
                     saidaNome.innerText = dados.nome;
+                    saidaNomePost.innerText = dados.nome;
                 }
             });
             // Final do try

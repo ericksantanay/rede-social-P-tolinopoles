@@ -290,13 +290,14 @@ main {
 }
 
 /* nome do usuario no post */
-.container-nome-data > h2 {
+.nome-usuario-post {
+    color: var(--branco);
     font-size: 20px;
 }
 
 
 /* data da postagem do post */
-.container-nome-data {
+.data-da-postagem {
     color: var(--cinza);
 }
 

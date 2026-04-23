@@ -4,12 +4,13 @@
 
 // Saidas aonde vai ir o nome
 const saidaNome = document.querySelector<HTMLParagraphElement>('.nome-usuario');
+const saidaNomePost = document.querySelector<HTMLElement>('.nome-usuario-post')
 
 function carregarIndentidadeUser() {
    
 
     // Verificando se existe
-    if (saidaNome) {
+    if (saidaNome && saidaNomePost) {
 
         try {
 
@@ -23,15 +24,17 @@ function carregarIndentidadeUser() {
             })
             .then((res) => res.json())
             .then((dados) => {
-                console.log(dados)
-                
-
-                if (dados.mensagem === "")
-                
+                console.log(dados)            
                 
                 // Token não autorizado
-                if (dados.mensagem === "Nao Autorizado") {
-                    return alert("Nao Autorizado")
+                if (dados.mensagem === "Nao Autorizado" || 
+                    dados.mensagem === "Erro no servidor tente novamente mais tarde" || 
+                    dados.mensagem === "Esse Token não existe" || 
+                    dados.role !== "cliente") {
+                    alert("Nao Autorizado")
+                    window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html')
+                    return 
+                    
                 }
 
                 
@@ -39,6 +42,7 @@ function carregarIndentidadeUser() {
                 // Token verificado
                 if (dados.mensagem === "Token verificado") {
                     saidaNome.innerText = dados.nome
+                    saidaNomePost.innerText = dados.nome
                 }
 
             })
