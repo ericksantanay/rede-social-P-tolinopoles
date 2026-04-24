@@ -64,12 +64,11 @@ nav {
     color: var(--branco);
 }
 
-
-/* nome do usuario */
-.nome-usuario {
+/* link para o perfil e nome do usuario*/
+#perfil-user > a, .nome-usuario  {
     color: var(--branco);
+    text-decoration: none;
 }
-
 
 /* div com a barra de pesquisa */
 #container-barra-de-pesquisa {

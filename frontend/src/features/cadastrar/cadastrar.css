@@ -106,6 +106,7 @@ main {
 
 /* cards de exemplos */
 .card-exemplo-senha, .card-exemplo-nome, .card-exemplo-data  {
+    display: none;
     max-width: 270px;
     background-color:var(--branco);
     padding: 20px;
@@ -115,7 +116,6 @@ main {
 
 /* CARD SENHA */
 .card-exemplo-senha {
-    display: none;
     top: 60%;
     left: 60%;
     border-top-right-radius: 10px;
@@ -131,7 +131,6 @@ main {
 
 /* CARD NOME */
 .card-exemplo-nome {
-    display: none;
     top: 52%;
     left: 60%;
     border-top-right-radius: 10px;
@@ -142,7 +141,6 @@ main {
 
 /* CARD DATA */
 .card-exemplo-data {
-    display: none;
     top: 68%;
     left: 60%;
     border-top-right-radius: 10px;

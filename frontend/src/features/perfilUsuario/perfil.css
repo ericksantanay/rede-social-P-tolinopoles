@@ -1,0 +1,167 @@
+body,html {
+    background-color: var(--cor-de-fundo);
+}
+
+header {
+    width: 100%;
+    padding: 20px 7%;
+    position: fixed;
+    position: sticky;
+    z-index: 99;
+    background-color: var(--cor-de-fundo);
+    margin-bottom: 30px;
+}
+
+
+/* nav */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+/* container logo e nome */
+#logo-nome  {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* logo */
+#logo-nome > img {
+    width: 50px;
+}
+
+/* h1 nome */
+#logo-nome > h1 {
+    font-family: var(--bungee);
+    font-size: 19px;
+    color: var(--amarelo-claro);
+}
+
+
+/* div com o nome do usuario */
+#perfil-user {
+    cursor: pointer;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    border: 1px solid var(--branco);
+    border-radius: 120px;
+    transition: .3s ease-in-out;
+}
+
+#perfil-user:hover {
+    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.447);
+}
+
+/* imagem do perfil */
+#perfil-user > svg {
+    color: var(--branco);
+}
+
+
+/* nome do usuario */
+.nome-usuario {
+    color: var(--branco);
+}
+
+
+/* div com a barra de pesquisa */
+#container-barra-de-pesquisa {
+    width: 100%;
+}
+
+
+/* container barra pesquisa */
+#barra-de-pesquisa {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+
+/* input (barra de pesquisa) */
+#barra-de-pesquisa > input {
+    outline: none;
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+     font-size: 16px;
+}
+
+/* placeholder do input da barra de pesquisa */
+/* #barra-de-pesquisa > input::placeholder {
+   
+} */
+
+/* Imagem da Lupa */
+#barra-de-pesquisa > svg {
+    color: var(--cinza);
+    position: absolute;
+    top: 125px;
+    right: 130px;
+}
+
+/* container do botão */
+#container-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+/* botão para pesquisar o usuario */
+#btn-pesquisar {
+    padding: 8px 30px;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--branco);
+    color: var(--preto);
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+/* botão hover */
+#btn-pesquisar:hover {
+    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.535);
+}
+
+/* campo de resultado das pesquisas */
+#container-resultado-da-pesquisa {
+    display: none;
+    height: 300px;
+    margin-top: 20px;
+    background-color: var(--cor-dos-cards);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--cinza);
+    overflow-y: scroll;
+}
+
+/* Editando a de rolagem (largura) */
+#container-resultado-da-pesquisa::-webkit-scrollbar {
+   width: 10px; 
+}
+
+/* modificando a cor de fundo */
+#container-resultado-da-pesquisa::-webkit-scrollbar-track {
+    background-color: var(--branco);
+    border-radius: 10px;
+}
+
+/* Cursor */
+#container-resultado-da-pesquisa::-webkit-scrollbar-thumb {
+    background-color: var(--amarelo-claro);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Resultado da pesquisa */
+.resultado-pesquisa {
+    color: var(--branco);
+    margin-bottom: 30px;
+}   

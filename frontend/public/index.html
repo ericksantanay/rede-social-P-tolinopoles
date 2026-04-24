@@ -76,18 +76,18 @@
                 <!-- card 3 -->
                   <div class="card-exemplo-data">
                     <h2>Data de Chocagem</h2>
-                    <p>Sua data de nascimento. Usamos isso para calcular sua idade e exibir no seu perfil, além de organizar estatísticas da rede.</p>
+                    <p>Sua data de nascimento. Usamos isso para calcular sua idade, além de organizar estatísticas da rede.</p>
                 </div>
             </div>
 
 
-            <!-- Formulario -->                       <!--onsubmit="true-->
+            <!-- Formulario -->  <!--Depois ver sobre o onsubmit e ver se pode apagar-->  <!--onsubmit="true-->
             <form id="formulario-cadastro" method="post" onsubmit="true">
 
                 <!-- INPUT NOME -->
                 <div class="container-input">
                     <input type="text" name="nome" id="nome" placeholder="Identidade de Pato:" required>
-                    <img class="btn-duvida-nome" src="../src/assets/image/botao-de-duvidas.png" alt="Botão de Duvida">
+                    <img class="btn-duvida-nome" src="../src/assets/image/botao-de-duvidas.png" alt="Botão de Duvida" onclick="mostrarCardNome()">
                 </div>
 
 
@@ -97,14 +97,14 @@
 
                     <span id="mostrar-senha" class="material-symbols-outlined" onclick="mostrarSenhaUser()">visibility</span>
 
-                    <img class="btn-duvida-senha" src="../src/assets/image/botao-de-duvidas.png" alt="Botão de Duvida">
+                    <img class="btn-duvida-senha" src="../src/assets/image/botao-de-duvidas.png" alt="Botão de Duvida" onclick="mostrarCardSenha()">
                 </div>
 
 
                 <!-- INPUT DE DATA -->
                 <div class="container-input">
                     <input type="number" name="nascimento" id="nascimento" placeholder="Ano de Chocagem:" required>
-                    <img class="btn-duvida-data" src="../src/assets/image/botao-de-duvidas.png" alt="Botão de Duvida">
+                    <img class="btn-duvida-data" src="../src/assets/image/botao-de-duvidas.png" alt="Botão de Duvida" onclick="mostrarCardData()">
                 </div>
 
                 <!--  -->
@@ -117,6 +117,7 @@
         </article>
     </main>
 
+    <script src="../dist/features/cadastrar/mostrarCardExemplo.js"></script>
     <script src="../dist/features/cadastrar/mostrarSenha.js"></script>
     <script src="../dist/features/cadastrar/cadastrar.js"></script>
     
