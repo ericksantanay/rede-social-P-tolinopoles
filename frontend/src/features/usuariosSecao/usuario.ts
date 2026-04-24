@@ -13,8 +13,6 @@ function carregarIndentidadeCliente() {
     if (saidaNome && saidaNomePost) {
 
         try {
-
-            
             fetch("http://localhost:3000/login", {
                 method: "GET",
                 headers: {
