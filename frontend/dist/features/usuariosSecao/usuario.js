@@ -5,7 +5,7 @@ const token = JSON.parse(localStorage.getItem('idUsuario'));
 // Saidas aonde vai ir o nome
 const saidaNome = document.querySelector('.nome-usuario');
 const saidaNomePost = document.querySelector('.nome-usuario-post');
-function carregarIndentidadeUser() {
+function carregarIndentidadeCliente() {
     // Verificando se existe
     if (saidaNome && saidaNomePost) {
         try {
@@ -35,9 +35,8 @@ function carregarIndentidadeUser() {
                     window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html');
                     return;
                 }
-                // Se o cliente tentar entrar sem ser admin eu bloqueio o acesso
-                if (dados.role.cliente === "admin") {
-                    alert("Voce nao é um administrador");
+                // 
+                if (dados.role !== "cliente") {
                     window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html');
                     return;
                 }
@@ -51,4 +50,4 @@ function carregarIndentidadeUser() {
         }
     }
 }
-carregarIndentidadeUser();
+carregarIndentidadeCliente();
