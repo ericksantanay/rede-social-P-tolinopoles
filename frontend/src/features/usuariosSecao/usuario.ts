@@ -3,14 +3,14 @@
  const token: string | null = JSON.parse(localStorage.getItem('idUsuario') as any);
 
 // Saidas aonde vai ir o nome
-const saidaNome = document.querySelector<HTMLParagraphElement>('.nome-usuario');
-const saidaNomePost = document.querySelector<HTMLElement>('.nome-usuario-post')
+const saidaNome = document.querySelector('.nome-usuario') as HTMLParagraphElement;
+const saidaNomePost = document.querySelector('.nome-usuario-post') as HTMLElement
 
 function carregarIndentidadeCliente() {
    
 
     // Verificando se existe
-    if (saidaNome && saidaNomePost) {
+    if (saidaNome || saidaNomePost) {
 
         try {
             fetch("http://localhost:3000/login", {
@@ -26,7 +26,7 @@ function carregarIndentidadeCliente() {
                 console.log(dados)
 
                 saidaNome.innerText = dados.nome
-                saidaNomePost.innerText = dados.nome
+                saidaNomePost.innerText = dados.nome // Pegar o nome da postagem e por no carregar postagem
                 
 
                 // Token não autorizado

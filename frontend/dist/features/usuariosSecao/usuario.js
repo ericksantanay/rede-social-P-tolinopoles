@@ -7,7 +7,7 @@ const saidaNome = document.querySelector('.nome-usuario');
 const saidaNomePost = document.querySelector('.nome-usuario-post');
 function carregarIndentidadeCliente() {
     // Verificando se existe
-    if (saidaNome && saidaNomePost) {
+    if (saidaNome || saidaNomePost) {
         try {
             fetch("http://localhost:3000/login", {
                 method: "GET",

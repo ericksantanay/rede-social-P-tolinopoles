@@ -1,6 +1,7 @@
 // formulario da postagem
 const formularioPostagem = document.getElementById('fomulario-postagem') as HTMLFormElement;
 
+
 // Se o formulario existir ele inicia o codigo
 if (formularioPostagem) {
 
@@ -58,6 +59,7 @@ if (formularioPostagem) {
                         if (dadosPost.mensagem === "Postagem criada com sucesso") {
                             return alert("Postagem criada com sucesso")
                         };
+                        
                 })
                 
             } catch (error) {
