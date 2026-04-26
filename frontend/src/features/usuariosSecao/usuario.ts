@@ -32,7 +32,7 @@ function carregarIndentidadeCliente() {
                 console.log(dados)
 
                 saidaNome.innerText = dados.nome
-                saidaNomePost.innerText += dados.nome
+                
                 
     
                 // Token não autorizado
@@ -57,6 +57,8 @@ function carregarIndentidadeCliente() {
                     window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html')
                     return
                 }
+
+                saidaNomePost.innerText = dados.nome
 
             })
 

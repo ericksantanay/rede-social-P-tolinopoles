@@ -1,0 +1,1 @@
+Eu tenho que ajusatar o nome que nao esta aparecendo nos cards, o nome 

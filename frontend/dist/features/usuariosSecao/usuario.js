@@ -20,7 +20,6 @@ function carregarIndentidadeCliente() {
                 .then((dados) => {
                 console.log(dados);
                 saidaNome.innerText = dados.nome;
-                saidaNomePost.innerText += dados.nome;
                 // Token não autorizado
                 if (dados.mensagem === "Token nao Autorizado" ||
                     dados.mensagem === "Erro, token esta invalido" ||
@@ -40,6 +39,7 @@ function carregarIndentidadeCliente() {
                     window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html');
                     return;
                 }
+                saidaNomePost.innerText = dados.nome;
             });
             // Final do try
         }
@@ -48,9 +48,6 @@ function carregarIndentidadeCliente() {
             alert("Erro no servidor tente novamente mais tarde");
             return;
         }
-    }
-    else {
-        alert("Erro em alguma coisA");
     }
 }
 carregarIndentidadeCliente();
