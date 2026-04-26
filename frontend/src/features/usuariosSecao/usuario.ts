@@ -4,7 +4,13 @@
 
 // Saidas aonde vai ir o nome
 const saidaNome = document.querySelector('.nome-usuario') as HTMLParagraphElement;
-const saidaNomePost = document.querySelector('.nome-usuario-post') as HTMLElement
+
+const saidaNomePost = document.querySelector('.nome-usuario-post') as HTMLElement;
+
+interface nomeUser {
+    nome: string;
+}
+
 
 function carregarIndentidadeCliente() {
    
@@ -26,9 +32,9 @@ function carregarIndentidadeCliente() {
                 console.log(dados)
 
                 saidaNome.innerText = dados.nome
-                saidaNomePost.innerText = dados.nome // Pegar o nome da postagem e por no carregar postagem
+                saidaNomePost.innerText += dados.nome
                 
-
+    
                 // Token não autorizado
                 if (dados.mensagem === "Token nao Autorizado" || 
                     dados.mensagem === "Erro, token esta invalido" || 
@@ -62,8 +68,6 @@ function carregarIndentidadeCliente() {
             return
         }
     }
-
-
 
 }
 carregarIndentidadeCliente()

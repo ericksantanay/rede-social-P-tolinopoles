@@ -8,26 +8,24 @@ import prisma from "../lib/prisma";
 
 const router = Router()
 
-
 // criando a rota postagem
 router.post('/postagem', async (req: Request, res: Response) => {
 
     // Pegando a postagem
     const {postagem} = req.body;
 
-
     // Verificando se veio o request
     if (!postagem) {
         return res.status(404).json({mensagem: "Postagem não existe"})
     }
 
-
+    // Try
     try {
-        
+
+        // Se não existir
         if (!postagem) {
             return res.status(404).json({mensagem: "Erro na postagem"});
         };
-
 
         // Criando a postagem no banco de dados
         await prisma.postagemUser.create({data:{postagem: postagem}});

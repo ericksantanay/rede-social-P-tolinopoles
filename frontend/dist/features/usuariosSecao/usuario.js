@@ -20,7 +20,7 @@ function carregarIndentidadeCliente() {
                 .then((dados) => {
                 console.log(dados);
                 saidaNome.innerText = dados.nome;
-                saidaNomePost.innerText = dados.nome;
+                saidaNomePost.innerText += dados.nome;
                 // Token não autorizado
                 if (dados.mensagem === "Token nao Autorizado" ||
                     dados.mensagem === "Erro, token esta invalido" ||
@@ -48,6 +48,9 @@ function carregarIndentidadeCliente() {
             alert("Erro no servidor tente novamente mais tarde");
             return;
         }
+    }
+    else {
+        alert("Erro em alguma coisA");
     }
 }
 carregarIndentidadeCliente();

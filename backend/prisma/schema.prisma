@@ -18,6 +18,6 @@ model usuariosPatolinopoles {
 
 
 model postagemUser {
-    id            String @id @default(auto()) @map("_id") @db.ObjectId
-    postagem      String
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  postagem      String
 }

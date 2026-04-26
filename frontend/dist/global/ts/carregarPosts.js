@@ -1,25 +1,11 @@
-
+"use strict";
 // 
-const saidaDosPost = document.getElementById("container-posts") as HTMLElement;
-
-// O que eu espero que chegue
-interface postagem {
-    id: string;
-    postagem: string
-}
-
-interface nameUser {
-    nome: string;
-}
-
+const saidaDosPost = document.getElementById("container-posts");
 // Função que vai carregar os posts
-async function  carregarPostagem()  {
-
-    saidaDosPost.innerHTML = "" 
-
+async function carregarPostagem() {
+    saidaDosPost.innerHTML = "";
     // Fetch 
     try {
-
         // // Fetch com o nome e a imagem no post
         // fetch("", {
         //     method: "GET",
@@ -29,45 +15,25 @@ async function  carregarPostagem()  {
         // })
         // .then((res) => res.json())
         // .then((data) => {
-
         //     console.log(data)
-
         //     data.forEach((itemUser: nameUser) => {
-
         //     });
-
-
         // })
-
-
-
-
-
-
-
-
-
-
         // 
         fetch("http://localhost:3000/postagem", {
             method: "GET",
-            headers:{
+            headers: {
                 "Content-Type": "application/json"
             }
         })
-        .then((res) => res.json())
-        .then((dados) => {
-
-            console.log(dados) 
-
+            .then((res) => res.json())
+            .then((dados) => {
+            console.log(dados);
             // consertar o froeach
-            dados.forEach((item: postagem) => {
-
+            dados.forEach((item) => {
                 // img class="foto-de-perfil" src="../../assets/image/FT PERFIL.png" alt="foto de perfil">
-
-
-                saidaDosPost.innerHTML += 
-                `
+                saidaDosPost.innerHTML +=
+                    `
                     <div class="posts" data-id="${item.id}">
 
                         
@@ -118,22 +84,14 @@ async function  carregarPostagem()  {
                         </article>
 
                     </div>
-                `
+                `;
             });
-        
             // 
-        
-        })
-    } catch (error) {
-        alert("Erro no servidor tente novamente mais tarde")
-        return
+        });
     }
-
-
-
-
-
-    
-
+    catch (error) {
+        alert("Erro no servidor tente novamente mais tarde");
+        return;
+    }
 }
-carregarPostagem()
+carregarPostagem();
