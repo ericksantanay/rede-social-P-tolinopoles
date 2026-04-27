@@ -1,14 +1,6 @@
 // 
 const saidaDosPost = document.getElementById("container-posts") as HTMLElement;
 
-// O que eu espero que chegue
-// interface postagem {
-//     id: string;
-//     nome: string;
-//     postagem: string;
-//     curtidas: number;
-// }
-
 // Função que vai carregar os posts
 async function  carregarPostagem()  {
 
@@ -24,8 +16,6 @@ async function  carregarPostagem()  {
         dados.forEach((item: any) => {
         console.log(item.postagem);
         console.log(item.nome);
-
-            // img class="foto-de-perfil" src="../../assets/image/FT PERFIL.png" alt="foto de perfil">
 
 
                 saidaDosPost.innerHTML += 
@@ -88,12 +78,11 @@ async function  carregarPostagem()  {
         alert("Erro no servidor tente novamente mais tarde")
         return
     }
-
-
-
-
-
-    
-
 }
+// Carregar os posts automaticamente
+window.carregarPostagem = carregarPostagem
 carregarPostagem()
+
+window.onload = function () {
+    carregarPostagem();
+};

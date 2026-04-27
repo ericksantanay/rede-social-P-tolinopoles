@@ -51,6 +51,7 @@ if (formularioPostagem) {
                 console.log(error);
                 return alert("Erro no servidor");
             }
+            window.carregarPostagem();
             // Zerando o textarea
             textareaPostagem.value = "";
         }

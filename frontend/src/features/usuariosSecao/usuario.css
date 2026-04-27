@@ -274,13 +274,6 @@ main {
     margin-bottom: 30px;
 }
 
-/* foto de perfil no post */
-.foto-de-perfil {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-}
-
 /* div com nome e data */
 .container-nome-data {
     display: flex;

@@ -69,6 +69,9 @@ if (formularioPostagem) {
                 return alert("Erro no servidor")
             }
 
+
+            window.carregarPostagem()
+
             // Zerando o textarea
             textareaPostagem.value = ""; 
         } 

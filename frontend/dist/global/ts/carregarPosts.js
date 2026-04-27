@@ -1,13 +1,6 @@
 "use strict";
 // 
 const saidaDosPost = document.getElementById("container-posts");
-// O que eu espero que chegue
-// interface postagem {
-//     id: string;
-//     nome: string;
-//     postagem: string;
-//     curtidas: number;
-// }
 // Função que vai carregar os posts
 async function carregarPostagem() {
     saidaDosPost.innerHTML = "";
@@ -19,7 +12,6 @@ async function carregarPostagem() {
         dados.forEach((item) => {
             console.log(item.postagem);
             console.log(item.nome);
-            // img class="foto-de-perfil" src="../../assets/image/FT PERFIL.png" alt="foto de perfil">
             saidaDosPost.innerHTML +=
                 `
                     <div class="posts" data-id="${item.id}">
@@ -81,4 +73,8 @@ async function carregarPostagem() {
         return;
     }
 }
+window.carregarPostagem = carregarPostagem;
 carregarPostagem();
+window.onload = function () {
+    carregarPostagem();
+};
