@@ -1,0 +1,1 @@
+A url exposta esta deixando os usuarios copiar a url e entrar sem logar impedi isso
