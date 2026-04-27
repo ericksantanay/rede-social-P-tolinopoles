@@ -1,3 +1,4 @@
+ const tokenJWT: string | null = JSON.parse(localStorage.getItem('idUsuario') as any);
 // formulario da postagem
 const formularioPostagem = document.getElementById('fomulario-postagem') as HTMLFormElement;
 
@@ -38,7 +39,8 @@ if (formularioPostagem) {
                 await fetch("http://localhost:3000/postagem", {
                         method: "POST", 
                         headers: {
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
+                            "authorization": `Bearer ${tokenJWT ?? ""}`
                         }, 
                         body: JSON.stringify({
                             postagem: postagemTextAreaValue

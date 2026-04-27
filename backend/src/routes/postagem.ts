@@ -1,60 +1,65 @@
-// Importa o criador de rotas separadas
 import { Router } from "express";
-
 import { Request, Response } from "express";
-
-// importando o prisma
 import prisma from "../lib/prisma";
+import jwt from "jsonwebtoken";
 
-const router = Router()
+const router = Router();
 
-// criando a rota postagem
 router.post('/postagem', async (req: Request, res: Response) => {
 
-    // Pegando a postagem
-    const {postagem} = req.body;
+    const { postagem } = req.body;
+    const { authorization } = req.headers;
 
-    // Verificando se veio o request
     if (!postagem) {
-        return res.status(404).json({mensagem: "Postagem não existe"})
+        return res.status(400).json({ mensagem: "Postagem não existe" });
     }
 
-    // Try
+    if (!authorization) {
+        return res.status(403).json({ mensagem: "Sem token" });
+    }
+
     try {
+        const token = authorization.split(' ')[1];
 
-        // Se não existir
-        if (!postagem) {
-            return res.status(404).json({mensagem: "Erro na postagem"});
-        };
+        const { id } = jwt.verify(token, process.env.JWT_PASS!) as any;
 
-        // Criando a postagem no banco de dados
-        await prisma.postagemUser.create({data:{postagem: postagem}});
+        await prisma.postagemUser.create({
+            data: {
+                postagem: postagem,
+                userId: id
+            }
+        });
 
-        return res.status(201).json({mensagem: "Postagem criada com sucesso"})
-        
+        return res.status(201).json({ mensagem: "Postagem criada com sucesso" });
 
-
-    } catch (error) {
-        return res.status(500).json({mensagem: "Erro no servidor tente novamente mais tarde"});
+    } catch {
+        return res.status(403).json({ mensagem: "Token inválido" });
     }
-
 });
 
 
-// carregando o post dos usuarios
+
 router.get('/postagem', async (req: Request, res: Response) => {
+  try {
 
-    try {
+    const posts = await prisma.postagemUser.findMany({
+      include: {
+        usuario: true
+      }
+    });
 
-        const buscarPostagem = await prisma.postagemUser.findMany();
-        res.status(200).json(buscarPostagem)
-    
-    } catch (error) {
+    const resultado = posts.map(post => ({
+      postagem: post.postagem,
+      nome: post.usuario.nome
+    }));
 
-        return res.status(500).json({mensagem: "Erro no servidor tente novamente mais tarde"})    
-    
-    }
-})
+    return res.status(200).json(resultado);
+
+  } catch  (error){
+    console.log("ERRO REAL BACKEND:", error)
+    return res.status(500).json({ mensagem: "Erro no servidor" });
+  }
+});
 
 // exportando
 export default router;

@@ -27,16 +27,19 @@ export type AggregatePostagemUser = {
 export type PostagemUserMinAggregateOutputType = {
   id: string | null
   postagem: string | null
+  userId: string | null
 }
 
 export type PostagemUserMaxAggregateOutputType = {
   id: string | null
   postagem: string | null
+  userId: string | null
 }
 
 export type PostagemUserCountAggregateOutputType = {
   id: number
   postagem: number
+  userId: number
   _all: number
 }
 
@@ -44,16 +47,19 @@ export type PostagemUserCountAggregateOutputType = {
 export type PostagemUserMinAggregateInputType = {
   id?: true
   postagem?: true
+  userId?: true
 }
 
 export type PostagemUserMaxAggregateInputType = {
   id?: true
   postagem?: true
+  userId?: true
 }
 
 export type PostagemUserCountAggregateInputType = {
   id?: true
   postagem?: true
+  userId?: true
   _all?: true
 }
 
@@ -132,6 +138,7 @@ export type postagemUserGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
 export type PostagemUserGroupByOutputType = {
   id: string
   postagem: string
+  userId: string
   _count: PostagemUserCountAggregateOutputType | null
   _min: PostagemUserMinAggregateOutputType | null
   _max: PostagemUserMaxAggregateOutputType | null
@@ -158,11 +165,15 @@ export type postagemUserWhereInput = {
   NOT?: Prisma.postagemUserWhereInput | Prisma.postagemUserWhereInput[]
   id?: Prisma.StringFilter<"postagemUser"> | string
   postagem?: Prisma.StringFilter<"postagemUser"> | string
+  userId?: Prisma.StringFilter<"postagemUser"> | string
+  usuario?: Prisma.XOR<Prisma.UsuariosPatolinopolesScalarRelationFilter, Prisma.usuariosPatolinopolesWhereInput>
 }
 
 export type postagemUserOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   postagem?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+  usuario?: Prisma.usuariosPatolinopolesOrderByWithRelationInput
 }
 
 export type postagemUserWhereUniqueInput = Prisma.AtLeast<{
@@ -171,11 +182,14 @@ export type postagemUserWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.postagemUserWhereInput[]
   NOT?: Prisma.postagemUserWhereInput | Prisma.postagemUserWhereInput[]
   postagem?: Prisma.StringFilter<"postagemUser"> | string
+  userId?: Prisma.StringFilter<"postagemUser"> | string
+  usuario?: Prisma.XOR<Prisma.UsuariosPatolinopolesScalarRelationFilter, Prisma.usuariosPatolinopolesWhereInput>
 }, "id">
 
 export type postagemUserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   postagem?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
   _count?: Prisma.postagemUserCountOrderByAggregateInput
   _max?: Prisma.postagemUserMaxOrderByAggregateInput
   _min?: Prisma.postagemUserMinOrderByAggregateInput
@@ -187,29 +201,35 @@ export type postagemUserScalarWhereWithAggregatesInput = {
   NOT?: Prisma.postagemUserScalarWhereWithAggregatesInput | Prisma.postagemUserScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"postagemUser"> | string
   postagem?: Prisma.StringWithAggregatesFilter<"postagemUser"> | string
+  userId?: Prisma.StringWithAggregatesFilter<"postagemUser"> | string
 }
 
 export type postagemUserCreateInput = {
   id?: string
   postagem: string
+  usuario: Prisma.usuariosPatolinopolesCreateNestedOneWithoutPostagensInput
 }
 
 export type postagemUserUncheckedCreateInput = {
   id?: string
   postagem: string
+  userId: string
 }
 
 export type postagemUserUpdateInput = {
   postagem?: Prisma.StringFieldUpdateOperationsInput | string
+  usuario?: Prisma.usuariosPatolinopolesUpdateOneRequiredWithoutPostagensNestedInput
 }
 
 export type postagemUserUncheckedUpdateInput = {
   postagem?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type postagemUserCreateManyInput = {
   id?: string
   postagem: string
+  userId: string
 }
 
 export type postagemUserUpdateManyMutationInput = {
@@ -218,21 +238,138 @@ export type postagemUserUpdateManyMutationInput = {
 
 export type postagemUserUncheckedUpdateManyInput = {
   postagem?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+}
+
+export type PostagemUserListRelationFilter = {
+  every?: Prisma.postagemUserWhereInput
+  some?: Prisma.postagemUserWhereInput
+  none?: Prisma.postagemUserWhereInput
+}
+
+export type postagemUserOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
 }
 
 export type postagemUserCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   postagem?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type postagemUserMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   postagem?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type postagemUserMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   postagem?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
+}
+
+export type postagemUserCreateNestedManyWithoutUsuarioInput = {
+  create?: Prisma.XOR<Prisma.postagemUserCreateWithoutUsuarioInput, Prisma.postagemUserUncheckedCreateWithoutUsuarioInput> | Prisma.postagemUserCreateWithoutUsuarioInput[] | Prisma.postagemUserUncheckedCreateWithoutUsuarioInput[]
+  connectOrCreate?: Prisma.postagemUserCreateOrConnectWithoutUsuarioInput | Prisma.postagemUserCreateOrConnectWithoutUsuarioInput[]
+  createMany?: Prisma.postagemUserCreateManyUsuarioInputEnvelope
+  connect?: Prisma.postagemUserWhereUniqueInput | Prisma.postagemUserWhereUniqueInput[]
+}
+
+export type postagemUserUncheckedCreateNestedManyWithoutUsuarioInput = {
+  create?: Prisma.XOR<Prisma.postagemUserCreateWithoutUsuarioInput, Prisma.postagemUserUncheckedCreateWithoutUsuarioInput> | Prisma.postagemUserCreateWithoutUsuarioInput[] | Prisma.postagemUserUncheckedCreateWithoutUsuarioInput[]
+  connectOrCreate?: Prisma.postagemUserCreateOrConnectWithoutUsuarioInput | Prisma.postagemUserCreateOrConnectWithoutUsuarioInput[]
+  createMany?: Prisma.postagemUserCreateManyUsuarioInputEnvelope
+  connect?: Prisma.postagemUserWhereUniqueInput | Prisma.postagemUserWhereUniqueInput[]
+}
+
+export type postagemUserUpdateManyWithoutUsuarioNestedInput = {
+  create?: Prisma.XOR<Prisma.postagemUserCreateWithoutUsuarioInput, Prisma.postagemUserUncheckedCreateWithoutUsuarioInput> | Prisma.postagemUserCreateWithoutUsuarioInput[] | Prisma.postagemUserUncheckedCreateWithoutUsuarioInput[]
+  connectOrCreate?: Prisma.postagemUserCreateOrConnectWithoutUsuarioInput | Prisma.postagemUserCreateOrConnectWithoutUsuarioInput[]
+  upsert?: Prisma.postagemUserUpsertWithWhereUniqueWithoutUsuarioInput | Prisma.postagemUserUpsertWithWhereUniqueWithoutUsuarioInput[]
+  createMany?: Prisma.postagemUserCreateManyUsuarioInputEnvelope
+  set?: Prisma.postagemUserWhereUniqueInput | Prisma.postagemUserWhereUniqueInput[]
+  disconnect?: Prisma.postagemUserWhereUniqueInput | Prisma.postagemUserWhereUniqueInput[]
+  delete?: Prisma.postagemUserWhereUniqueInput | Prisma.postagemUserWhereUniqueInput[]
+  connect?: Prisma.postagemUserWhereUniqueInput | Prisma.postagemUserWhereUniqueInput[]
+  update?: Prisma.postagemUserUpdateWithWhereUniqueWithoutUsuarioInput | Prisma.postagemUserUpdateWithWhereUniqueWithoutUsuarioInput[]
+  updateMany?: Prisma.postagemUserUpdateManyWithWhereWithoutUsuarioInput | Prisma.postagemUserUpdateManyWithWhereWithoutUsuarioInput[]
+  deleteMany?: Prisma.postagemUserScalarWhereInput | Prisma.postagemUserScalarWhereInput[]
+}
+
+export type postagemUserUncheckedUpdateManyWithoutUsuarioNestedInput = {
+  create?: Prisma.XOR<Prisma.postagemUserCreateWithoutUsuarioInput, Prisma.postagemUserUncheckedCreateWithoutUsuarioInput> | Prisma.postagemUserCreateWithoutUsuarioInput[] | Prisma.postagemUserUncheckedCreateWithoutUsuarioInput[]
+  connectOrCreate?: Prisma.postagemUserCreateOrConnectWithoutUsuarioInput | Prisma.postagemUserCreateOrConnectWithoutUsuarioInput[]
+  upsert?: Prisma.postagemUserUpsertWithWhereUniqueWithoutUsuarioInput | Prisma.postagemUserUpsertWithWhereUniqueWithoutUsuarioInput[]
+  createMany?: Prisma.postagemUserCreateManyUsuarioInputEnvelope
+  set?: Prisma.postagemUserWhereUniqueInput | Prisma.postagemUserWhereUniqueInput[]
+  disconnect?: Prisma.postagemUserWhereUniqueInput | Prisma.postagemUserWhereUniqueInput[]
+  delete?: Prisma.postagemUserWhereUniqueInput | Prisma.postagemUserWhereUniqueInput[]
+  connect?: Prisma.postagemUserWhereUniqueInput | Prisma.postagemUserWhereUniqueInput[]
+  update?: Prisma.postagemUserUpdateWithWhereUniqueWithoutUsuarioInput | Prisma.postagemUserUpdateWithWhereUniqueWithoutUsuarioInput[]
+  updateMany?: Prisma.postagemUserUpdateManyWithWhereWithoutUsuarioInput | Prisma.postagemUserUpdateManyWithWhereWithoutUsuarioInput[]
+  deleteMany?: Prisma.postagemUserScalarWhereInput | Prisma.postagemUserScalarWhereInput[]
+}
+
+export type postagemUserCreateWithoutUsuarioInput = {
+  id?: string
+  postagem: string
+}
+
+export type postagemUserUncheckedCreateWithoutUsuarioInput = {
+  id?: string
+  postagem: string
+}
+
+export type postagemUserCreateOrConnectWithoutUsuarioInput = {
+  where: Prisma.postagemUserWhereUniqueInput
+  create: Prisma.XOR<Prisma.postagemUserCreateWithoutUsuarioInput, Prisma.postagemUserUncheckedCreateWithoutUsuarioInput>
+}
+
+export type postagemUserCreateManyUsuarioInputEnvelope = {
+  data: Prisma.postagemUserCreateManyUsuarioInput | Prisma.postagemUserCreateManyUsuarioInput[]
+}
+
+export type postagemUserUpsertWithWhereUniqueWithoutUsuarioInput = {
+  where: Prisma.postagemUserWhereUniqueInput
+  update: Prisma.XOR<Prisma.postagemUserUpdateWithoutUsuarioInput, Prisma.postagemUserUncheckedUpdateWithoutUsuarioInput>
+  create: Prisma.XOR<Prisma.postagemUserCreateWithoutUsuarioInput, Prisma.postagemUserUncheckedCreateWithoutUsuarioInput>
+}
+
+export type postagemUserUpdateWithWhereUniqueWithoutUsuarioInput = {
+  where: Prisma.postagemUserWhereUniqueInput
+  data: Prisma.XOR<Prisma.postagemUserUpdateWithoutUsuarioInput, Prisma.postagemUserUncheckedUpdateWithoutUsuarioInput>
+}
+
+export type postagemUserUpdateManyWithWhereWithoutUsuarioInput = {
+  where: Prisma.postagemUserScalarWhereInput
+  data: Prisma.XOR<Prisma.postagemUserUpdateManyMutationInput, Prisma.postagemUserUncheckedUpdateManyWithoutUsuarioInput>
+}
+
+export type postagemUserScalarWhereInput = {
+  AND?: Prisma.postagemUserScalarWhereInput | Prisma.postagemUserScalarWhereInput[]
+  OR?: Prisma.postagemUserScalarWhereInput[]
+  NOT?: Prisma.postagemUserScalarWhereInput | Prisma.postagemUserScalarWhereInput[]
+  id?: Prisma.StringFilter<"postagemUser"> | string
+  postagem?: Prisma.StringFilter<"postagemUser"> | string
+  userId?: Prisma.StringFilter<"postagemUser"> | string
+}
+
+export type postagemUserCreateManyUsuarioInput = {
+  id?: string
+  postagem: string
+}
+
+export type postagemUserUpdateWithoutUsuarioInput = {
+  postagem?: Prisma.StringFieldUpdateOperationsInput | string
+}
+
+export type postagemUserUncheckedUpdateWithoutUsuarioInput = {
+  postagem?: Prisma.StringFieldUpdateOperationsInput | string
+}
+
+export type postagemUserUncheckedUpdateManyWithoutUsuarioInput = {
+  postagem?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
@@ -240,6 +377,8 @@ export type postagemUserMinOrderByAggregateInput = {
 export type postagemUserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   postagem?: boolean
+  userId?: boolean
+  usuario?: boolean | Prisma.usuariosPatolinopolesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["postagemUser"]>
 
 
@@ -247,16 +386,23 @@ export type postagemUserSelect<ExtArgs extends runtime.Types.Extensions.Internal
 export type postagemUserSelectScalar = {
   id?: boolean
   postagem?: boolean
+  userId?: boolean
 }
 
-export type postagemUserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "postagem", ExtArgs["result"]["postagemUser"]>
+export type postagemUserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "postagem" | "userId", ExtArgs["result"]["postagemUser"]>
+export type postagemUserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  usuario?: boolean | Prisma.usuariosPatolinopolesDefaultArgs<ExtArgs>
+}
 
 export type $postagemUserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "postagemUser"
-  objects: {}
+  objects: {
+    usuario: Prisma.$usuariosPatolinopolesPayload<ExtArgs>
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     postagem: string
+    userId: string
   }, ExtArgs["result"]["postagemUser"]>
   composites: {}
 }
@@ -620,6 +766,7 @@ readonly fields: postagemUserFieldRefs;
  */
 export interface Prisma__postagemUserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  usuario<T extends Prisma.usuariosPatolinopolesDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usuariosPatolinopolesDefaultArgs<ExtArgs>>): Prisma.Prisma__usuariosPatolinopolesClient<runtime.Types.Result.GetResult<Prisma.$usuariosPatolinopolesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -651,6 +798,7 @@ export interface Prisma__postagemUserClient<T, Null = never, ExtArgs extends run
 export interface postagemUserFieldRefs {
   readonly id: Prisma.FieldRef<"postagemUser", 'String'>
   readonly postagem: Prisma.FieldRef<"postagemUser", 'String'>
+  readonly userId: Prisma.FieldRef<"postagemUser", 'String'>
 }
     
 
@@ -667,6 +815,10 @@ export type postagemUserFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.
    * Omit specific fields from the postagemUser
    */
   omit?: Prisma.postagemUserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.postagemUserInclude<ExtArgs> | null
   /**
    * Filter, which postagemUser to fetch.
    */
@@ -686,6 +838,10 @@ export type postagemUserFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Exte
    */
   omit?: Prisma.postagemUserOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.postagemUserInclude<ExtArgs> | null
+  /**
    * Filter, which postagemUser to fetch.
    */
   where: Prisma.postagemUserWhereUniqueInput
@@ -703,6 +859,10 @@ export type postagemUserFindFirstArgs<ExtArgs extends runtime.Types.Extensions.I
    * Omit specific fields from the postagemUser
    */
   omit?: Prisma.postagemUserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.postagemUserInclude<ExtArgs> | null
   /**
    * Filter, which postagemUser to fetch.
    */
@@ -752,6 +912,10 @@ export type postagemUserFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Exten
    */
   omit?: Prisma.postagemUserOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.postagemUserInclude<ExtArgs> | null
+  /**
    * Filter, which postagemUser to fetch.
    */
   where?: Prisma.postagemUserWhereInput
@@ -800,6 +964,10 @@ export type postagemUserFindManyArgs<ExtArgs extends runtime.Types.Extensions.In
    */
   omit?: Prisma.postagemUserOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.postagemUserInclude<ExtArgs> | null
+  /**
    * Filter, which postagemUsers to fetch.
    */
   where?: Prisma.postagemUserWhereInput
@@ -843,6 +1011,10 @@ export type postagemUserCreateArgs<ExtArgs extends runtime.Types.Extensions.Inte
    */
   omit?: Prisma.postagemUserOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.postagemUserInclude<ExtArgs> | null
+  /**
    * The data needed to create a postagemUser.
    */
   data: Prisma.XOR<Prisma.postagemUserCreateInput, Prisma.postagemUserUncheckedCreateInput>
@@ -870,6 +1042,10 @@ export type postagemUserUpdateArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * Omit specific fields from the postagemUser
    */
   omit?: Prisma.postagemUserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.postagemUserInclude<ExtArgs> | null
   /**
    * The data needed to update a postagemUser.
    */
@@ -911,6 +1087,10 @@ export type postagemUserUpsertArgs<ExtArgs extends runtime.Types.Extensions.Inte
    */
   omit?: Prisma.postagemUserOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.postagemUserInclude<ExtArgs> | null
+  /**
    * The filter to search for the postagemUser to update in case it exists.
    */
   where: Prisma.postagemUserWhereUniqueInput
@@ -936,6 +1116,10 @@ export type postagemUserDeleteArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * Omit specific fields from the postagemUser
    */
   omit?: Prisma.postagemUserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.postagemUserInclude<ExtArgs> | null
   /**
    * Filter which postagemUser to delete.
    */
@@ -996,4 +1180,8 @@ export type postagemUserDefaultArgs<ExtArgs extends runtime.Types.Extensions.Int
    * Omit specific fields from the postagemUser
    */
   omit?: Prisma.postagemUserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.postagemUserInclude<ExtArgs> | null
 }

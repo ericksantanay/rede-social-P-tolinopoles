@@ -216,6 +216,7 @@ export type usuariosPatolinopolesWhereInput = {
   senha?: Prisma.StringFilter<"usuariosPatolinopoles"> | string
   anoNascimento?: Prisma.IntFilter<"usuariosPatolinopoles"> | number
   role?: Prisma.StringFilter<"usuariosPatolinopoles"> | string
+  postagens?: Prisma.PostagemUserListRelationFilter
 }
 
 export type usuariosPatolinopolesOrderByWithRelationInput = {
@@ -224,6 +225,7 @@ export type usuariosPatolinopolesOrderByWithRelationInput = {
   senha?: Prisma.SortOrder
   anoNascimento?: Prisma.SortOrder
   role?: Prisma.SortOrder
+  postagens?: Prisma.postagemUserOrderByRelationAggregateInput
 }
 
 export type usuariosPatolinopolesWhereUniqueInput = Prisma.AtLeast<{
@@ -235,6 +237,7 @@ export type usuariosPatolinopolesWhereUniqueInput = Prisma.AtLeast<{
   senha?: Prisma.StringFilter<"usuariosPatolinopoles"> | string
   anoNascimento?: Prisma.IntFilter<"usuariosPatolinopoles"> | number
   role?: Prisma.StringFilter<"usuariosPatolinopoles"> | string
+  postagens?: Prisma.PostagemUserListRelationFilter
 }, "id" | "nome">
 
 export type usuariosPatolinopolesOrderByWithAggregationInput = {
@@ -267,6 +270,7 @@ export type usuariosPatolinopolesCreateInput = {
   senha: string
   anoNascimento: number
   role: string
+  postagens?: Prisma.postagemUserCreateNestedManyWithoutUsuarioInput
 }
 
 export type usuariosPatolinopolesUncheckedCreateInput = {
@@ -275,6 +279,7 @@ export type usuariosPatolinopolesUncheckedCreateInput = {
   senha: string
   anoNascimento: number
   role: string
+  postagens?: Prisma.postagemUserUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type usuariosPatolinopolesUpdateInput = {
@@ -282,6 +287,7 @@ export type usuariosPatolinopolesUpdateInput = {
   senha?: Prisma.StringFieldUpdateOperationsInput | string
   anoNascimento?: Prisma.IntFieldUpdateOperationsInput | number
   role?: Prisma.StringFieldUpdateOperationsInput | string
+  postagens?: Prisma.postagemUserUpdateManyWithoutUsuarioNestedInput
 }
 
 export type usuariosPatolinopolesUncheckedUpdateInput = {
@@ -289,6 +295,7 @@ export type usuariosPatolinopolesUncheckedUpdateInput = {
   senha?: Prisma.StringFieldUpdateOperationsInput | string
   anoNascimento?: Prisma.IntFieldUpdateOperationsInput | number
   role?: Prisma.StringFieldUpdateOperationsInput | string
+  postagens?: Prisma.postagemUserUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type usuariosPatolinopolesCreateManyInput = {
@@ -345,6 +352,11 @@ export type usuariosPatolinopolesSumOrderByAggregateInput = {
   anoNascimento?: Prisma.SortOrder
 }
 
+export type UsuariosPatolinopolesScalarRelationFilter = {
+  is?: Prisma.usuariosPatolinopolesWhereInput
+  isNot?: Prisma.usuariosPatolinopolesWhereInput
+}
+
 export type StringFieldUpdateOperationsInput = {
   set?: string
 }
@@ -357,6 +369,95 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type usuariosPatolinopolesCreateNestedOneWithoutPostagensInput = {
+  create?: Prisma.XOR<Prisma.usuariosPatolinopolesCreateWithoutPostagensInput, Prisma.usuariosPatolinopolesUncheckedCreateWithoutPostagensInput>
+  connectOrCreate?: Prisma.usuariosPatolinopolesCreateOrConnectWithoutPostagensInput
+  connect?: Prisma.usuariosPatolinopolesWhereUniqueInput
+}
+
+export type usuariosPatolinopolesUpdateOneRequiredWithoutPostagensNestedInput = {
+  create?: Prisma.XOR<Prisma.usuariosPatolinopolesCreateWithoutPostagensInput, Prisma.usuariosPatolinopolesUncheckedCreateWithoutPostagensInput>
+  connectOrCreate?: Prisma.usuariosPatolinopolesCreateOrConnectWithoutPostagensInput
+  upsert?: Prisma.usuariosPatolinopolesUpsertWithoutPostagensInput
+  connect?: Prisma.usuariosPatolinopolesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usuariosPatolinopolesUpdateToOneWithWhereWithoutPostagensInput, Prisma.usuariosPatolinopolesUpdateWithoutPostagensInput>, Prisma.usuariosPatolinopolesUncheckedUpdateWithoutPostagensInput>
+}
+
+export type usuariosPatolinopolesCreateWithoutPostagensInput = {
+  id?: string
+  nome: string
+  senha: string
+  anoNascimento: number
+  role: string
+}
+
+export type usuariosPatolinopolesUncheckedCreateWithoutPostagensInput = {
+  id?: string
+  nome: string
+  senha: string
+  anoNascimento: number
+  role: string
+}
+
+export type usuariosPatolinopolesCreateOrConnectWithoutPostagensInput = {
+  where: Prisma.usuariosPatolinopolesWhereUniqueInput
+  create: Prisma.XOR<Prisma.usuariosPatolinopolesCreateWithoutPostagensInput, Prisma.usuariosPatolinopolesUncheckedCreateWithoutPostagensInput>
+}
+
+export type usuariosPatolinopolesUpsertWithoutPostagensInput = {
+  update: Prisma.XOR<Prisma.usuariosPatolinopolesUpdateWithoutPostagensInput, Prisma.usuariosPatolinopolesUncheckedUpdateWithoutPostagensInput>
+  create: Prisma.XOR<Prisma.usuariosPatolinopolesCreateWithoutPostagensInput, Prisma.usuariosPatolinopolesUncheckedCreateWithoutPostagensInput>
+  where?: Prisma.usuariosPatolinopolesWhereInput
+}
+
+export type usuariosPatolinopolesUpdateToOneWithWhereWithoutPostagensInput = {
+  where?: Prisma.usuariosPatolinopolesWhereInput
+  data: Prisma.XOR<Prisma.usuariosPatolinopolesUpdateWithoutPostagensInput, Prisma.usuariosPatolinopolesUncheckedUpdateWithoutPostagensInput>
+}
+
+export type usuariosPatolinopolesUpdateWithoutPostagensInput = {
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  senha?: Prisma.StringFieldUpdateOperationsInput | string
+  anoNascimento?: Prisma.IntFieldUpdateOperationsInput | number
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+}
+
+export type usuariosPatolinopolesUncheckedUpdateWithoutPostagensInput = {
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  senha?: Prisma.StringFieldUpdateOperationsInput | string
+  anoNascimento?: Prisma.IntFieldUpdateOperationsInput | number
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+}
+
+
+/**
+ * Count Type UsuariosPatolinopolesCountOutputType
+ */
+
+export type UsuariosPatolinopolesCountOutputType = {
+  postagens: number
+}
+
+export type UsuariosPatolinopolesCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  postagens?: boolean | UsuariosPatolinopolesCountOutputTypeCountPostagensArgs
+}
+
+/**
+ * UsuariosPatolinopolesCountOutputType without action
+ */
+export type UsuariosPatolinopolesCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UsuariosPatolinopolesCountOutputType
+   */
+  select?: Prisma.UsuariosPatolinopolesCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * UsuariosPatolinopolesCountOutputType without action
+ */
+export type UsuariosPatolinopolesCountOutputTypeCountPostagensArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.postagemUserWhereInput
+}
 
 
 export type usuariosPatolinopolesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -365,6 +466,8 @@ export type usuariosPatolinopolesSelect<ExtArgs extends runtime.Types.Extensions
   senha?: boolean
   anoNascimento?: boolean
   role?: boolean
+  postagens?: boolean | Prisma.usuariosPatolinopoles$postagensArgs<ExtArgs>
+  _count?: boolean | Prisma.UsuariosPatolinopolesCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["usuariosPatolinopoles"]>
 
 
@@ -378,10 +481,16 @@ export type usuariosPatolinopolesSelectScalar = {
 }
 
 export type usuariosPatolinopolesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nome" | "senha" | "anoNascimento" | "role", ExtArgs["result"]["usuariosPatolinopoles"]>
+export type usuariosPatolinopolesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  postagens?: boolean | Prisma.usuariosPatolinopoles$postagensArgs<ExtArgs>
+  _count?: boolean | Prisma.UsuariosPatolinopolesCountOutputTypeDefaultArgs<ExtArgs>
+}
 
 export type $usuariosPatolinopolesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "usuariosPatolinopoles"
-  objects: {}
+  objects: {
+    postagens: Prisma.$postagemUserPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     nome: string
@@ -751,6 +860,7 @@ readonly fields: usuariosPatolinopolesFieldRefs;
  */
 export interface Prisma__usuariosPatolinopolesClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  postagens<T extends Prisma.usuariosPatolinopoles$postagensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usuariosPatolinopoles$postagensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$postagemUserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -802,6 +912,10 @@ export type usuariosPatolinopolesFindUniqueArgs<ExtArgs extends runtime.Types.Ex
    */
   omit?: Prisma.usuariosPatolinopolesOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosPatolinopolesInclude<ExtArgs> | null
+  /**
    * Filter, which usuariosPatolinopoles to fetch.
    */
   where: Prisma.usuariosPatolinopolesWhereUniqueInput
@@ -820,6 +934,10 @@ export type usuariosPatolinopolesFindUniqueOrThrowArgs<ExtArgs extends runtime.T
    */
   omit?: Prisma.usuariosPatolinopolesOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosPatolinopolesInclude<ExtArgs> | null
+  /**
    * Filter, which usuariosPatolinopoles to fetch.
    */
   where: Prisma.usuariosPatolinopolesWhereUniqueInput
@@ -837,6 +955,10 @@ export type usuariosPatolinopolesFindFirstArgs<ExtArgs extends runtime.Types.Ext
    * Omit specific fields from the usuariosPatolinopoles
    */
   omit?: Prisma.usuariosPatolinopolesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosPatolinopolesInclude<ExtArgs> | null
   /**
    * Filter, which usuariosPatolinopoles to fetch.
    */
@@ -886,6 +1008,10 @@ export type usuariosPatolinopolesFindFirstOrThrowArgs<ExtArgs extends runtime.Ty
    */
   omit?: Prisma.usuariosPatolinopolesOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosPatolinopolesInclude<ExtArgs> | null
+  /**
    * Filter, which usuariosPatolinopoles to fetch.
    */
   where?: Prisma.usuariosPatolinopolesWhereInput
@@ -934,6 +1060,10 @@ export type usuariosPatolinopolesFindManyArgs<ExtArgs extends runtime.Types.Exte
    */
   omit?: Prisma.usuariosPatolinopolesOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosPatolinopolesInclude<ExtArgs> | null
+  /**
    * Filter, which usuariosPatolinopoles to fetch.
    */
   where?: Prisma.usuariosPatolinopolesWhereInput
@@ -977,6 +1107,10 @@ export type usuariosPatolinopolesCreateArgs<ExtArgs extends runtime.Types.Extens
    */
   omit?: Prisma.usuariosPatolinopolesOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosPatolinopolesInclude<ExtArgs> | null
+  /**
    * The data needed to create a usuariosPatolinopoles.
    */
   data: Prisma.XOR<Prisma.usuariosPatolinopolesCreateInput, Prisma.usuariosPatolinopolesUncheckedCreateInput>
@@ -1004,6 +1138,10 @@ export type usuariosPatolinopolesUpdateArgs<ExtArgs extends runtime.Types.Extens
    * Omit specific fields from the usuariosPatolinopoles
    */
   omit?: Prisma.usuariosPatolinopolesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosPatolinopolesInclude<ExtArgs> | null
   /**
    * The data needed to update a usuariosPatolinopoles.
    */
@@ -1045,6 +1183,10 @@ export type usuariosPatolinopolesUpsertArgs<ExtArgs extends runtime.Types.Extens
    */
   omit?: Prisma.usuariosPatolinopolesOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosPatolinopolesInclude<ExtArgs> | null
+  /**
    * The filter to search for the usuariosPatolinopoles to update in case it exists.
    */
   where: Prisma.usuariosPatolinopolesWhereUniqueInput
@@ -1070,6 +1212,10 @@ export type usuariosPatolinopolesDeleteArgs<ExtArgs extends runtime.Types.Extens
    * Omit specific fields from the usuariosPatolinopoles
    */
   omit?: Prisma.usuariosPatolinopolesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosPatolinopolesInclude<ExtArgs> | null
   /**
    * Filter which usuariosPatolinopoles to delete.
    */
@@ -1119,6 +1265,30 @@ export type usuariosPatolinopolesAggregateRawArgs<ExtArgs extends runtime.Types.
 }
 
 /**
+ * usuariosPatolinopoles.postagens
+ */
+export type usuariosPatolinopoles$postagensArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the postagemUser
+   */
+  select?: Prisma.postagemUserSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the postagemUser
+   */
+  omit?: Prisma.postagemUserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.postagemUserInclude<ExtArgs> | null
+  where?: Prisma.postagemUserWhereInput
+  orderBy?: Prisma.postagemUserOrderByWithRelationInput | Prisma.postagemUserOrderByWithRelationInput[]
+  cursor?: Prisma.postagemUserWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PostagemUserScalarFieldEnum | Prisma.PostagemUserScalarFieldEnum[]
+}
+
+/**
  * usuariosPatolinopoles without action
  */
 export type usuariosPatolinopolesDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1130,4 +1300,8 @@ export type usuariosPatolinopolesDefaultArgs<ExtArgs extends runtime.Types.Exten
    * Omit specific fields from the usuariosPatolinopoles
    */
   omit?: Prisma.usuariosPatolinopolesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.usuariosPatolinopolesInclude<ExtArgs> | null
 }

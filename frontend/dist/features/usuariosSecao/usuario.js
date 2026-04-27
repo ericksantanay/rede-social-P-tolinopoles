@@ -1,5 +1,4 @@
 "use strict";
-/* Objetivo: Aqui eu vou pegar o token JWT do localstorage e verificar se é realmente o usuario  se for eu carrego os dados se não da erro*/
 // TOKEN JWT
 const token = JSON.parse(localStorage.getItem('idUsuario'));
 // Saidas aonde vai ir o nome
@@ -19,7 +18,7 @@ function carregarIndentidadeCliente() {
                 .then((res) => res.json())
                 .then((dados) => {
                 console.log(dados);
-                saidaNome.innerText = dados.nome;
+                saidaNome.innerText += dados.nome;
                 // Token não autorizado
                 if (dados.mensagem === "Token nao Autorizado" ||
                     dados.mensagem === "Erro, token esta invalido" ||
@@ -39,7 +38,6 @@ function carregarIndentidadeCliente() {
                     window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html');
                     return;
                 }
-                saidaNomePost.innerText = dados.nome;
             });
             // Final do try
         }

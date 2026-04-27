@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-ts"
+  output   = "../src/generated"
 }
 
 datasource db {
@@ -14,10 +15,15 @@ model usuariosPatolinopoles {
   senha           String
   anoNascimento   Int
   role            String
+  
+  postagens postagemUser[] 
 }
 
 
 model postagemUser {
   id            String @id @default(auto()) @map("_id") @db.ObjectId
   postagem      String
+  userId        String? @db.ObjectId
+
+  usuario  usuariosPatolinopoles @relation(fields: [userId], references: [id])
 }
