@@ -4,10 +4,9 @@
 const tokenAdmin = JSON.parse(localStorage.getItem('idUsuario'));
 // Saidas aonde vai ir o nome
 const saidaNomeAdmin = document.querySelector('.nome-usuario');
-const saidaNomePostAdmin = document.querySelector('.nome-usuario-post');
 function carregarIndentidadeAdmin() {
     // Verificando se existe
-    if (saidaNomeAdmin && saidaNomePostAdmin) {
+    if (saidaNomeAdmin) {
         try {
             fetch("http://localhost:3000/login", {
                 method: "GET",
@@ -19,8 +18,7 @@ function carregarIndentidadeAdmin() {
                 .then((res) => res.json())
                 .then((dados) => {
                 console.log(dados);
-                saidaNomeAdmin.innerText = dados.nome;
-                saidaNomePostAdmin.innerText = dados.nome;
+                saidaNomeAdmin.innerText += dados.nome;
                 // Token não autorizado
                 if (dados.mensagem === "Token nao Autorizado" ||
                     dados.mensagem === "Erro, token esta invalido" ||

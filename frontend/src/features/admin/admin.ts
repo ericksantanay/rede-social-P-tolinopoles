@@ -3,14 +3,13 @@
  const tokenAdmin: string | null = JSON.parse(localStorage.getItem('idUsuario') as any);
 
 // Saidas aonde vai ir o nome
-const saidaNomeAdmin = document.querySelector<HTMLParagraphElement>('.nome-usuario');
-const saidaNomePostAdmin = document.querySelector<HTMLElement>('.nome-usuario-post')
+const saidaNomeAdmin = document.querySelector('.nome-usuario') as HTMLParagraphElement;
 
 function carregarIndentidadeAdmin() {
    
 
     // Verificando se existe
-    if (saidaNomeAdmin && saidaNomePostAdmin) {
+    if (saidaNomeAdmin) {
 
         try {
 
@@ -27,8 +26,7 @@ function carregarIndentidadeAdmin() {
 
                 console.log(dados)
 
-                saidaNomeAdmin.innerText = dados.nome
-                saidaNomePostAdmin.innerText = dados.nome
+                saidaNomeAdmin.innerText += dados.nome
                 
 
                 // Token não autorizado

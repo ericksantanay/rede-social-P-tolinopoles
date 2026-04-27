@@ -4,8 +4,6 @@
 // Saidas aonde vai ir o nome
 const saidaNome = document.querySelector('.nome-usuario') as HTMLParagraphElement;
 
-const saidaNomePost = document.querySelector('.nome-usuario-post') as HTMLElement;
-
 interface nomeUser {
     nome: string;
 }
@@ -14,7 +12,7 @@ interface nomeUser {
 function carregarIndentidadeCliente() {
 
     // Verificando se existe
-    if (saidaNome || saidaNomePost) {
+    if (saidaNome) {
 
         try {
             fetch("http://localhost:3000/login", {

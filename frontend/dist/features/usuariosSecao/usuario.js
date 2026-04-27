@@ -3,10 +3,9 @@
 const token = JSON.parse(localStorage.getItem('idUsuario'));
 // Saidas aonde vai ir o nome
 const saidaNome = document.querySelector('.nome-usuario');
-const saidaNomePost = document.querySelector('.nome-usuario-post');
 function carregarIndentidadeCliente() {
     // Verificando se existe
-    if (saidaNome || saidaNomePost) {
+    if (saidaNome) {
         try {
             fetch("http://localhost:3000/login", {
                 method: "GET",
