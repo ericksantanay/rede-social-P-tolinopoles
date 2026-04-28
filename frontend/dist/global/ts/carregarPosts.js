@@ -73,6 +73,7 @@ async function carregarPostagem() {
         return;
     }
 }
+// Carregar os posts automaticamente
 window.carregarPostagem = carregarPostagem;
 carregarPostagem();
 window.onload = function () {

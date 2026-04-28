@@ -352,9 +352,9 @@ export type usuariosPatolinopolesSumOrderByAggregateInput = {
   anoNascimento?: Prisma.SortOrder
 }
 
-export type UsuariosPatolinopolesScalarRelationFilter = {
-  is?: Prisma.usuariosPatolinopolesWhereInput
-  isNot?: Prisma.usuariosPatolinopolesWhereInput
+export type UsuariosPatolinopolesNullableScalarRelationFilter = {
+  is?: Prisma.usuariosPatolinopolesWhereInput | null
+  isNot?: Prisma.usuariosPatolinopolesWhereInput | null
 }
 
 export type StringFieldUpdateOperationsInput = {
@@ -375,10 +375,12 @@ export type usuariosPatolinopolesCreateNestedOneWithoutPostagensInput = {
   connect?: Prisma.usuariosPatolinopolesWhereUniqueInput
 }
 
-export type usuariosPatolinopolesUpdateOneRequiredWithoutPostagensNestedInput = {
+export type usuariosPatolinopolesUpdateOneWithoutPostagensNestedInput = {
   create?: Prisma.XOR<Prisma.usuariosPatolinopolesCreateWithoutPostagensInput, Prisma.usuariosPatolinopolesUncheckedCreateWithoutPostagensInput>
   connectOrCreate?: Prisma.usuariosPatolinopolesCreateOrConnectWithoutPostagensInput
   upsert?: Prisma.usuariosPatolinopolesUpsertWithoutPostagensInput
+  disconnect?: boolean
+  delete?: Prisma.usuariosPatolinopolesWhereInput | boolean
   connect?: Prisma.usuariosPatolinopolesWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.usuariosPatolinopolesUpdateToOneWithWhereWithoutPostagensInput, Prisma.usuariosPatolinopolesUpdateWithoutPostagensInput>, Prisma.usuariosPatolinopolesUncheckedUpdateWithoutPostagensInput>
 }

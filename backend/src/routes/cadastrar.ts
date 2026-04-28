@@ -58,7 +58,7 @@ router.post("/cadastrarUsuarios", async (req: Request, res: Response) => {
             nome: nome,
             senha: passwordHash,
             anoNascimento: anoNascimento,
-            role: "cliente",
+            role: "cliente"
           },
         });
 

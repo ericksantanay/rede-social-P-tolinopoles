@@ -7,10 +7,10 @@ const router = Router();
 
 router.post('/postagem', async (req: Request, res: Response) => {
 
-    const { postagem } = req.body;
+    const { postagem, curtidas } = req.body;
     const { authorization } = req.headers;
 
-    if (!postagem) {
+    if (!postagem || !curtidas) {
         return res.status(400).json({ mensagem: "Postagem não existe" });
     }
 
@@ -26,7 +26,8 @@ router.post('/postagem', async (req: Request, res: Response) => {
         await prisma.postagemUser.create({
             data: {
                 postagem: postagem,
-                userId: id
+                userId: id,
+                curtidas: curtidas
             }
         });
 
@@ -36,7 +37,6 @@ router.post('/postagem', async (req: Request, res: Response) => {
         return res.status(403).json({ mensagem: "Token inválido" });
     }
 });
-
 
 
 router.get('/postagem', async (req: Request, res: Response) => {
@@ -50,8 +50,9 @@ router.get('/postagem', async (req: Request, res: Response) => {
 
     const resultado = posts.map(post => ({
       postagem: post.postagem,
-      nome: post.usuario.nome
+      nome: post.usuario?.nome
     }));
+
 
     return res.status(200).json(resultado);
 
