@@ -1,1 +1,0 @@
-É o seguinte, cada postagem que cada usuario vai postar vai carregar o post 
