@@ -22,7 +22,6 @@ model usuariosPatolinopoles {
 model postagemUser {
   id            String @id @default(auto()) @map("_id") @db.ObjectId
   postagem      String
-  curtidas      Int 
   userId        String? @db.ObjectId
 
   usuario  usuariosPatolinopoles? @relation(fields: [userId], references: [id])

@@ -20,69 +20,45 @@ export type postagemUserModel = runtime.Types.Result.DefaultSelection<Prisma.$po
 
 export type AggregatePostagemUser = {
   _count: PostagemUserCountAggregateOutputType | null
-  _avg: PostagemUserAvgAggregateOutputType | null
-  _sum: PostagemUserSumAggregateOutputType | null
   _min: PostagemUserMinAggregateOutputType | null
   _max: PostagemUserMaxAggregateOutputType | null
-}
-
-export type PostagemUserAvgAggregateOutputType = {
-  curtidas: number | null
-}
-
-export type PostagemUserSumAggregateOutputType = {
-  curtidas: number | null
 }
 
 export type PostagemUserMinAggregateOutputType = {
   id: string | null
   postagem: string | null
-  curtidas: number | null
   userId: string | null
 }
 
 export type PostagemUserMaxAggregateOutputType = {
   id: string | null
   postagem: string | null
-  curtidas: number | null
   userId: string | null
 }
 
 export type PostagemUserCountAggregateOutputType = {
   id: number
   postagem: number
-  curtidas: number
   userId: number
   _all: number
 }
 
 
-export type PostagemUserAvgAggregateInputType = {
-  curtidas?: true
-}
-
-export type PostagemUserSumAggregateInputType = {
-  curtidas?: true
-}
-
 export type PostagemUserMinAggregateInputType = {
   id?: true
   postagem?: true
-  curtidas?: true
   userId?: true
 }
 
 export type PostagemUserMaxAggregateInputType = {
   id?: true
   postagem?: true
-  curtidas?: true
   userId?: true
 }
 
 export type PostagemUserCountAggregateInputType = {
   id?: true
   postagem?: true
-  curtidas?: true
   userId?: true
   _all?: true
 }
@@ -125,18 +101,6 @@ export type PostagemUserAggregateArgs<ExtArgs extends runtime.Types.Extensions.I
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: PostagemUserAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: PostagemUserSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: PostagemUserMinAggregateInputType
@@ -167,8 +131,6 @@ export type postagemUserGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
   take?: number
   skip?: number
   _count?: PostagemUserCountAggregateInputType | true
-  _avg?: PostagemUserAvgAggregateInputType
-  _sum?: PostagemUserSumAggregateInputType
   _min?: PostagemUserMinAggregateInputType
   _max?: PostagemUserMaxAggregateInputType
 }
@@ -176,11 +138,8 @@ export type postagemUserGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
 export type PostagemUserGroupByOutputType = {
   id: string
   postagem: string
-  curtidas: number
   userId: string | null
   _count: PostagemUserCountAggregateOutputType | null
-  _avg: PostagemUserAvgAggregateOutputType | null
-  _sum: PostagemUserSumAggregateOutputType | null
   _min: PostagemUserMinAggregateOutputType | null
   _max: PostagemUserMaxAggregateOutputType | null
 }
@@ -206,7 +165,6 @@ export type postagemUserWhereInput = {
   NOT?: Prisma.postagemUserWhereInput | Prisma.postagemUserWhereInput[]
   id?: Prisma.StringFilter<"postagemUser"> | string
   postagem?: Prisma.StringFilter<"postagemUser"> | string
-  curtidas?: Prisma.IntFilter<"postagemUser"> | number
   userId?: Prisma.StringNullableFilter<"postagemUser"> | string | null
   usuario?: Prisma.XOR<Prisma.UsuariosPatolinopolesNullableScalarRelationFilter, Prisma.usuariosPatolinopolesWhereInput> | null
 }
@@ -214,7 +172,6 @@ export type postagemUserWhereInput = {
 export type postagemUserOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   postagem?: Prisma.SortOrder
-  curtidas?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   usuario?: Prisma.usuariosPatolinopolesOrderByWithRelationInput
 }
@@ -225,7 +182,6 @@ export type postagemUserWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.postagemUserWhereInput[]
   NOT?: Prisma.postagemUserWhereInput | Prisma.postagemUserWhereInput[]
   postagem?: Prisma.StringFilter<"postagemUser"> | string
-  curtidas?: Prisma.IntFilter<"postagemUser"> | number
   userId?: Prisma.StringNullableFilter<"postagemUser"> | string | null
   usuario?: Prisma.XOR<Prisma.UsuariosPatolinopolesNullableScalarRelationFilter, Prisma.usuariosPatolinopolesWhereInput> | null
 }, "id">
@@ -233,13 +189,10 @@ export type postagemUserWhereUniqueInput = Prisma.AtLeast<{
 export type postagemUserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   postagem?: Prisma.SortOrder
-  curtidas?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   _count?: Prisma.postagemUserCountOrderByAggregateInput
-  _avg?: Prisma.postagemUserAvgOrderByAggregateInput
   _max?: Prisma.postagemUserMaxOrderByAggregateInput
   _min?: Prisma.postagemUserMinOrderByAggregateInput
-  _sum?: Prisma.postagemUserSumOrderByAggregateInput
 }
 
 export type postagemUserScalarWhereWithAggregatesInput = {
@@ -248,51 +201,43 @@ export type postagemUserScalarWhereWithAggregatesInput = {
   NOT?: Prisma.postagemUserScalarWhereWithAggregatesInput | Prisma.postagemUserScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"postagemUser"> | string
   postagem?: Prisma.StringWithAggregatesFilter<"postagemUser"> | string
-  curtidas?: Prisma.IntWithAggregatesFilter<"postagemUser"> | number
   userId?: Prisma.StringNullableWithAggregatesFilter<"postagemUser"> | string | null
 }
 
 export type postagemUserCreateInput = {
   id?: string
   postagem: string
-  curtidas: number
   usuario?: Prisma.usuariosPatolinopolesCreateNestedOneWithoutPostagensInput
 }
 
 export type postagemUserUncheckedCreateInput = {
   id?: string
   postagem: string
-  curtidas: number
   userId?: string | null
 }
 
 export type postagemUserUpdateInput = {
   postagem?: Prisma.StringFieldUpdateOperationsInput | string
-  curtidas?: Prisma.IntFieldUpdateOperationsInput | number
   usuario?: Prisma.usuariosPatolinopolesUpdateOneWithoutPostagensNestedInput
 }
 
 export type postagemUserUncheckedUpdateInput = {
   postagem?: Prisma.StringFieldUpdateOperationsInput | string
-  curtidas?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type postagemUserCreateManyInput = {
   id?: string
   postagem: string
-  curtidas: number
   userId?: string | null
 }
 
 export type postagemUserUpdateManyMutationInput = {
   postagem?: Prisma.StringFieldUpdateOperationsInput | string
-  curtidas?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type postagemUserUncheckedUpdateManyInput = {
   postagem?: Prisma.StringFieldUpdateOperationsInput | string
-  curtidas?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
@@ -309,30 +254,19 @@ export type postagemUserOrderByRelationAggregateInput = {
 export type postagemUserCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   postagem?: Prisma.SortOrder
-  curtidas?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-}
-
-export type postagemUserAvgOrderByAggregateInput = {
-  curtidas?: Prisma.SortOrder
 }
 
 export type postagemUserMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   postagem?: Prisma.SortOrder
-  curtidas?: Prisma.SortOrder
   userId?: Prisma.SortOrder
 }
 
 export type postagemUserMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   postagem?: Prisma.SortOrder
-  curtidas?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-}
-
-export type postagemUserSumOrderByAggregateInput = {
-  curtidas?: Prisma.SortOrder
 }
 
 export type postagemUserCreateNestedManyWithoutUsuarioInput = {
@@ -385,13 +319,11 @@ export type NullableStringFieldUpdateOperationsInput = {
 export type postagemUserCreateWithoutUsuarioInput = {
   id?: string
   postagem: string
-  curtidas: number
 }
 
 export type postagemUserUncheckedCreateWithoutUsuarioInput = {
   id?: string
   postagem: string
-  curtidas: number
 }
 
 export type postagemUserCreateOrConnectWithoutUsuarioInput = {
@@ -425,29 +357,24 @@ export type postagemUserScalarWhereInput = {
   NOT?: Prisma.postagemUserScalarWhereInput | Prisma.postagemUserScalarWhereInput[]
   id?: Prisma.StringFilter<"postagemUser"> | string
   postagem?: Prisma.StringFilter<"postagemUser"> | string
-  curtidas?: Prisma.IntFilter<"postagemUser"> | number
   userId?: Prisma.StringNullableFilter<"postagemUser"> | string | null
 }
 
 export type postagemUserCreateManyUsuarioInput = {
   id?: string
   postagem: string
-  curtidas: number
 }
 
 export type postagemUserUpdateWithoutUsuarioInput = {
   postagem?: Prisma.StringFieldUpdateOperationsInput | string
-  curtidas?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type postagemUserUncheckedUpdateWithoutUsuarioInput = {
   postagem?: Prisma.StringFieldUpdateOperationsInput | string
-  curtidas?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type postagemUserUncheckedUpdateManyWithoutUsuarioInput = {
   postagem?: Prisma.StringFieldUpdateOperationsInput | string
-  curtidas?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -455,7 +382,6 @@ export type postagemUserUncheckedUpdateManyWithoutUsuarioInput = {
 export type postagemUserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   postagem?: boolean
-  curtidas?: boolean
   userId?: boolean
   usuario?: boolean | Prisma.postagemUser$usuarioArgs<ExtArgs>
 }, ExtArgs["result"]["postagemUser"]>
@@ -465,11 +391,10 @@ export type postagemUserSelect<ExtArgs extends runtime.Types.Extensions.Internal
 export type postagemUserSelectScalar = {
   id?: boolean
   postagem?: boolean
-  curtidas?: boolean
   userId?: boolean
 }
 
-export type postagemUserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "postagem" | "curtidas" | "userId", ExtArgs["result"]["postagemUser"]>
+export type postagemUserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "postagem" | "userId", ExtArgs["result"]["postagemUser"]>
 export type postagemUserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   usuario?: boolean | Prisma.postagemUser$usuarioArgs<ExtArgs>
 }
@@ -482,7 +407,6 @@ export type $postagemUserPayload<ExtArgs extends runtime.Types.Extensions.Intern
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     postagem: string
-    curtidas: number
     userId: string | null
   }, ExtArgs["result"]["postagemUser"]>
   composites: {}
@@ -879,7 +803,6 @@ export interface Prisma__postagemUserClient<T, Null = never, ExtArgs extends run
 export interface postagemUserFieldRefs {
   readonly id: Prisma.FieldRef<"postagemUser", 'String'>
   readonly postagem: Prisma.FieldRef<"postagemUser", 'String'>
-  readonly curtidas: Prisma.FieldRef<"postagemUser", 'Int'>
   readonly userId: Prisma.FieldRef<"postagemUser", 'String'>
 }
     

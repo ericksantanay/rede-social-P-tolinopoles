@@ -73,7 +73,6 @@ export type UsuariosPatolinopolesScalarFieldEnum = (typeof UsuariosPatolinopoles
 export const PostagemUserScalarFieldEnum = {
   id: 'id',
   postagem: 'postagem',
-  curtidas: 'curtidas',
   userId: 'userId'
 } as const
 

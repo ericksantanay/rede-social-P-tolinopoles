@@ -57,10 +57,10 @@ if (formularioPostagem) {
                         }
 
 
-                        // Mensagem de que a postagem foi criada com sucesso
-                        if (dadosPost.mensagem === "Postagem criada com sucesso") {
-                            return alert("Postagem criada com sucesso")
-                        };
+                        // // Mensagem de que a postagem foi criada com sucesso
+                        // if (dadosPost.mensagem === "Postagem criada com sucesso") {
+                        //     return alert("Postagem criada com sucesso")
+                        // };
                         
                 })
                 

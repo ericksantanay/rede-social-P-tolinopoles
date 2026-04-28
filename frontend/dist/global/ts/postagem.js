@@ -40,11 +40,10 @@ if (formularioPostagem) {
                     if (dadosPost.mensagem === "Postagem não existe" && dadosPost.status === 404) {
                         return alert("Erro na postagem, tente novamente mais tarde");
                     }
-                    // Mensagem de que a postagem foi criada com sucesso
-                    if (dadosPost.mensagem === "Postagem criada com sucesso") {
-                        return alert("Postagem criada com sucesso");
-                    }
-                    ;
+                    // // Mensagem de que a postagem foi criada com sucesso
+                    // if (dadosPost.mensagem === "Postagem criada com sucesso") {
+                    //     return alert("Postagem criada com sucesso")
+                    // };
                 });
             }
             catch (error) {

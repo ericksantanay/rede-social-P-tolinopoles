@@ -7,10 +7,10 @@ const router = Router();
 
 router.post('/postagem', async (req: Request, res: Response) => {
 
-    const { postagem, curtidas } = req.body;
+    const { postagem } = req.body;
     const { authorization } = req.headers;
 
-    if (!postagem || !curtidas) {
+    if (!postagem) {
         return res.status(400).json({ mensagem: "Postagem não existe" });
     }
 
@@ -23,18 +23,18 @@ router.post('/postagem', async (req: Request, res: Response) => {
 
         const { id } = jwt.verify(token, process.env.JWT_PASS!) as any;
 
-        await prisma.postagemUser.create({
+        const postagemCriada = await prisma.postagemUser.create({
             data: {
                 postagem: postagem,
-                userId: id,
-                curtidas: curtidas
+                userId: id
             }
         });
 
         return res.status(201).json({ mensagem: "Postagem criada com sucesso" });
 
-    } catch {
-        return res.status(403).json({ mensagem: "Token inválido" });
+    } catch (error){
+      console.log("Vamos ver o erro que esta acontecendo" + error)
+      return res.status(403).json({ mensagem: "Token inválido" });
     }
 });
 
