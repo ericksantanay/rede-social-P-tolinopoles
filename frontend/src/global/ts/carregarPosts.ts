@@ -4,15 +4,15 @@ const saidaDosPost = document.getElementById("container-posts") as HTMLElement;
 // Função que vai carregar os posts
 async function  carregarPostagem()  {
 
-    saidaDosPost.innerHTML += "" 
+    saidaDosPost.innerHTML += "";
 
-    let data = new Date()
+    let data = new Date();
 
-    let dia = String(data.getDate()).padStart(2, '0')
+    let dia = String(data.getDate()).padStart(2, '0');
 
-    let mes = String(data.getMonth() + 1).padStart(2, '0')
+    let mes = String(data.getMonth() + 1).padStart(2, '0');
 
-    let ano = data.getFullYear()
+    let ano = data.getFullYear();
 
 
 
@@ -28,7 +28,7 @@ async function  carregarPostagem()  {
         console.log(item.nome);
 
 
-                saidaDosPost.innerHTML += 
+                saidaDosPost.innerHTML +=
                 `
                     <div class="posts" data-id="${item.id}">
 
@@ -59,11 +59,11 @@ async function  carregarPostagem()  {
         console.log("ERRO REAL:", error);
         alert("Erro no servidor tente novamente mais tarde")
         return
-    }
-}
+    };
+};
 // Carregar os posts automaticamente
-window.carregarPostagem = carregarPostagem
-carregarPostagem()
+window.carregarPostagem = carregarPostagem;
+carregarPostagem();
 
 window.onload = function () {
     carregarPostagem();
