@@ -165,3 +165,175 @@ nav {
     color: var(--branco);
     margin-bottom: 30px;
 }   
+
+
+/* ########################### */
+
+/* MAIN */
+main {
+    width: 100%;
+    padding: 20px 7%;
+}
+
+/* seção com o perfil */
+#container-perfil {
+    background-color: var(--cor-dos-cards);
+    border: 1px solid var(--cinza);
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    gap: 40px;
+}
+
+/* lado esquerdo do perfil (foto de perfil) */
+/* #lado-esquerdo {
+    
+} */
+
+/* img (Foto de perfil) */
+#foto-perfil {
+    width: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* input file */
+#foto {
+    display: none;
+}
+
+
+/* lado direito */
+#lado-direito {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* perfil com o nome do usuario etc */
+#perfil-nome-do-usuario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Nome do usuario */
+#nome-do-usuario {
+    color: var(--branco);
+    font-size: 32px;
+}
+
+/* Nome com arroba */
+#nome-com-arroba {
+    color: var(--amarelo-escuro);
+}
+
+/* Parte da biografia */
+#container-biografia {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* titulo biografia */
+#container-biografia > h4 {
+    color: var(--branco);
+}
+
+/* resultado da biografia */
+#resultado-da-biografia {
+    color: var(--cinza);
+}
+
+/* container dos botões editar biografia */
+#container-editar-biografia {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+/* textarea para uma nova biografia */
+#biografiaNovo {
+    display: none;
+    border-radius: 5px;
+    color: var(--branco);
+    padding: 10px;
+    background-color: var(--cor-de-fundo);
+    border: 1px solid var(--cinza);
+    width: 50%;
+}
+
+/* container dos botões da biografia */
+#container-btns-biografia {
+    display: flex;
+    gap: 30px;
+}
+
+#btn-salvar-biografia, #btn-editar-biografia {
+    cursor: pointer;
+    padding: 7px 10px;
+    border-radius: 60px;
+    background-color:transparent;
+    font-weight: bold;
+    transition: .3s ease-in-out;
+}
+
+/* btn */
+#btn-salvar-biografia {
+    display: none;
+    color: var(--azul-texto);
+    border: 1px solid var(--azul-escuro);  
+}
+
+#btn-salvar-biografia:hover {
+    box-shadow: 1px 1px 10px var(--azul-escuro);
+}
+
+/* botão editar biografia */
+#btn-editar-biografia {
+   color: var(--amarelo-escuro);
+   border: 1px solid var(--amarelo-escuro);
+}
+
+/* botão editar biografia houver*/
+#btn-editar-biografia:hover {
+    box-shadow: 1px 1px 10px var(--amarelo-escuro);
+}
+
+
+/* Parte do select */
+#container-tipo-de-pato {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+/* Select */
+#selecao-tipo-de-pato {
+    width: 70%;
+    padding: 10px;
+    background-color: var(--cor-dos-cards);
+    border-radius:40px;
+    color: var(--branco);
+    border: 1px solid var(--cinza);
+}
+
+/* container resultados dos tipos de pato */
+#resultado-tipo-de-pato {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+/* resultados dos tipos de pato */
+.tipo-de-pato {
+    padding: 7px 15px;
+    border: 1px solid var(--roxo);
+    border-radius: 30px;
+    color: var(--roxo);
+}
