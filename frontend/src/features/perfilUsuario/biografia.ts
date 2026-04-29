@@ -57,21 +57,17 @@ btnSalvarBiografia.addEventListener("click", function() {
                     return alert("Biografia não existe")
                 }
 
-                if (dados.mensagem === "Biografia Criada com sucesso") {
-                    return alert("Biografia Criada com sucesso");
-                };
+                // if (dados.mensagem === "Biografia Criada com sucesso") {
+                //     return alert("Biografia Criada com sucesso");
+                // };
             });
         } catch (error) {
             console.log(error);
             return alert("Erro no servidor");
         };
-
-
-        
     };
 
 });
-
 
 function renderizarBiografia() {
     
@@ -95,7 +91,9 @@ function renderizarBiografia() {
     });
     
 };
-renderizarBiografia()
+
+window.renderizarBiografia = renderizarBiografia;
+renderizarBiografia();
 
 window.onload = function () {
     renderizarBiografia();
