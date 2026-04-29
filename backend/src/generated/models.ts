@@ -10,4 +10,5 @@
  */
 export type * from './models/usuariosPatolinopoles'
 export type * from './models/postagemUser'
+export type * from './models/biografiaUsuario'
 export type * from './commonInputTypes'

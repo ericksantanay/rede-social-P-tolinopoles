@@ -391,7 +391,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   usuariosPatolinopoles: 'usuariosPatolinopoles',
-  postagemUser: 'postagemUser'
+  postagemUser: 'postagemUser',
+  biografiaUsuario: 'biografiaUsuario'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -407,7 +408,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "usuariosPatolinopoles" | "postagemUser"
+    modelProps: "usuariosPatolinopoles" | "postagemUser" | "biografiaUsuario"
     txIsolationLevel: never
   }
   model: {
@@ -559,6 +560,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    biografiaUsuario: {
+      payload: Prisma.$biografiaUsuarioPayload<ExtArgs>
+      fields: Prisma.biografiaUsuarioFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.biografiaUsuarioFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$biografiaUsuarioPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.biografiaUsuarioFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$biografiaUsuarioPayload>
+        }
+        findFirst: {
+          args: Prisma.biografiaUsuarioFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$biografiaUsuarioPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.biografiaUsuarioFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$biografiaUsuarioPayload>
+        }
+        findMany: {
+          args: Prisma.biografiaUsuarioFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$biografiaUsuarioPayload>[]
+        }
+        create: {
+          args: Prisma.biografiaUsuarioCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$biografiaUsuarioPayload>
+        }
+        createMany: {
+          args: Prisma.biografiaUsuarioCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.biografiaUsuarioDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$biografiaUsuarioPayload>
+        }
+        update: {
+          args: Prisma.biografiaUsuarioUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$biografiaUsuarioPayload>
+        }
+        deleteMany: {
+          args: Prisma.biografiaUsuarioDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.biografiaUsuarioUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.biografiaUsuarioUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$biografiaUsuarioPayload>
+        }
+        aggregate: {
+          args: Prisma.BiografiaUsuarioAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBiografiaUsuario>
+        }
+        groupBy: {
+          args: Prisma.biografiaUsuarioGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BiografiaUsuarioGroupByOutputType>[]
+        }
+        findRaw: {
+          args: Prisma.biografiaUsuarioFindRawArgs<ExtArgs>
+          result: Prisma.JsonObject
+        }
+        aggregateRaw: {
+          args: Prisma.biografiaUsuarioAggregateRawArgs<ExtArgs>
+          result: Prisma.JsonObject
+        }
+        count: {
+          args: Prisma.biografiaUsuarioCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BiografiaUsuarioCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -594,6 +669,15 @@ export const PostagemUserScalarFieldEnum = {
 } as const
 
 export type PostagemUserScalarFieldEnum = (typeof PostagemUserScalarFieldEnum)[keyof typeof PostagemUserScalarFieldEnum]
+
+
+export const BiografiaUsuarioScalarFieldEnum = {
+  id: 'id',
+  biografia: 'biografia',
+  userId: 'userId'
+} as const
+
+export type BiografiaUsuarioScalarFieldEnum = (typeof BiografiaUsuarioScalarFieldEnum)[keyof typeof BiografiaUsuarioScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -747,6 +831,7 @@ export interface PrismaClientOptions {
 export type GlobalOmitConfig = {
   usuariosPatolinopoles?: Prisma.usuariosPatolinopolesOmit
   postagemUser?: Prisma.postagemUserOmit
+  biografiaUsuario?: Prisma.biografiaUsuarioOmit
 }
 
 /* Types for Logging */

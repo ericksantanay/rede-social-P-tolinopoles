@@ -1,4 +1,4 @@
- const tokenJWT: string | null = JSON.parse(localStorage.getItem('idUsuario') as any);
+const tokenJWT: string | null = JSON.parse(localStorage.getItem('idUsuario') as any);
 // formulario da postagem
 const formularioPostagem = document.getElementById('fomulario-postagem') as HTMLFormElement;
 

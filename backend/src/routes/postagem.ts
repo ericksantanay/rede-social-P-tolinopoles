@@ -23,7 +23,7 @@ router.post('/postagem', async (req: Request, res: Response) => {
 
         const { id } = jwt.verify(token, process.env.JWT_PASS!) as any;
 
-        const postagemCriada = await prisma.postagemUser.create({
+        await prisma.postagemUser.create({
             data: {
                 postagem: postagem,
                 userId: id
@@ -57,7 +57,7 @@ router.get('/postagem', async (req: Request, res: Response) => {
     return res.status(200).json(resultado);
 
   } catch  (error){
-    console.log("ERRO REAL BACKEND:", error)
+    console.log("ERRO NO BACKEND:", error)
     return res.status(500).json({ mensagem: "Erro no servidor" });
   }
 });

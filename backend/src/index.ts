@@ -11,6 +11,8 @@ import Login from "./routes/login";
 
 import postagem from "./routes/postagem";
 
+import biografia from "./routes/biografia";
+
 
 // cria o server principal
 const app = express()
@@ -30,6 +32,7 @@ import "dotenv/config";
 app.use(cadastrarUser);
 app.use(Login);
 app.use(postagem);
+app.use(biografia);
 
 
 

@@ -27,3 +27,8 @@ export type usuariosPatolinopoles = Prisma.usuariosPatolinopolesModel
  * 
  */
 export type postagemUser = Prisma.postagemUserModel
+/**
+ * Model biografiaUsuario
+ * 
+ */
+export type biografiaUsuario = Prisma.biografiaUsuarioModel
