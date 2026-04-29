@@ -92,6 +92,7 @@ function renderizarBiografia() {
     
 };
 
+// Arrumar aqui
 window.renderizarBiografia = renderizarBiografia;
 renderizarBiografia();
 
