@@ -33,7 +33,7 @@ model postagemUser {
 model biografiaUsuario {
   id            String @id @default(auto()) @map("_id") @db.ObjectId
   biografia     String
-  userId        String? @db.ObjectId
+  userId        String? @db.ObjectId @unique
   
   usuario       usuariosPatolinopoles? @relation(fields: [userId], references: [id])
 }

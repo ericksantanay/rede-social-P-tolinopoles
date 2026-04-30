@@ -47,6 +47,19 @@ btnSalvarBiografia.addEventListener("click", function () {
                 //     return alert("Biografia Criada com sucesso");
                 // };
             });
+            fetch("http://localhost:3000/biografiaRouter", {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    biografia: biografia
+                })
+            })
+                .then((res) => res.json())
+                .then((dados) => {
+                console.log(dados);
+            });
         }
         catch (error) {
             console.log(error);
@@ -72,6 +85,7 @@ function renderizarBiografia() {
     });
 }
 ;
+// Arrumar aqui
 window.renderizarBiografia = renderizarBiografia;
 renderizarBiografia();
 window.onload = function () {

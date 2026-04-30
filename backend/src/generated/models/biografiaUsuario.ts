@@ -178,13 +178,13 @@ export type biografiaUsuarioOrderByWithRelationInput = {
 
 export type biografiaUsuarioWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  userId?: string
   AND?: Prisma.biografiaUsuarioWhereInput | Prisma.biografiaUsuarioWhereInput[]
   OR?: Prisma.biografiaUsuarioWhereInput[]
   NOT?: Prisma.biografiaUsuarioWhereInput | Prisma.biografiaUsuarioWhereInput[]
   biografia?: Prisma.StringFilter<"biografiaUsuario"> | string
-  userId?: Prisma.StringNullableFilter<"biografiaUsuario"> | string | null
   usuario?: Prisma.XOR<Prisma.UsuariosPatolinopolesNullableScalarRelationFilter, Prisma.usuariosPatolinopolesWhereInput> | null
-}, "id">
+}, "id" | "userId">
 
 export type biografiaUsuarioOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
