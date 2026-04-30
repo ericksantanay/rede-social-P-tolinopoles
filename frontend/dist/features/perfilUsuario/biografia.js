@@ -50,7 +50,8 @@ btnSalvarBiografia.addEventListener("click", function () {
             fetch("http://localhost:3000/biografiaRouter", {
                 method: "PATCH",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "authorization": `Bearer ${tokenBiografia ?? ""}`
                 },
                 body: JSON.stringify({
                     biografia: biografia
