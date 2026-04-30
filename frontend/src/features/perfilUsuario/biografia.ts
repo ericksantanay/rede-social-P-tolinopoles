@@ -1,4 +1,4 @@
- const tokenBiografia: string | null = JSON.parse(localStorage.getItem('idUsuario') as any);
+const tokenBiografia: string | null = JSON.parse(localStorage.getItem('idUsuario') as any);
 // O que vai aparecer e o que vai sumir
 const editarBiografiaBtn = document.getElementById('btn-editar-biografia') as HTMLButtonElement;
 
@@ -57,36 +57,14 @@ btnSalvarBiografia.addEventListener("click", function() {
                     return alert("Biografia não existe")
                 }
 
-                // if (dados.mensagem === "Biografia Criada com sucesso") {
-                //     return alert("Biografia Criada com sucesso");
-                // };
+                 resultadoBiografia.innerText = biografia;
             });
-
-
-
-            fetch("http://localhost:3000/biografiaRouter", {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json",
-                    "authorization": `Bearer ${tokenBiografia ?? ""}`
-                },
-                body: JSON.stringify({
-                    biografia: biografia
-                })
-            })
-            .then((res) => res.json())
-            .then((dados) => {
-                console.log(dados)
-
-            })
-
-
-
 
         } catch (error) {
             console.log(error);
             return alert("Erro no servidor");
         };
+        textareaComABiografia.value = ""
     };
 
 });
@@ -107,17 +85,7 @@ function renderizarBiografia() {
         dados.forEach((item: any) => {
 
         resultadoBiografia.innerText = item.biografia
-
         });
-
-    });
-    
+    }); 
 };
-
-// Arrumar aqui
-window.renderizarBiografia = renderizarBiografia;
 renderizarBiografia();
-
-window.onload = function () {
-    renderizarBiografia();
-};

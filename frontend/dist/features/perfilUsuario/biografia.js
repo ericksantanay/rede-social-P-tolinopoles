@@ -43,23 +43,7 @@ btnSalvarBiografia.addEventListener("click", function () {
                 if (dados.mensagem === "Biografia não existe") {
                     return alert("Biografia não existe");
                 }
-                // if (dados.mensagem === "Biografia Criada com sucesso") {
-                //     return alert("Biografia Criada com sucesso");
-                // };
-            });
-            fetch("http://localhost:3000/biografiaRouter", {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json",
-                    "authorization": `Bearer ${tokenBiografia ?? ""}`
-                },
-                body: JSON.stringify({
-                    biografia: biografia
-                })
-            })
-                .then((res) => res.json())
-                .then((dados) => {
-                console.log(dados);
+                resultadoBiografia.innerText = biografia;
             });
         }
         catch (error) {
@@ -67,6 +51,7 @@ btnSalvarBiografia.addEventListener("click", function () {
             return alert("Erro no servidor");
         }
         ;
+        textareaComABiografia.value = "";
     }
     ;
 });
@@ -86,9 +71,4 @@ function renderizarBiografia() {
     });
 }
 ;
-// Arrumar aqui
-window.renderizarBiografia = renderizarBiografia;
 renderizarBiografia();
-window.onload = function () {
-    renderizarBiografia();
-};

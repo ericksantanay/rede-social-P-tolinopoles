@@ -60,9 +60,7 @@ router.post("/login", async (req: Request, res: Response) => {
             return res.status(404).json({mensagem: "Usuario ou senha invalidos"})
         }
 
-        // Usuario ou senha invalidos
-
-        // Tenho que terminar esse token, tenho que fazer o token ser verificado 
+        //  Criando o token JTW
         const token = jwt.sign({id: user.id}, process.env.JWT_PASS ?? '', {expiresIn: '2h'});
 
         // Verificando se o role existe

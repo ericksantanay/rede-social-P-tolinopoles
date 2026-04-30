@@ -28,16 +28,16 @@ router.post('/biografiaRouter', async (req: Request, res: Response) => {
 
     try {
         
+        // Pegando o token para ver quem é o usuario
         const token = authorization.split(' ')[1];
 
         const { id } = jwt.verify(token, process.env.JWT_PASS!) as IdUser;
 
 
-        await prisma.biografiaUsuario.create({
-            data:{
-                biografia: biografia,
-                userId: id
-            }
+        await prisma.biografiaUsuario.upsert({
+            where: {userId: id},
+            update: {biografia: biografia},
+            create: {biografia: biografia}
         })
 
         return res.status(201).json({mensagem: "Biografia Criada com sucesso"});
@@ -69,50 +69,6 @@ router.get('/biografiaRouter', async (req: Request, res: Response) => {
         console.log("ERRO NO BACKEND:", error)
         return res.status(500).json({ mensagem: "Erro no servidor" });
     }
-
-
-
-});
-
-
-router.patch('/biografiaRouter', async (req: Request, res: Response) => {
-
-    const { biografia } = req.body;
-    const { authorization } = req.headers;
-
-    if (!biografia) {
-        return res.status(400).json({ mensagem: "Biografia não existe" });
-    }
-
-
-    if (!authorization) {
-        return res.status(403).json({ mensagem: "Sem token" });
-    }
-
-
-    try {
-        
-        const token = authorization.split(' ')[1]
-
-        const { id } = jwt.verify(token, process.env.JWT_PASS!) as IdUser
-
-
-        const bioAtualizada = await prisma.biografiaUsuario.update({
-            where: {userId: id},
-            data:{ biografia: biografia }
-        })
-
-        res.json(bioAtualizada);
-
-
-
-
-    } catch (error) {
-        console.log(error)
-        return  res.status(404).json({ error: "Biografia não encontrada" });
-    }
-
-
 
 });
 
