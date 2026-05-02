@@ -13,6 +13,8 @@ import postagem from "./routes/postagem";
 
 import biografia from "./routes/biografia";
 
+// import buscarUser from "./routes/pesquisaUser";
+
 
 // cria o server principal
 const app = express()
@@ -33,6 +35,7 @@ app.use(cadastrarUser);
 app.use(Login);
 app.use(postagem);
 app.use(biografia);
+// app.use(buscarUser);
 
 
 

@@ -33,13 +33,12 @@ function carregarIndentidadeAdmin() {
                     window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html');
                     return;
                 }
-                // 
-                if (dados.mensagem === "admin") {
-                    window.location.replace('http://127.0.0.1:5500/frontend/src/features/admin/admin.html');
-                    return;
-                }
-                else {
-                    alert("Faça Login");
+                // // 
+                // if (dados.mensagem === "admin") {
+                //     window.location.replace('http://127.0.0.1:5500/frontend/src/features/admin/admin.html') 
+                //     return
+                // }
+                if (dados.mensagem !== "admin") {
                     window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html');
                     return;
                 }

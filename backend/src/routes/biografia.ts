@@ -72,7 +72,4 @@ router.get('/biografiaRouter', async (req: Request, res: Response) => {
 
 });
 
-
-
-
 export default router;
