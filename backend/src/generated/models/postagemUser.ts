@@ -178,13 +178,13 @@ export type postagemUserOrderByWithRelationInput = {
 
 export type postagemUserWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  userId?: string
   AND?: Prisma.postagemUserWhereInput | Prisma.postagemUserWhereInput[]
   OR?: Prisma.postagemUserWhereInput[]
   NOT?: Prisma.postagemUserWhereInput | Prisma.postagemUserWhereInput[]
   postagem?: Prisma.StringFilter<"postagemUser"> | string
-  userId?: Prisma.StringNullableFilter<"postagemUser"> | string | null
   usuario?: Prisma.XOR<Prisma.UsuariosPatolinopolesNullableScalarRelationFilter, Prisma.usuariosPatolinopolesWhereInput> | null
-}, "id">
+}, "id" | "userId">
 
 export type postagemUserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder

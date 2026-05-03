@@ -3,7 +3,7 @@
 const saidaDosPost = document.getElementById("container-posts");
 // Função que vai carregar os posts
 async function carregarPostagem() {
-    saidaDosPost.innerHTML += "";
+    saidaDosPost.innerHTML = "";
     let data = new Date();
     let dia = String(data.getDate()).padStart(2, '0');
     let mes = String(data.getMonth() + 1).padStart(2, '0');
@@ -53,7 +53,6 @@ async function carregarPostagem() {
 ;
 // Carregar os posts automaticamente
 window.carregarPostagem = carregarPostagem;
-carregarPostagem();
 window.onload = function () {
     carregarPostagem();
 };

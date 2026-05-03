@@ -4,7 +4,8 @@ const saidaDosPost = document.getElementById("container-posts") as HTMLElement;
 // Função que vai carregar os posts
 async function  carregarPostagem()  {
 
-    saidaDosPost.innerHTML += "";
+    saidaDosPost.innerHTML = "";
+
 
     let data = new Date();
 
@@ -18,7 +19,6 @@ async function  carregarPostagem()  {
 
     // Fetch 
     try {
-
         const res = await fetch("http://localhost:3000/postagem");
         const dados = await res.json();
         console.log(dados)
@@ -28,7 +28,8 @@ async function  carregarPostagem()  {
         console.log(item.nome);
 
 
-                saidaDosPost.innerHTML +=
+
+            saidaDosPost.innerHTML +=
                 `
                     <div class="posts" data-id="${item.id}">
 
@@ -63,7 +64,6 @@ async function  carregarPostagem()  {
 };
 // Carregar os posts automaticamente
 window.carregarPostagem = carregarPostagem;
-carregarPostagem();
 
 window.onload = function () {
     carregarPostagem();

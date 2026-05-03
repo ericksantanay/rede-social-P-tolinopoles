@@ -37,7 +37,10 @@ router.post('/biografiaRouter', async (req: Request, res: Response) => {
         await prisma.biografiaUsuario.upsert({
             where: {userId: id},
             update: {biografia: biografia},
-            create: {biografia: biografia}
+            create: {
+                biografia: biografia,
+                userId: id
+            }
         })
 
         return res.status(201).json({mensagem: "Biografia Criada com sucesso"});
@@ -51,25 +54,35 @@ router.post('/biografiaRouter', async (req: Request, res: Response) => {
 
 // Rota para carregar a biografia
 router.get('/biografiaRouter', async (req: Request, res: Response) => {
+    const { authorization } = req.headers;
 
-    try {
-        
-        const bios = await prisma.biografiaUsuario.findMany({
-            include: {
-                usuario: true
-            }
-        })
-
-        // Resultado da biografia e do nome do usuario
-        const resultado = bios.map(bio => ({biografia: bio.biografia, nome: bio.usuario?.nome}));
-
-        return res.status(200).json(resultado)
-
-    } catch (error) {
-        console.log("ERRO NO BACKEND:", error)
-        return res.status(500).json({ mensagem: "Erro no servidor" });
+    // 1. Verifica se tem token
+    if (!authorization) {
+        return res.status(403).json({ mensagem: "Sem token" });
     }
 
+    try {
+        // 2. Extrai o token
+        const token = authorization.split(' ')[1];
+
+        // 3. Verifica o token
+        const { id } = jwt.verify(token, process.env.JWT_PASS!) as IdUser;
+
+        // 4. Busca a biografia do usuário
+        const bio = await prisma.biografiaUsuario.findUnique({
+            where: { userId: id }
+        });
+
+        // 5. Retorno
+        return res.status(200).json(bio);
+
+    } catch (error) {
+        console.log("Erro no GET biografia:", error);
+        return res.status(403).json({ mensagem: "Token inválido" });
+    }
 });
+
+
+
 
 export default router;

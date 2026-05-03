@@ -70,22 +70,23 @@ btnSalvarBiografia.addEventListener("click", function() {
 });
 
 function renderizarBiografia() {
+
+    resultadoBiografia.innerHTML = ""
+
     
     fetch("http://localhost:3000/biografiaRouter", {
         method: "GET",
         headers:{
             "Content-Type": "application/json",
+            "authorization": `Bearer ${tokenBiografia ?? ""}`
         }
     })
     .then((res) => res.json())
     .then((dados) => {
 
         console.log(dados)
-        
-        dados.forEach((item: any) => {
+         resultadoBiografia.innerText = dados?.biografia || "Você não tem nem uma biografia";
 
-        resultadoBiografia.innerText = item.biografia
-        });
     }); 
 };
 renderizarBiografia();

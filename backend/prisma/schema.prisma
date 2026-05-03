@@ -24,7 +24,7 @@ model usuariosPatolinopoles {
 model postagemUser {
   id            String @id @default(auto()) @map("_id") @db.ObjectId
   postagem      String
-  userId        String? @db.ObjectId
+  userId        String? @unique @db.ObjectId
 
   usuario  usuariosPatolinopoles? @relation(fields: [userId], references: [id])
 }
