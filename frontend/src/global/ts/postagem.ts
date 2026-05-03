@@ -36,7 +36,9 @@ if (formularioPostagem) {
             try {
 
                 // API
-                await fetch("http://localhost:3000/postagem", {
+                const API_URL = "https://rede-social-p-tolinopoles.onrender.com";
+
+                await fetch(`${API_URL}/postagem`, {
                         method: "POST", 
                         headers: {
                             "Content-Type": "application/json",

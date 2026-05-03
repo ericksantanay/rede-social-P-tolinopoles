@@ -8,7 +8,11 @@ async function  carregarPostagem()  {
 
     // Fetch 
     try {
-        const res = await fetch("http://localhost:3000/postagem");
+
+        const API_URL = "https://rede-social-p-tolinopoles.onrender.com";
+
+
+        const res = await fetch(`${API_URL}/postagem`);
         const dados = await res.json();
         console.log(dados)
 

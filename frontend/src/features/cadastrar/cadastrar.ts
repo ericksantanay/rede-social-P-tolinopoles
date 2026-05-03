@@ -87,8 +87,11 @@ if (formulario) {
 
 
                 try {
+                    
                     // Url da API
-                    const response = await fetch("http://localhost:3000/cadastrarUsuarios", {
+                    const API_URL = "https://rede-social-p-tolinopoles.onrender.com";
+
+                    const response = await fetch(`${API_URL}/cadastrarUsuarios`, {
                         method: "POST", // Aqui eu estou falando que eu quero enviar os dados
                         headers: {
                             "Content-Type": "application/json"

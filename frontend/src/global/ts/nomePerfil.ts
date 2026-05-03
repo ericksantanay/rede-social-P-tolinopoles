@@ -7,7 +7,10 @@ let nomeUsuarioComArroba = document.getElementById('nome-com-arroba') as HTMLEle
 function renderizarNomePerfil() {
 
     try {
-        fetch("http://localhost:3000/login", {
+
+        const API_URL = "https://rede-social-p-tolinopoles.onrender.com";
+        
+        fetch(`${API_URL}/login`, {
         method: "GET",
         headers:{
             "Content-Type": "application/json",

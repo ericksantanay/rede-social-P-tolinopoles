@@ -29,9 +29,11 @@ if (formularioLogin) {
                 return alert("Preencha os campos corretamente")
             }
 
-
+            
+            const API_URL = "https://rede-social-p-tolinopoles.onrender.com";
+            
             try {
-                fetch("http://localhost:3000/login", {
+                fetch(`${API_URL}/login`, {
                     method: "POST", 
                     headers: {
                         "Content-Type": "application/json",
@@ -79,12 +81,12 @@ if (formularioLogin) {
 
                     // Direcionando o usuario com base no role
                     if (dados.mensagem === "Pagina Admin") {
-                        window.location.replace('http://127.0.0.1:5500/frontend/src/features/admin/admin.html')
+                        window.location.replace('/src/features/admin/admin.html')
                         return 
                     }
                     
                     if (dados.mensagem === "Pagina Cliente") {
-                        window.location.replace('http://127.0.0.1:5500/frontend/src/features/usuariosSecao/usuario.html')
+                        window.location.replace('/src/features/usuariosSecao/usuario.html')
                         return
                     }else {
                         return alert("Erro no login")
