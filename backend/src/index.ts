@@ -13,8 +13,7 @@ import postagem from "./routes/postagem";
 
 import biografia from "./routes/biografia";
 
-// import buscarUser from "./routes/pesquisaUser";
-
+import "dotenv/config";
 
 // cria o server principal
 const app = express()
@@ -27,19 +26,16 @@ app.use(express.urlencoded({ extended: true})) // Aqui ele esta lendo formulario
 // cors
 app.use(cors()); // Depois colocar só as URLS que serão permitidas
 
-
-import "dotenv/config";
-
 // conectando as rotas no servidor
 app.use(cadastrarUser);
 app.use(Login);
 app.use(postagem);
 app.use(biografia);
-// app.use(buscarUser);
 
 
+const PORT = process.env.PORT || 3000;
 
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("Servidor rodando")
 });
