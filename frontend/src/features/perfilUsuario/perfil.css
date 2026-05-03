@@ -337,3 +337,35 @@ main {
     border-radius: 30px;
     color: var(--roxo);
 }
+
+
+
+/* Versão mobile */
+@media screen and (max-width: 992px){
+
+    /* foto da logo */
+    #logo-nome > img {
+        width: 40px;
+    }
+
+    /* nome da logo */
+    #logo-nome > h1 {
+        font-family: var(--bungee);
+        font-size: 16px;
+        color: var(--amarelo-claro);
+    }
+
+
+    #container-perfil {
+        padding: 15px;
+    }
+
+    #container-editar-biografia {
+        width: 100%;
+    }
+
+    #biografiaNovo {
+        width: 100%;
+    }
+
+}

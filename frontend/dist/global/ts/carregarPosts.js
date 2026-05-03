@@ -4,10 +4,6 @@ const saidaDosPost = document.getElementById("container-posts");
 // Função que vai carregar os posts
 async function carregarPostagem() {
     saidaDosPost.innerHTML = "";
-    let data = new Date();
-    let dia = String(data.getDate()).padStart(2, '0');
-    let mes = String(data.getMonth() + 1).padStart(2, '0');
-    let ano = data.getFullYear();
     // Fetch 
     try {
         const res = await fetch("http://localhost:3000/postagem");
@@ -26,8 +22,7 @@ async function carregarPostagem() {
                             
 
                             <div class="container-nome-data">
-                                <h2 class="nome-usuario-post">${item.nome}</h2>
-                                <p class="data-da-postagem">${dia}/${mes}/${ano}</p>
+                                <h2 class="nome-usuario-post">${item.nome}</h2>                  
                             </div>
 
                         </article>

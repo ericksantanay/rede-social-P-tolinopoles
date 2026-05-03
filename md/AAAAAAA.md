@@ -1,1 +1,0 @@
-Eu tenho que ajeitar para conseguir atualizar, eu acredito que seja o fetch, no backend esta funcionando ! agora falta fazer o frontend mandar a biografia

@@ -1,6 +1,7 @@
 "use strict";
 // formulario de login
 const formularioLogin = document.getElementById('formulario-login');
+const avisoInvalidos = document.getElementById('card-mensagem');
 if (formularioLogin) {
     // evento do formulario
     formularioLogin.addEventListener('submit', async function (previnirLogin) {
@@ -39,7 +40,14 @@ if (formularioLogin) {
                     }
                     //  Usuario ou senha invalidos  
                     if (dados.mensagem === "Usuario ou senha invalidos") {
-                        return alert("Usuario ou senha invalidos");
+                        let tempo1 = setTimeout(() => {
+                            avisoInvalidos.style.display = 'block';
+                        }, 100);
+                        setTimeout(() => {
+                            clearTimeout(tempo1);
+                            avisoInvalidos.style.display = 'none';
+                        }, 4000);
+                        return;
                     }
                     // Direcionando o usuario com base no role
                     if (dados.mensagem === "Pagina Admin") {

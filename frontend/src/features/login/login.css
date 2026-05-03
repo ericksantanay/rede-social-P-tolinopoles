@@ -31,13 +31,9 @@ main {
     justify-content: center;
 }
 
-/* MENSAGEM DO USUARIO */
-#container-da-mensagem {
-    display: none;
-}
-
 /* CARD DA MENSAGEM */
 #card-mensagem {
+    display: none;
     border-radius: 10px;
     padding: 23px;
     background-color: var(--vermelho-escuro);

@@ -173,15 +173,6 @@ main {
    padding: 20px 7%;  
 }
 
-/* Section com a div do aviso */
-#container-avisos {
-    display: none;
-    position: absolute;
-    top: 10%;
-    left: 30%;
-    z-index: 99;
-}
-
 /* div com o aviso */
 #aviso-comentario {
     background-color: var(--azul-mensagem);
@@ -270,94 +261,54 @@ main {
 .container-nome-data-foto {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-/* div com nome e data */
-.container-nome-data {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    gap: 5px;
+    margin-bottom: 20px;
 }
 
 /* nome do usuario no post */
 .nome-usuario-post {
     color: var(--branco);
-    font-size: 20px;
+    font-size: 22px;
 }
-
 
 /* data da postagem do post */
 .data-da-postagem {
     color: var(--cinza);
 }
 
-
 /* container do conteudo */
 .container-conteudo-da-postagem {
     margin-bottom: 20px
 }
-
 
 /* conteudo da postagem */
 .conteudo {
     color: var(--branco);
 }
 
-/* container das curtidas */
-.container-curtida {
-    padding: 10px;
-    display: flex;
-    justify-content: end;
-    margin-bottom: 30px;
-}
+/* Versão mobile */
+@media screen and (max-width: 992px){
+
+    /* foto da logo */
+    #logo-nome > img {
+        width: 40px;
+    }
+
+    /* nome da logo */
+    #logo-nome > h1 {
+        font-family: var(--bungee);
+        font-size: 16px;
+        color: var(--amarelo-claro);
+    }
 
 
-/* curtidas */
-.curtidas {
-    padding: 5px 20px;
-    border-radius: 30px;
-    border: 1px solid var(--azul-claro);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
-}
+    /* btn postar  */
+    /* Botao para a postagem */
+    #btn-postar {
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 16px;
+    }
 
-/* imagem da curtida */
-.img-da-curtida {
-    color: var(--azul-claro);
-}
 
-/* quantidade de curtidas */
-.quantidade-curtidas {
-    color: var(--branco);
-}
-
-/* container dos comentarios */
-.container-dos-comentarios {
-    width: 100%;
-    border-top: 1px solid var(--branco);
-}
-
-/* icone e o primeiro comentario */
-.icone-e-primeiro-comentario {
-    width: 100%;
-    padding: 5px;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 30px;
-    cursor: pointer;
-}
-
-/* imagem do icone que paarece no comentario */
-.img-comentario {
-    color: var(--roxo);
-}
-
-/* primeiro comentario */
-.primeiro-comentario {
-    color: var(--branco);
 }

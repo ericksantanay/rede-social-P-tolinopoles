@@ -1,6 +1,9 @@
 // formulario de login
 const formularioLogin = document.getElementById('formulario-login') as HTMLFormElement;
 
+const avisoInvalidos = document.getElementById('card-mensagem')as HTMLElement;
+
+
 if (formularioLogin) {
 
     // evento do formulario
@@ -56,7 +59,21 @@ if (formularioLogin) {
 
                     //  Usuario ou senha invalidos  
                     if (dados.mensagem === "Usuario ou senha invalidos") {
-                        return alert("Usuario ou senha invalidos")
+                        
+                        let tempo1 = setTimeout(() => {
+                            avisoInvalidos.style.display = 'block'
+                        }, 100)
+
+
+                        setTimeout(() => {
+                            clearTimeout(tempo1)
+                            avisoInvalidos.style.display = 'none'
+                        }, 4000)
+
+
+
+                        return 
+
                     }
  
 
