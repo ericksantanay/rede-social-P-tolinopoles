@@ -7,7 +7,8 @@ function carregarIndentidadeCliente() {
     // Verificando se existe
     if (saidaNome) {
         try {
-            fetch("http://localhost:3000/login", {
+            const API_URL = "https://rede-social-p-tolinopoles.onrender.com";
+            fetch(`${API_URL}/login`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -23,18 +24,18 @@ function carregarIndentidadeCliente() {
                     dados.mensagem === "Erro, token esta invalido" ||
                     dados.mensagem === "Esse Token não existe") {
                     alert("Nao Autorizado");
-                    window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html');
+                    window.location.replace('/src/features/login/login.html');
                     return;
                 }
                 // Se o role nao existir eu redireciono para o login
                 if (!dados.role) {
                     alert("Faça Login");
-                    window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html');
+                    window.location.replace('/src/features/login/login.html');
                     return;
                 }
                 // 
                 if (dados.role !== "cliente") {
-                    window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html');
+                    window.location.replace('/src/features/login/login.html');
                     return;
                 }
             });

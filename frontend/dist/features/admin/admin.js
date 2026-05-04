@@ -8,7 +8,8 @@ function carregarIndentidadeAdmin() {
     // Verificando se existe
     if (saidaNomeAdmin) {
         try {
-            fetch("http://localhost:3000/login", {
+            const API_URL = "https://rede-social-p-tolinopoles.onrender.com";
+            fetch(`${API_URL}/login`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -24,22 +25,17 @@ function carregarIndentidadeAdmin() {
                     dados.mensagem === "Erro, token esta invalido" ||
                     dados.mensagem === "Esse Token não existe") {
                     alert("Nao Autorizado");
-                    window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html');
+                    window.location.replace('/src/features/login/login.html');
                     return;
                 }
                 // Se o role nao existir eu redireciono para o login
                 if (!dados.role) {
                     alert("Faça Login");
-                    window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html');
+                    window.location.replace('/src/features/login/login.html');
                     return;
                 }
-                // // 
-                // if (dados.mensagem === "admin") {
-                //     window.location.replace('http://127.0.0.1:5500/frontend/src/features/admin/admin.html') 
-                //     return
-                // }
                 if (dados.mensagem !== "admin") {
-                    window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html');
+                    window.location.replace('/src/features/login/login.html');
                     return;
                 }
             });

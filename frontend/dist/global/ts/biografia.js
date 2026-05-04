@@ -27,7 +27,8 @@ btnSalvarBiografia.addEventListener("click", function () {
         }
         ;
         try {
-            fetch("http://localhost:3000/biografiaRouter", {
+            const API_URL = "https://rede-social-p-tolinopoles.onrender.com";
+            fetch(`${API_URL}/biografiaRouter`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
