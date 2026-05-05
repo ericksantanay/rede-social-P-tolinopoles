@@ -1,0 +1,224 @@
+/* header */
+header {
+    width: 100%;
+    padding: 40px 6%;
+    margin-bottom: 10px;
+}
+
+/* Nav */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Imagem da logo */
+nav > img {
+    width: 60px;
+}
+
+/* Nome Pátolinopoles (junto com  a imagem */
+nav > h1 {
+    font-family: var(--bungee);
+    font-size: 24px;
+    color: var(--amarelo-claro);
+}
+
+/* MAIN */
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* todas as mensagens  */
+#mensagem-conta-criada, #mensagem-menor-de-idade, #mensagem-usuario-esta-em-uso, #mensagem-preencha-os-campos, #mensagem-erro-no-servidor {
+    position: absolute;
+    bottom: 80%;
+    left: 75%;
+    padding: 23px;
+    border-radius: 10px;
+}
+
+/* mensagem de conta criada com sucesso */
+#mensagem-conta-criada {
+    display: none;
+    background-color: var(--verde-escuro);
+}
+
+/* mensagem de menor de idade */
+#mensagem-menor-de-idade {
+    display: none;
+    background-color: var(--azul-escuro-mensagem);
+}
+
+/* mensagem usuario em uso */
+#mensagem-usuario-esta-em-uso, #mensagem-preencha-os-campos, #mensagem-erro-no-servidor {
+    display: none;
+    border: 1px solid var(--tracado-vermelho);
+    background-color: var(--vermelho-claro-mensagem);
+}
+
+/* mensagem erro no servidor */
+#mensagem-erro-no-servidor {
+    margin-right: 40px;
+}
+
+/* paragrafos das mensagens  */
+#mensagem-conta-criada > p, #mensagem-menor-de-idade > p, #mensagem-usuario-esta-em-uso > p {
+    font-size: 19px;
+    color: var(--branco);
+    font-weight: bold;
+}
+
+#mensagem-usuario-esta-em-uso > p, #mensagem-preencha-os-campos > p, #mensagem-erro-no-servidor > p {
+    color: var(--vermelho-claro);
+    font-weight: bold;
+}
+
+
+/* CONTAINER DO PAINEL DE CADASTRO */
+#container-cadastro {
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 400px;
+    background-color: var(--branco);
+    box-shadow: rgba(149, 157, 165, 0.339) 0px 8px 24px;
+}
+
+/* DIV COM A IMAGEM DO PATO */
+.img-cadastro {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* imagem do pato na area de cadastro */
+.img-cadastro > img {
+    width: 103px;
+    position: relative;
+    animation: flutuar 1s ease-in-out infinite alternate;
+}
+
+/* container do card de exemplo */
+/* #container-cards-exemplo{
+} */
+
+/* cards de exemplos */
+.card-exemplo-senha, .card-exemplo-nome, .card-exemplo-data  {
+    display: none;
+    max-width: 270px;
+    background-color:var(--branco);
+    padding: 20px;
+    z-index: 3;
+    position: absolute;
+}
+
+/* CARD SENHA */
+.card-exemplo-senha {
+    top: 60%;
+    left: 60%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+     box-shadow: rgba(149, 157, 165, 0.366) 0px 8px 24px;
+}
+
+/* H2 DOS CARDS  */
+.card-exemplo-senha > h2, .card-exemplo-nome > h2, .card-exemplo-data > h2 {
+    margin-bottom: 10px;
+}
+
+/* CARD NOME */
+.card-exemplo-nome {
+    top: 52%;
+    left: 60%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.366) 0px 8px 24px;
+}
+
+/* CARD DATA */
+.card-exemplo-data {
+    top: 68%;
+    left: 60%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.366) 0px 8px 24px;
+}
+
+/* formulario */
+#formulario-cadastro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* div com os inputs */
+.container-input {
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* inputs */
+.container-input > input {
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 100%;
+    padding: 10px;
+}
+
+/* botão de duvida */
+.btn-duvida-nome, .btn-duvida-senha, .btn-duvida-data  {
+    cursor: pointer;
+    position: absolute;
+    width: 15px;
+    left: 88%;
+    top: 11px;
+}
+
+/* icone de mostrar senha */
+#mostrar-senha {
+    cursor: pointer;
+    position: absolute;
+    left: 80%;
+    top: 8px;
+}
+
+/* link para direcionar caso o usuario ja tenha conta */
+#link-para-logar {
+    text-decoration: none;
+    text-align: end;
+    margin-bottom: 20px;
+}   
+
+/* botão de cadastrar */
+#btn-cadastrar {
+    border: none;
+    border-radius: 5px;
+    background-color: var(--rosa);
+    color: var(--branco);
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+#btn-cadastrar:hover {
+    box-shadow: 1px 1px 10px var(--rosa);
+}
+
+
+/* KEYFRAMES */
+@keyframes flutuar {
+    0%{
+        top: 0;
+    }
+    100%{
+        top: 30px;
+    }
+}
