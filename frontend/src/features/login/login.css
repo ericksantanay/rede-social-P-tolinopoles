@@ -33,7 +33,7 @@ main {
 
 /* CARD DA MENSAGEM */
 #card-mensagem {
-    display: none;
+    /* display: none; */
     border-radius: 10px;
     padding: 23px;
     background-color: var(--vermelho-escuro);
@@ -134,6 +134,22 @@ main {
     100%{
         top: 30px;
     }
+
+
+}
+
+@media screen  and (max-width: 992px){
+
+    /* CARD DA MENSAGEM */
+#card-mensagem {
+    /* display: none; */
+    border-radius: 10px;
+    padding: 23px;
+    background-color: var(--vermelho-escuro);
+    position: absolute;
+    bottom: 80%;
+    left: 12%;
+}
 
 
 }

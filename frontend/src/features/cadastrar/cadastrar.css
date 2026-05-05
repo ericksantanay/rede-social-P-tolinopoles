@@ -222,3 +222,16 @@ main {
         top: 30px;
     }
 }
+
+@media screen and (max-width: 992px){
+
+    /* todas as mensagens  */
+#mensagem-conta-criada, #mensagem-menor-de-idade, #mensagem-usuario-esta-em-uso, #mensagem-preencha-os-campos, #mensagem-erro-no-servidor {
+    position: absolute;
+    bottom: 80%;
+    left: 25%;
+   
+}
+
+
+}
