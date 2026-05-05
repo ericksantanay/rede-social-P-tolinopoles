@@ -77,8 +77,9 @@ function renderizarBiografia() {
 
     resultadoBiografia.innerHTML = ""
 
+    const API_URL = "https://rede-social-p-tolinopoles.onrender.com";
     
-    fetch("http://localhost:3000/biografiaRouter", {
+    fetch(`${API_URL}/biografiaRouter`, {
         method: "GET",
         headers:{
             "Content-Type": "application/json",

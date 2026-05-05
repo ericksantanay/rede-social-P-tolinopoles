@@ -81,12 +81,12 @@ if (formularioLogin) {
 
                     // Direcionando o usuario com base no role
                     if (dados.mensagem === "Pagina Admin") {
-                        window.location.replace('/src/features/admin/admin.html')
+                        window.location.replace('http://127.0.0.1:5500/frontend/src/features/admin/admin.html')
                         return 
                     }
                     
                     if (dados.mensagem === "Pagina Cliente") {
-                        window.location.replace('/src/features/usuariosSecao/usuario.html')
+                        window.location.replace('http://127.0.0.1:5500/frontend/src/features/usuariosSecao/usuario.html')
                         return
                     }else {
                         return alert("Erro no login")

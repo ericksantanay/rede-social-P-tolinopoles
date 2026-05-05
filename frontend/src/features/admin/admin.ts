@@ -36,19 +36,19 @@ function carregarIndentidadeAdmin() {
                     dados.mensagem === "Erro, token esta invalido" || 
                     dados.mensagem === "Esse Token não existe") {
                     alert("Nao Autorizado")
-                    window.location.replace('/src/features/login/login.html')
+                    window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html')
                     return  
                 }
 
                 // Se o role nao existir eu redireciono para o login
                 if (!dados.role) {
                     alert("Faça Login")
-                    window.location.replace('/src/features/login/login.html')
+                    window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html')
                     return
                 }
                 
                 if (dados.mensagem !== "admin") {
-                    window.location.replace('/src/features/login/login.html')
+                    window.location.replace('http://127.0.0.1:5500/frontend/src/features/login/login.html')
                     return
                 }
 
