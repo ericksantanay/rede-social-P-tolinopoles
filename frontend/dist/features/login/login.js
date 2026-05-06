@@ -56,7 +56,7 @@ if (formularioLogin) {
                         return;
                     }
                     if (dados.mensagem === "Pagina Cliente") {
-                        window.location.replace('../usuariosSecao/usuario.html');
+                        window.location.replace('https://ericksantanay.github.io/rede-social-P-tolinopoles/features/usuariosSecao/usuario.html');
                         return;
                     }
                     else {
