@@ -114,5 +114,61 @@ O objetivo deste projeto foi praticar desenvolvimento fullstack moderno utilizan
 Desenvolvido por Erick Santana.
 
 
-# 🔗 Links do Projeto
-https://ericksantanay.github.io/rede-social-P-tolinopoles/
+
+
+# 🚀 Rodando o Frontend Localmente
+
+Este guia mostra como rodar o frontend usando o Live Server.
+
+---
+
+# 📦 Pré-requisitos
+
+* VS Code
+* Extensão **Live Server**
+
+
+---
+
+
+# ▶️ Rodar o projeto
+
+1. Vá até a pasta:
+
+```bash
+public/
+```
+
+2. Clique com botão direito em:
+
+```bash
+index.html
+```
+
+3. Clique em:
+
+```bash
+Open with Live Server
+```
+
+---
+
+# 🌐 O navegador abrirá
+
+```text
+http://127.0.0.1:5500/public/index.html
+```
+
+---
+
+# ⚠️ Importante
+
+* O projeto já está com os arquivos JavaScript compilados
+* Não é necessário rodar build
+* Apenas abra o `index.html`
+
+---
+
+# ✅ Pronto
+
+O frontend já estará funcionando localmente.
