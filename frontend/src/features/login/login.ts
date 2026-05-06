@@ -86,7 +86,7 @@ if (formularioLogin) {
                     }
                     
                     if (dados.mensagem === "Pagina Cliente") {
-                        window.location.replace('./usuario.html')
+                        window.location.replace('../usuariosSecao/usuario.html')
                         return
                     }else {
                         return alert("Erro no login")
